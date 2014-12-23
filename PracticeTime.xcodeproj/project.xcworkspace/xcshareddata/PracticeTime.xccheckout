@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7923E32A-D427-442C-B1F6-FC5943A897B8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PracticeTime</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4E7442AE413F73FD6A04B14AA2C57645C6873F06</key>
+		<string>https://github.com/cookjohns/practicetime.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>tester/PracticeTime.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4E7442AE413F73FD6A04B14AA2C57645C6873F06</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/cookjohns/practicetime.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4E7442AE413F73FD6A04B14AA2C57645C6873F06</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4E7442AE413F73FD6A04B14AA2C57645C6873F06</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PracticeTime</string>
+		</dict>
+	</array>
+</dict>
+</plist>
