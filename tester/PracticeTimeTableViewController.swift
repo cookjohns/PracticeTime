@@ -114,6 +114,7 @@ import CoreData
     // set current piece in 'pieces' when a row on the table is selected
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         PieceStorage.sharedInstance.currentIndex = indexPath.row
+        setAllTimes()  // load the allTimes dictionary that holds all total times, sets totalTimeInDict to hold sum
         return indexPath
     }
     
@@ -138,6 +139,12 @@ import CoreData
         
     }
     
-    
+    func setAllTimes() {
+        for x: NSManagedObject in PieceStorage.sharedInstance.pieceObjects {
+            var time = x.valueForKey("totalTime") as NSNumber
+            //PieceStorage.sharedInstance.allTimes[x.valueForKey("title") as String] = time
+            PieceStorage.sharedInstance.totalTimeInDict += Int(time)
+        }
+    }
 }
 

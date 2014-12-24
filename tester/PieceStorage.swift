@@ -24,12 +24,13 @@ class PieceStorage {
     
     var pieceObjects = [NSManagedObject]()
     
-    var currentIndex: Int?
+    var allTimes: Dictionary<String, NSNumber>!
     
-    //var count: Int = sharedInstance.pieceObjects.count
+    var totalTimeInDict: Int = 0
+    
+    var currentIndex: Int?
     
     func get(index: Int) -> NSManagedObject {
         return pieceObjects[index]
     }
-    
 }

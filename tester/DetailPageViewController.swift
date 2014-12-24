@@ -18,8 +18,10 @@ class DetailPageViewController: UIViewController {
     @IBOutlet weak var startButtonObj: UIButton!
     @IBOutlet weak var titleField: UILabel!
     @IBOutlet var timerField: UILabel!
-    @IBOutlet var totalTimeField: UILabel!
+    @IBOutlet var todayTimeField: UILabel!
     @IBOutlet weak var monthTimeField: UILabel!
+    @IBOutlet weak var totalTimeField: UILabel!
+    @IBOutlet weak var percentField: UILabel!
     
     let piece = PieceStorage.sharedInstance.pieceObjects[PieceStorage.sharedInstance.currentIndex!]
     let managedContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
@@ -59,9 +61,12 @@ class DetailPageViewController: UIViewController {
         startButtonObj.tintColor = uicolorFromHex(0x2ecc71)
         stopButtonObj.tintColor = uicolorFromHex(0x2ecc71)
         titleField.textColor = uicolorFromHex(0x2ecc71)
-        totalTimeField.textColor = uicolorFromHex(0x2ecc71)
+        todayTimeField.textColor = uicolorFromHex(0x2ecc71)
         timerField.textColor = uicolorFromHex(0x2ecc71)
         monthTimeField.textColor = uicolorFromHex(0x2ecc71)
+        totalTimeField.textColor = uicolorFromHex(0x2ecc71)
+        percentField.textColor = uicolorFromHex(0x2ecc71)
+        let appTime = PieceStorage.sharedInstance.totalTimeInDict
         
         // print time for today
         var dictionary: Dictionary<String, NSNumber> = piece.valueForKey("times") as Dictionary<String, NSNumber>
@@ -72,15 +77,15 @@ class DetailPageViewController: UIViewController {
         }
         var timeStored = dictionary[today] as Int!
         if (timeStored == nil) {
-            self.totalTimeField.text = "Today's time: 0 minutes"
+            self.todayTimeField.text = "Today's time:         0 minutes"
         }
         else if (timeStored > 60) {
             var hours = timeStored / 60
             var minutes = timeStored % 60
-            self.totalTimeField.text = "Today's time: \(minutes) minutes \(hours) hours"
+            self.todayTimeField.text = "Today's time:         \(minutes) minutes \(hours) hours"
         }
         else {
-            self.totalTimeField.text = "Today's time: \(time!) minutes"
+            self.todayTimeField.text = "Today's time:         \(time!) minutes"
         }
         
         // print time for this month
@@ -100,25 +105,19 @@ class DetailPageViewController: UIViewController {
         let monthInt = month.toInt()
         var tempMonth = monthInt
         
-        // all of the days in the current month
-        while (tempMonth == monthInt) {
-            // calculate day
-            let components = NSDateComponents()
-            components.day = -1
-            let tempDate = "\(calendar.dateByAddingComponents(components, toDate: date, options: nil))" as NSString
-            let temp = tempDate.substringWithRange(NSRange(location: 14, length: 2))
-            tempMonth = temp.toInt()
-            date = calendar.dateByAddingComponents(components, toDate: date, options: nil)!
+        // print time for all of the days in the current month
+        for key in dictionary.keys {
+            // calculate month value of key
+            let tempKey = key as NSString
+            let tempMonthString = tempKey.substringWithRange(NSRange(location: 0, length: 2))
+            tempMonth = tempMonthString.toInt()
+            println(tempMonth!)
             
-            // add time from that day
-            todayTime = dictionary[printDate(date)]
-            if (todayTime) == nil {
-                todayTime = Int(0)
+            // add time from that day if date is in current month
+            if (tempMonth == monthInt) {
+                let temp = Int(dictionary[key]!)
+                monthTime += temp  // holds total time for this month, in minutes
             }
-            else {
-                todayTime = (dictionary[today]!)
-            }
-            monthTime += Int(todayTime!)  // holds total time for this month, in minutes
         }
         if (monthTime == 0) {
             self.monthTimeField.text = "This month's time: 0 minutes"
@@ -131,6 +130,30 @@ class DetailPageViewController: UIViewController {
         else {
             self.monthTimeField.text = "This month's time: \(monthTime) minutes"
         }
+        
+        // print total time
+        var totalTime = 0
+        for key in dictionary.keys {
+            println(key)
+            let temp = Int(dictionary[key]!)
+            totalTime += temp
+        }
+        if (totalTime == 0) {
+            self.totalTimeField.text = "Total time:              0 minutes"
+        }
+        else if (totalTime > 60) {
+            var hours = totalTime / 60
+            var minutes = totalTime % 60
+            self.totalTimeField.text = "Total time:              \(minutes) minutes \(hours) hours"
+        }
+        else {
+            self.totalTimeField.text = "Total time:              \(totalTime) minutes"
+        }
+        
+        // print portion of total practice time
+        let perc: Int = totalTime / appTime
+        let percentOfTotal = 100 * (perc)
+        self.percentField.text = "Time is \(percentOfTotal)% of total time."
     }
     
     func uicolorFromHex(rgbValue:UInt32)->UIColor{
