@@ -26,7 +26,7 @@ class PieceStorage {
     
     var allTimes: Dictionary<String, NSNumber>!
     
-    var totalTimeInDict: Int = 0
+    var totalTimeInDict: Int?
     
     var currentIndex: Int?
     

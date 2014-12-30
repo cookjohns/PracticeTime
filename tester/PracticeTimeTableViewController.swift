@@ -50,6 +50,17 @@ import CoreData
         if (lastTime <= 24.0) {
             // if it has been less than 24 hours since lastAccess, set as green
             cell.textLabel?.textColor = uicolorFromHex(0x2ecc71)
+            
+//            // TESTING BACKGROUND GRADIENT
+//            cell.backgroundColor = UIColor.clearColor()
+//            
+//            let background = greenColor()
+//            background.frame = cell.bounds
+//            cell.layer.insertSublayer(background, atIndex: UInt32(indexPath.row))
+//            
+//            
+//            
+//            //////////////////////////////
         }
         else if (lastTime > 24.0) && (lastTime < 48.0) {
             cell.textLabel?.textColor = uicolorFromHex(0xf1c40f)
@@ -140,11 +151,27 @@ import CoreData
     }
     
     func setAllTimes() {
+        var total = 0
         for x: NSManagedObject in PieceStorage.sharedInstance.pieceObjects {
-            var time = x.valueForKey("totalTime") as NSNumber
+            //var time = x.valueForKey("totalTime") as NSNumber
             //PieceStorage.sharedInstance.allTimes[x.valueForKey("title") as String] = time
-            PieceStorage.sharedInstance.totalTimeInDict += Int(time)
+            total += x.valueForKey("totalTime") as Int
         }
+        PieceStorage.sharedInstance.totalTimeInDict = total
+    }
+    
+    func greenColor() -> CAGradientLayer {
+        let topColor = UIColor(red: (46/255.0), green: (204/255.0), blue: (113/255.0), alpha: 1)
+        let bottomColor = UIColor(red: (255.0/255.0), green: (255.0/255.0), blue: (255.0/255.0), alpha: 1)
+        
+        let gradientColors: Array <AnyObject> = [topColor.CGColor, bottomColor.CGColor]
+        let gradientLocations: Array <AnyObject> = [0.0, 1.0]
+        
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        gradientLayer.colors = gradientColors
+        gradientLayer.locations = gradientLocations
+        
+        return gradientLayer
     }
 }
 
