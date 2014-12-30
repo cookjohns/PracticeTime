@@ -18,6 +18,8 @@ import CoreData
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         tableView.tableFooterView = UIView(frame:CGRectZero)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir-Medium", size:23.0)!, NSForegroundColorAttributeName: uicolorFromHex(0xffffff)]
+        self.navigationController?.navigationBar.barTintColor = uicolorFromHex(0x2ecc71)
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,8 +46,8 @@ import CoreData
         //piece.setValue(newLastTime, forKey: "timeSinceLastAccess")
         
         var lastTime = abs(piece.valueForKey("timeSinceLastAccess") as Double)
-        cell.textLabel!.text = piece.valueForKey("title") as String
-        
+        cell.textLabel!.text = piece.valueForKey("title") as? String
+        cell.textLabel!.font = UIFont(name: "Avenir-Medium", size:20.0)
         
         if (lastTime <= 24.0) {
             // if it has been less than 24 hours since lastAccess, set as green
