@@ -71,7 +71,8 @@ class DetailPageViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.scrollView.pagingEnabled = true
-        self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 700, 320);
+        //self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 700, 320);
+        self.scrollView.contentSize = self.scrollView.bounds.size
         self.navigationController?.navigationBar.tintColor = uicolorFromHex(0xffffff)
         
         self.titleField.text     = piece.valueForKey("title") as? String
