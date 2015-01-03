@@ -71,8 +71,8 @@ class DetailPageViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.scrollView.pagingEnabled = true
+        self.scrollView.contentSize = CGSize(width:self.view.bounds.size.width, height:700)
         //self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 700, 320);
-        self.scrollView.contentSize = self.scrollView.bounds.size
         self.navigationController?.navigationBar.tintColor = uicolorFromHex(0xffffff)
         
         self.titleField.text     = piece.valueForKey("title") as? String
@@ -237,15 +237,41 @@ class DetailPageViewController: UIViewController, UIScrollViewDelegate {
         lineChart.yLabelFormat       = "%1.1f"
         lineChart.showLabel          = true
         lineChart.backgroundColor    = UIColor.clearColor()
-        let todayLabel = today.substringWithRange(NSRange(location: 0, length: 5)) // "12/31"
-        let prefix     = today.substringWithRange(NSRange(location: 0, length: 3)) // "12/"
-        let dayOfMonth = today.substringWithRange(NSRange(location: 3, length: 2)).toInt() // "31"
-//        let dateLabelArray = [prefix + String(dayOfMonth! - 6), prefix + String(dayOfMonth! - 5), prefix + String(dayOfMonth! - 4), prefix + String(dayOfMonth! - 3), prefix + String(dayOfMonth! - 2), prefix + String(dayOfMonth! - 1), todayLabel]
-//        for d in dateLabelArray {
-//            println(d)
-//        }
         
-        lineChart.xLabels            = /*dateLabelArray*/ ["SEP 1","SEP 2","SEP 3","SEP 4","SEP 5","SEP 6","SEP 7"]
+        // Add seven previous dates to dateLabelArray for printing in chart
+        let components = NSDateComponents()
+        
+        components.day = -1
+        let minusOne   = calendar.dateByAddingComponents(components, toDate: date, options: nil)
+        components.day = -2
+        let minusTwo   = calendar.dateByAddingComponents(components, toDate: date, options: nil)
+        components.day = -3
+        let minusThree = calendar.dateByAddingComponents(components, toDate: date, options: nil)
+        components.day = -4
+        let minusFour  = calendar.dateByAddingComponents(components, toDate: date, options: nil)
+        components.day = -5
+        let minusFive  = calendar.dateByAddingComponents(components, toDate: date, options: nil)
+        components.day = -6
+        let minusSix   = calendar.dateByAddingComponents(components, toDate: date, options: nil)
+        
+        var todayForm      = (printDate(NSDate()) as NSString).substringWithRange(NSRange(location: 0, length: 5))
+        todayForm          = dateFormat(todayForm)
+        var minusOneForm   = (printDate(minusOne!) as NSString).substringWithRange(NSRange(location: 0, length: 5))
+        minusOneForm       = dateFormat(minusOneForm)
+        var minusTwoForm   = (printDate(minusTwo!) as NSString).substringWithRange(NSRange(location: 0, length: 5))
+        minusTwoForm       = dateFormat(minusTwoForm)
+        var minusThreeForm = (printDate(minusThree!) as NSString).substringWithRange(NSRange(location: 0, length: 5))
+        minusThreeForm     = dateFormat(minusThreeForm)
+        var minusFourForm  = (printDate(minusFour!) as NSString).substringWithRange(NSRange(location: 0, length: 5))
+        minusFourForm      = dateFormat(minusFourForm)
+        var minusFiveForm  = (printDate(minusFive!) as NSString).substringWithRange(NSRange(location: 0, length: 5))
+        minusFiveForm      = dateFormat(minusFiveForm)
+        var minusSixForm   = (printDate(minusSix!) as NSString).substringWithRange(NSRange(location: 0, length: 5))
+        minusSixForm       = dateFormat(minusSixForm)
+        
+        let dateLabelArray = [minusSixForm, minusFiveForm, minusThreeForm, minusTwoForm, minusOneForm, todayForm]
+        
+        lineChart.xLabels            = dateLabelArray //["SEP 1","SEP 2","SEP 3","SEP 4","SEP 5","SEP 6","SEP 7"]
         lineChart.showCoordinateAxis = true
         
         var data01Array: [CGFloat]   = weekVals
@@ -271,6 +297,20 @@ class DetailPageViewController: UIViewController, UIScrollViewDelegate {
         scrollView.addSubview(CircleLabel)
         
         //////////////    END CHART    //////////////////
+    }
+    
+    func dateFormat(input: String) -> String {
+        var result = input
+        var array = Array(result)
+        if (array[1] == "/") {
+            result = "0" + result
+        }
+        array = Array(result)
+        if (array[4] == "/") {
+            var resultNS = result as NSString
+            result = resultNS.substringWithRange(NSRange(location: 0, length: 3)) + "0" + resultNS.substringWithRange(NSRange(location: 3, length: 1))//arrayOne[0] + arrayOne[1] + arrayOne[2] + "0" + arrayOne[3]
+        }
+        return result
     }
     
     func uicolorFromHex(rgbValue:UInt32)->UIColor{
