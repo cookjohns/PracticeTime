@@ -11,68 +11,31 @@ import UIKit
 class DetailPageViewController: UIViewController, UIScrollViewDelegate {
     
     var startTime = NSTimeInterval()
-    var timer = NSTimer()
-    var time: Int?
-    var totalTime: UInt32 = 0
+    var timer     = NSTimer()
+    var time:       Int?
+    var totalTime:  UInt32 = 0
+    var weekArray: [CGFloat]?
 
-    @IBOutlet weak var stopButtonObj: UIButton!
+    @IBOutlet weak var stopButtonObj:  UIButton!
     @IBOutlet weak var startButtonObj: UIButton!
-    @IBOutlet weak var titleField: UILabel!
-    @IBOutlet var timerField: UILabel!
-    @IBOutlet var todayTimeField: UILabel!
+    @IBOutlet weak var titleField:     UILabel!
+    @IBOutlet      var timerField:     UILabel!
+    @IBOutlet      var todayTimeField: UILabel!
     @IBOutlet weak var monthTimeField: UILabel!
     @IBOutlet weak var totalTimeField: UILabel!
-    @IBOutlet weak var percentField: UILabel!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var ChartLabel: UILabel!
-    @IBOutlet weak var CircleLabel: UILabel!
+    @IBOutlet weak var percentField:   UILabel!
+    @IBOutlet weak var scrollView:     UIScrollView!
+    @IBOutlet weak var ChartLabel:     UILabel!
+    @IBOutlet weak var CircleLabel:    UILabel!
     
     let piece = PieceStorage.sharedInstance.pieceObjects[PieceStorage.sharedInstance.currentIndex!]
     let managedContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
     var didStop: Bool?
     
-    @IBAction func startButton(sender:AnyObject) {
-        didStop = false
-        if !timer.valid {
-        let aSelector : Selector = "updateTime"
-            timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: aSelector, userInfo:   nil, repeats: true)
-            startTime = NSDate.timeIntervalSinceReferenceDate()
-        }
-        piece.setValue(NSDate(),      forKey: "lastAccess")
-        
-        managedContext?.save(nil)
-    }
-    @IBAction func stopButton(sender:AnyObject) {
-        timer.invalidate()
-        didStop = true
-        var dictionary: Dictionary<String, NSNumber> = piece.valueForKey("times") as Dictionary<String, NSNumber>
-        var temp = dictionary[printDate(NSDate())] as Int?
-        if (temp == nil) {
-            temp = 0
-        }
-        var final         = temp! + time!
-        piece.setValue(final,      forKey: "totalTime")
-        var today         = printDate(NSDate()) as NSString
-        today             = today.substringWithRange(NSRange(location: 0, length: 8))
-        println(today)
-        dictionary[today] = final
-        piece.setValue(dictionary, forKey: "times")
-        
-//        var tempTime: UInt32 = 0
-//        if (PieceStorage.sharedInstance.totalTimeInDict != nil) {
-//            tempTime = 0
-//        }
-//        tempTime += Int(time!)
-//        PieceStorage.sharedInstance.totalTimeInDict = tempTime
-        
-        managedContext?.save(nil)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.scrollView.pagingEnabled = true
         self.scrollView.contentSize = CGSize(width:self.view.bounds.size.width, height:700)
-        //self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 700, 320);
         self.navigationController?.navigationBar.tintColor = uicolorFromHex(0xffffff)
         
         self.titleField.text     = piece.valueForKey("title") as? String
@@ -89,6 +52,11 @@ class DetailPageViewController: UIViewController, UIScrollViewDelegate {
         totalTimeField.textColor = uicolorFromHex(0x2ecc71)
         percentField.textColor   = uicolorFromHex(0x2ecc71)
         
+        printTimes()
+        chartSetup(weekArray!)
+    }
+    
+    func printTimes() {
         // print time for today
         var dictionary: Dictionary<String, NSNumber> = piece.valueForKey("times") as Dictionary<String, NSNumber>
         var today = printDate(NSDate()) as NSString
@@ -143,7 +111,7 @@ class DetailPageViewController: UIViewController, UIScrollViewDelegate {
         else {
             todayTime = (dictionary[today]!)
         }
-        var monthTime = 0//Int(todayTime!)
+        var monthTime = 0
         
         let calendar  = NSCalendar.currentCalendar()
         var date      = NSDate()
@@ -180,7 +148,6 @@ class DetailPageViewController: UIViewController, UIScrollViewDelegate {
         
         // print total time
         for key in dictionary.keys {
-            //println(key)
             let temp = Int(dictionary[key]!)
             totalTime += temp
         }
@@ -207,14 +174,12 @@ class DetailPageViewController: UIViewController, UIScrollViewDelegate {
             percentOfTotal = 0
         }
         self.percentField.text = "Time is \(percentOfTotal)% of total time."
-        
-        // get last 7 days of time
-        
-        
-        
-        
-        
-        ///////////   CHARTS    ////////////
+        weekArray = weekVals
+    }
+    
+    func chartSetup(weekVals: [CGFloat]) {
+        let calendar  = NSCalendar.currentCalendar()
+        var date      = NSDate()
         
         // Circle Chart
         CircleLabel.textColor     = PNGreenColor
@@ -271,7 +236,7 @@ class DetailPageViewController: UIViewController, UIScrollViewDelegate {
         
         let dateLabelArray = [minusSixForm, minusFiveForm, minusThreeForm, minusTwoForm, minusOneForm, todayForm]
         
-        lineChart.xLabels            = dateLabelArray //["SEP 1","SEP 2","SEP 3","SEP 4","SEP 5","SEP 6","SEP 7"]
+        lineChart.xLabels            = dateLabelArray
         lineChart.showCoordinateAxis = true
         
         var data01Array: [CGFloat]   = weekVals
@@ -282,7 +247,7 @@ class DetailPageViewController: UIViewController, UIScrollViewDelegate {
         data01.getData               = ({(index: Int) -> PNLineChartDataItem in
             var yValue:CGFloat = data01Array[index]
             var item = PNLineChartDataItem()
-            item.y = yValue
+            item.y   = yValue
             return item
         })
         
@@ -295,8 +260,35 @@ class DetailPageViewController: UIViewController, UIScrollViewDelegate {
         scrollView.addSubview(ChartLabel)
         scrollView.addSubview(circleChart)
         scrollView.addSubview(CircleLabel)
+    }
+    
+    @IBAction func startButton(sender:AnyObject) {
+        didStop = false
+        if !timer.valid {
+            let aSelector : Selector = "updateTime"
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: aSelector, userInfo:   nil, repeats: true)
+            startTime = NSDate.timeIntervalSinceReferenceDate()
+        }
+        piece.setValue(NSDate(),      forKey: "lastAccess")
+        managedContext?.save(nil)
+    }
+    @IBAction func stopButton(sender:AnyObject) {
+        timer.invalidate()
+        didStop = true
+        var dictionary: Dictionary<String, NSNumber> = piece.valueForKey("times") as Dictionary<String, NSNumber>
+        var temp = dictionary[printDate(NSDate())] as Int?
+        if (temp == nil) {
+            temp = 0
+        }
+        var final         = temp! + time!
+        piece.setValue(final,      forKey: "totalTime")
+        var today         = printDate(NSDate()) as NSString
+        today             = today.substringWithRange(NSRange(location: 0, length: 8))
+        println(today)
+        dictionary[today] = final
+        piece.setValue(dictionary, forKey: "times")
         
-        //////////////    END CHART    //////////////////
+        managedContext?.save(nil)
     }
     
     func dateFormat(input: String) -> String {
@@ -308,7 +300,7 @@ class DetailPageViewController: UIViewController, UIScrollViewDelegate {
         array = Array(result)
         if (array[4] == "/") {
             var resultNS = result as NSString
-            result = resultNS.substringWithRange(NSRange(location: 0, length: 3)) + "0" + resultNS.substringWithRange(NSRange(location: 3, length: 1))//arrayOne[0] + arrayOne[1] + arrayOne[2] + "0" + arrayOne[3]
+            result       = resultNS.substringWithRange(NSRange(location: 0, length: 3)) + "0" + resultNS.substringWithRange(NSRange(location: 3, length: 1))
         }
         return result
     }
@@ -352,7 +344,6 @@ class DetailPageViewController: UIViewController, UIScrollViewDelegate {
         
         return dateFormatter.stringFromDate(date)
     }
-    
 
     // MARK: - Navigation
 
@@ -366,5 +357,4 @@ class DetailPageViewController: UIViewController, UIScrollViewDelegate {
             managedContext?.save(nil)
         }
     }
-
 }
