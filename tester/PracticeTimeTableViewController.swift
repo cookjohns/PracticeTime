@@ -52,17 +52,6 @@ import CoreData
         if (lastTime <= 24.0) {
             // if it has been less than 24 hours since lastAccess, set as green
             cell.textLabel?.textColor = uicolorFromHex(0x2ecc71)
-            
-//            // TESTING BACKGROUND GRADIENT
-//            cell.backgroundColor = UIColor.clearColor()
-//            
-//            let background = greenColor()
-//            background.frame = cell.bounds
-//            cell.layer.insertSublayer(background, atIndex: UInt32(indexPath.row))
-//            
-//            
-//            
-//            //////////////////////////////
         }
         else if (lastTime > 24.0) && (lastTime < 48.0) {
             cell.textLabel?.textColor = uicolorFromHex(0xf1c40f)
@@ -147,16 +136,12 @@ import CoreData
         } else {
             println("Could not fetch \(error), \(error!.userInfo)")
         }
-        
         self.tableView.reloadData()
-        
     }
     
     func setAllTimes() {
         var total = 0
         for x: NSManagedObject in PieceStorage.sharedInstance.pieceObjects {
-            //var time = x.valueForKey("totalTime") as NSNumber
-            //PieceStorage.sharedInstance.allTimes[x.valueForKey("title") as String] = time
             total += x.valueForKey("totalTime") as Int
         }
         PieceStorage.sharedInstance.totalTimeInDict = total
@@ -176,4 +161,3 @@ import CoreData
         return gradientLayer
     }
 }
-
