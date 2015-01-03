@@ -50,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BD20044E1A57B817007C873E /* PracticeTime-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PracticeTime-Bridging-Header.h"; sourceTree = "<group>"; };
 		BD4B04911A5284760083730D /* PNBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNBar.swift; sourceTree = "<group>"; };
 		BD4B04921A5284760083730D /* PNBarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNBarChart.swift; sourceTree = "<group>"; };
 		BD4B04931A5284760083730D /* PNChartConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNChartConfig.swift; sourceTree = "<group>"; };
@@ -82,7 +83,6 @@
 		BD4B04C21A5284C20083730D /* PNCircleChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNCircleChart.m; sourceTree = "<group>"; };
 		BD4B04C31A5284C20083730D /* UICountingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICountingLabel.h; sourceTree = "<group>"; };
 		BD4B04C41A5284C20083730D /* UICountingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICountingLabel.m; sourceTree = "<group>"; };
-		BD4B04C71A5288310083730D /* PracticeTime-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PracticeTime-Bridging-Header.h"; sourceTree = "<group>"; };
 		BD6862F41A41568100B08E61 /* PracticeTimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PracticeTimeTableViewController.h; sourceTree = "<group>"; };
 		BDF377701A41350A007FC9BA /* tester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF377741A41350A007FC9BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -205,8 +205,8 @@
 				BDF3779B1A41368B007FC9BA /* DetailPageViewController.swift */,
 				BDF3779D1A4136B9007FC9BA /* PieceStorage.swift */,
 				BDF377791A41350A007FC9BA /* Main.storyboard */,
-				BDF3777C1A41350A007FC9BA /* Images.xcassets */,
 				BDF3777E1A41350A007FC9BA /* LaunchScreen.xib */,
+				BDF3777C1A41350A007FC9BA /* Images.xcassets */,
 				BDF377A91A413CCD007FC9BA /* Piece.swift */,
 				BD6862F41A41568100B08E61 /* PracticeTimeTableViewController.h */,
 				BD4B04C11A5284C20083730D /* PNCircleChart.h */,
@@ -223,7 +223,7 @@
 		BDF377731A41350A007FC9BA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BD4B04C71A5288310083730D /* PracticeTime-Bridging-Header.h */,
+				BD20044E1A57B817007C873E /* PracticeTime-Bridging-Header.h */,
 				BDF377741A41350A007FC9BA /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -293,6 +293,7 @@
 				TargetAttributes = {
 					BDF3776F1A41350A007FC9BA = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = Q94UUT4TBF;
 					};
 					BDF377841A41350A007FC9BA = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -494,6 +495,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = tester/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = tester;
@@ -505,6 +507,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = tester/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = tester;

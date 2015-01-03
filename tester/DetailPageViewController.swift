@@ -239,12 +239,12 @@ class DetailPageViewController: UIViewController, UIScrollViewDelegate {
         let todayLabel = today.substringWithRange(NSRange(location: 0, length: 5)) // "12/31"
         let prefix     = today.substringWithRange(NSRange(location: 0, length: 3)) // "12/"
         let dayOfMonth = today.substringWithRange(NSRange(location: 3, length: 2)).toInt() // "31"
-        let dateLabelArray = [prefix + String(dayOfMonth! - 6), prefix + String(dayOfMonth! - 5), prefix + String(dayOfMonth! - 4), prefix + String(dayOfMonth! - 3), prefix + String(dayOfMonth! - 2), prefix + String(dayOfMonth! - 1), todayLabel]
-        for d in dateLabelArray {
-            println(d)
-        }
+//        let dateLabelArray = [prefix + String(dayOfMonth! - 6), prefix + String(dayOfMonth! - 5), prefix + String(dayOfMonth! - 4), prefix + String(dayOfMonth! - 3), prefix + String(dayOfMonth! - 2), prefix + String(dayOfMonth! - 1), todayLabel]
+//        for d in dateLabelArray {
+//            println(d)
+//        }
         
-        lineChart.xLabels            = dateLabelArray //["SEP 1","SEP 2","SEP 3","SEP 4","SEP 5","SEP 6","SEP 7"]
+        lineChart.xLabels            = /*dateLabelArray*/ ["SEP 1","SEP 2","SEP 3","SEP 4","SEP 5","SEP 6","SEP 7"]
         lineChart.showCoordinateAxis = true
         
         var data01Array: [CGFloat]   = weekVals
