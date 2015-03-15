@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ufe-VQ-SOC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ufe-VQ-SOC">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -156,7 +156,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="qc1-wl-5b0" kind="show" id="H5p-YX-71k"/>
+                                    <segue destination="oKV-fH-iN5" kind="showDetail" id="KXr-tu-9B4"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -189,7 +189,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7jY-bp-tRB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="38" y="1870"/>
+            <point key="canvasLocation" x="32" y="1870"/>
         </scene>
         <!--Detail Page View Controller-->
         <scene sceneID="NxZ-MC-COo">
@@ -364,7 +364,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0md-Y1-GUk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="38" y="2872"/>
+            <point key="canvasLocation" x="32" y="2884"/>
         </scene>
         <!--List Item-->
         <scene sceneID="WGd-qy-Hgo">
@@ -528,6 +528,6 @@
         <image name="burger.png" width="19" height="17"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="z3r-0l-xcI"/>
+        <segue reference="pRG-JY-ouu"/>
     </inferredMetricsTieBreakers>
 </document>
