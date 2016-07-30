@@ -41,7 +41,7 @@
                             <outlet property="delegate" destination="gPM-CS-hFS" id="4lF-je-ga5"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Pieces" image="list1.png" id="YNS-CE-CGe"/>
+                    <tabBarItem key="tabBarItem" title="Pieces" image="list1.png" selectedImage="list.png" id="YNS-CE-CGe"/>
                     <navigationItem key="navigationItem" title="Current Pieces" id="Vyc-do-8Dd">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="q1l-gx-Xfl">
                             <connections>
@@ -254,6 +254,7 @@
     <resources>
         <image name="chart1.png" width="30" height="30"/>
         <image name="folder1.png" width="30" height="30"/>
+        <image name="list.png" width="72" height="72"/>
         <image name="list1.png" width="30" height="30"/>
     </resources>
 </document>
