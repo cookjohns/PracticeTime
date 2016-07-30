@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BD157FD71B67077C00A6338D /* NewDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD157FD61B67077C00A6338D /* NewDetail.swift */; };
 		BD6862F21A41516E00B08E61 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF377A91A413CCD007FC9BA /* Piece.swift */; };
 		BD6862F31A41523400B08E61 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BDF377A61A413BFD007FC9BA /* Model.xcdatamodeld */; };
 		BD833B4C1D4C6EAD0034B233 /* chart1.png in Resources */ = {isa = PBXBuildFile; fileRef = BD833B481D4C6EAD0034B233 /* chart1.png */; };
@@ -39,7 +38,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BD157FD61B67077C00A6338D /* NewDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewDetail.swift; sourceTree = "<group>"; };
 		BD833B481D4C6EAD0034B233 /* chart1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chart1.png; sourceTree = "<group>"; };
 		BD833B491D4C6EAD0034B233 /* folder1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder1.png; sourceTree = "<group>"; };
 		BD833B4A1D4C6EAD0034B233 /* gear1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear1.png; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 				BDF377791A41350A007FC9BA /* Main.storyboard */,
 				BDF3777E1A41350A007FC9BA /* LaunchScreen.xib */,
 				BDF3777C1A41350A007FC9BA /* Images.xcassets */,
-				BD157FD61B67077C00A6338D /* NewDetail.swift */,
 				BD833B481D4C6EAD0034B233 /* chart1.png */,
 				BD833B491D4C6EAD0034B233 /* folder1.png */,
 				BD833B4A1D4C6EAD0034B233 /* gear1.png */,
@@ -253,7 +250,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD157FD71B67077C00A6338D /* NewDetail.swift in Sources */,
 				BDEB60E81A58A4C200427D45 /* ViewController.swift in Sources */,
 				BD6862F31A41523400B08E61 /* Model.xcdatamodeld in Sources */,
 				BDEB60E61A58A4C200427D45 /* FrostedSidebar.swift in Sources */,
