@@ -15,7 +15,6 @@
 		BD833B4F1D4C6EAD0034B233 /* list1.png in Resources */ = {isa = PBXBuildFile; fileRef = BD833B4B1D4C6EAD0034B233 /* list1.png */; };
 		BDE711351AB55B5F0075A0F9 /* FolderPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE711341AB55B5F0075A0F9 /* FolderPageViewController.swift */; };
 		BDE711371AB55E260075A0F9 /* TotalsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE711361AB55E260075A0F9 /* TotalsPageViewController.swift */; };
-		BDEB60E61A58A4C200427D45 /* FrostedSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB60E31A58A4C200427D45 /* FrostedSidebar.swift */; };
 		BDEB60E71A58A4C200427D45 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB60E41A58A4C200427D45 /* TabBarController.swift */; };
 		BDEB60E81A58A4C200427D45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB60E51A58A4C200427D45 /* ViewController.swift */; };
 		BDF377761A41350A007FC9BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF377751A41350A007FC9BA /* AppDelegate.swift */; };
@@ -44,7 +43,6 @@
 		BD833B4B1D4C6EAD0034B233 /* list1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list1.png; sourceTree = "<group>"; };
 		BDE711341AB55B5F0075A0F9 /* FolderPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderPageViewController.swift; sourceTree = "<group>"; };
 		BDE711361AB55E260075A0F9 /* TotalsPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalsPageViewController.swift; sourceTree = "<group>"; };
-		BDEB60E31A58A4C200427D45 /* FrostedSidebar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrostedSidebar.swift; sourceTree = "<group>"; };
 		BDEB60E41A58A4C200427D45 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		BDEB60E51A58A4C200427D45 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BDF377701A41350A007FC9BA /* PracticeTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,7 +98,6 @@
 		BDF377721A41350A007FC9BA /* tester */ = {
 			isa = PBXGroup;
 			children = (
-				BDEB60E31A58A4C200427D45 /* FrostedSidebar.swift */,
 				BDEB60E41A58A4C200427D45 /* TabBarController.swift */,
 				BDEB60E51A58A4C200427D45 /* ViewController.swift */,
 				BDE711361AB55E260075A0F9 /* TotalsPageViewController.swift */,
@@ -252,7 +249,6 @@
 			files = (
 				BDEB60E81A58A4C200427D45 /* ViewController.swift in Sources */,
 				BD6862F31A41523400B08E61 /* Model.xcdatamodeld in Sources */,
-				BDEB60E61A58A4C200427D45 /* FrostedSidebar.swift in Sources */,
 				BDE711351AB55B5F0075A0F9 /* FolderPageViewController.swift in Sources */,
 				BDE711371AB55E260075A0F9 /* TotalsPageViewController.swift in Sources */,
 				BD6862F21A41516E00B08E61 /* Piece.swift in Sources */,
