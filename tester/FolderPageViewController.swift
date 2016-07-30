@@ -15,8 +15,4 @@ import UIKit
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    @IBAction func onBurger() {
-        (tabBarController as! TabBarController).sidebar.showInViewController(self, animated: true)
-    }
 }
