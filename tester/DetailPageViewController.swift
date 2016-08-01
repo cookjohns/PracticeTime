@@ -29,16 +29,16 @@ class DetailPageViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var ChartLabel:     UILabel!
     @IBOutlet weak var CircleLabel:    UILabel!
     
-    let piece = DataStore.sharedInstance.pieceObjects[DataStore.sharedInstance.currentIndex!]
+    let piece = DataStore.sharedInstance.itemObjects[DataStore.sharedInstance.currentIndex!]
     let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var didStop: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.scrollView.pagingEnabled = true
-        self.scrollView.contentSize = CGSize(width:self.view.bounds.size.width, height:700)
-        self.scrollView.contentSize.width = scrollView.frame.size.width
-        self.scrollView.directionalLockEnabled = true;
+//        self.scrollView.pagingEnabled = true
+//        self.scrollView.contentSize = CGSize(width:self.view.bounds.size.width, height:700)
+//        self.scrollView.contentSize.width = scrollView.frame.size.width
+//        self.scrollView.directionalLockEnabled = true;
         self.navigationController?.navigationBar.tintColor = uicolorFromHex(0xffffff)
         
         self.titleField.text     = piece.valueForKey("title") as? String
@@ -62,8 +62,8 @@ class DetailPageViewController: UIViewController, UIScrollViewDelegate {
     override func viewWillLayoutSubviews()
     {
         super.viewWillLayoutSubviews();
-        self.scrollView.frame = self.view.bounds;
-        self.scrollView.contentSize.height = 700; // Or whatever you want it to be.
+//        self.scrollView.frame = self.view.bounds;
+//        self.scrollView.contentSize.height = 700; // Or whatever you want it to be.
     }
     
     

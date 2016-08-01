@@ -18,8 +18,10 @@ import CoreData
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         tableView.tableFooterView = UIView(frame:CGRectZero)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir-Medium", size:23.0)!, NSForegroundColorAttributeName: uicolorFromHex(0xffffff)]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir-Medium", size:23.0)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.BlackTranslucent
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(0x2ecc71)
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
     }
     
     @IBAction func addItem(sender: AnyObject) {
@@ -75,7 +77,7 @@ import CoreData
             try managedContext?.save()
         } catch _ {
         }
-        DataStore.sharedInstance.pieceObjects.append(piece)
+        DataStore.sharedInstance.itemObjects.append(piece)
     }
     
     func printDate(date:NSDate) -> String {
@@ -102,13 +104,13 @@ import CoreData
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DataStore.sharedInstance.pieceObjects.count
+        return DataStore.sharedInstance.itemObjects.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) 
         
-        let piece = DataStore.sharedInstance.pieceObjects[indexPath.row]
+        let piece = DataStore.sharedInstance.itemObjects[indexPath.row]
         
 //        var lastAccessDate = piece.valueForKey("lastAccess") as! NSDate
         //var newLastTime = calcLastTime(lastAccessDate)
@@ -159,7 +161,7 @@ import CoreData
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            let itemToDelete = DataStore.sharedInstance.pieceObjects[indexPath.row]
+            let itemToDelete = DataStore.sharedInstance.itemObjects[indexPath.row]
             managedContext?.deleteObject(itemToDelete)
             do {
                 try managedContext?.save()
@@ -181,7 +183,7 @@ import CoreData
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         if let fetchResults = (try? managedContext!.executeFetchRequest(fetchRequest)) as? [Piece] {
-            DataStore.sharedInstance.pieceObjects = fetchResults
+            DataStore.sharedInstance.itemObjects = fetchResults
         }
     }
     
@@ -203,7 +205,7 @@ import CoreData
         (try? managedContext?.executeFetchRequest(fetchRequest)) as? [Piece]
         
         if let results = fetchedResults {
-            DataStore.sharedInstance.pieceObjects = results
+            DataStore.sharedInstance.itemObjects = results
         } else {
             print("Could not fetch")// \(error), \(error!.userInfo)")
         }
@@ -212,7 +214,7 @@ import CoreData
     
     func setAllTimes() {
         var total = 0
-        for x: NSManagedObject in DataStore.sharedInstance.pieceObjects {
+        for x: NSManagedObject in DataStore.sharedInstance.itemObjects {
             total += x.valueForKey("totalTime") as! Int
         }
         DataStore.sharedInstance.totalTimeInDict = total

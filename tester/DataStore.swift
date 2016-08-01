@@ -22,7 +22,9 @@ class DataStore {
         return Static.instance!
     }
     
-    var pieceObjects = [NSManagedObject]()
+    var itemObjects  = [NSManagedObject]()
+    
+    var folderObjects = [NSManagedObject]()
     
     var allTimes: Dictionary<String, NSNumber>!
     
@@ -30,7 +32,11 @@ class DataStore {
     
     var currentIndex: Int?
     
-    func get(index: Int) -> NSManagedObject {
-        return pieceObjects[index]
+    func getItem(index: Int) -> NSManagedObject {
+        return itemObjects[index]
+    }
+    
+    func getFolder(index: Int) -> NSManagedObject {
+        return folderObjects[index]
     }
 }
