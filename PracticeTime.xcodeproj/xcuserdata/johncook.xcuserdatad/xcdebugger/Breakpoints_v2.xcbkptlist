@@ -290,5 +290,68 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tester/PracticeTimeTableViewController.swift"
+            timestampString = "491722270.741399"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "PracticeTimeTableViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PracticeTime.PracticeTimeTableViewController.fetchRequest.getter : __ObjC.NSFetchRequest"
+                  moduleName = "PracticeTime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/johncook/Google%20Drive/Code/PracticeTime/tester/PracticeTimeTableViewController.swift"
+                  timestampString = "491722278.114086"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PracticeTime.PracticeTimeTableViewController.init (style : __C.UITableViewStyle) -&gt; PracticeTime.PracticeTimeTableViewController"
+                  moduleName = "PracticeTime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/johncook/Google%20Drive/Code/PracticeTime/tester/PracticeTimeTableViewController.swift"
+                  timestampString = "491722278.114291"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "19">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PracticeTime.PracticeTimeTableViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;PracticeTime.PracticeTimeTableViewController&gt;"
+                  moduleName = "PracticeTime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/johncook/Google%20Drive/Code/PracticeTime/tester/PracticeTimeTableViewController.swift"
+                  timestampString = "491722278.114608"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

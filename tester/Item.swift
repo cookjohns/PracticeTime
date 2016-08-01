@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class Piece: NSManagedObject {
+class Item: NSManagedObject {
 
     @NSManaged var name: String
     @NSManaged var lastAccess: NSDate

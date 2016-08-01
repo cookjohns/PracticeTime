@@ -6,11 +6,13 @@
 //  Copyright (c) 2015 John Cook. All rights reserved.
 //
 
-import Foundation
-
 import UIKit
+import CoreData
 
 @objc(FolderPageViewController)class FolderPageViewController: UITableViewController {
+    
+    let fetchRequest = NSFetchRequest(entityName: "Folder")
+    let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +32,7 @@ import UIKit
         return UIColor(red:red, green:green, blue:blue, alpha:1.0)
     }
     
-    @IBAction func addItem(sender: AnyObject) {
+    @IBAction func addFolder(sender: AnyObject) {
         
         let alert = UIAlertController(title: "New Name",
                                       message: "Add a new name",
@@ -63,25 +65,20 @@ import UIKit
     
     func saveName(input: String) {
         
-        let entity =  NSEntityDescription.entityForName("Piece",
+        let entity =  NSEntityDescription.entityForName("Item",
                                                         inManagedObjectContext:
             managedContext!)
         
-        let piece = NSManagedObject(entity: entity!,
+        let folder = NSManagedObject(entity: entity!,
                                     insertIntoManagedObjectContext:managedContext)
-        let today = printDate(NSDate())
-        let dict: Dictionary<String, NSNumber> = [today:0]
         
-        piece.setValue(input,    forKey: "title")
-        piece.setValue(0,        forKey: "totalTime")
-        piece.setValue(NSDate(), forKey: "lastAccess")
-        piece.setValue(0.0,      forKey: "timeSinceLastAccess")
-        piece.setValue(dict,     forKey: "times")
+        folder.setValue(input,    forKey: "name")
+        folder.setValue([],        forKey: "items")
         
         do {
             try managedContext?.save()
         } catch _ {
         }
-        DataStore.sharedInstance.itemObjects.append(piece)
+        DataStore.sharedInstance.folderObjects.append(folder)
     }
 }

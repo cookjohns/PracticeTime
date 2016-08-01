@@ -120,7 +120,11 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Folders" image="folder1.png" id="61u-eY-mw1"/>
                     <navigationItem key="navigationItem" title="Folders" id="hF8-BZ-ETE">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gtK-3U-Z9J"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gtK-3U-Z9J">
+                            <connections>
+                                <action selector="addFolder:" destination="Vgs-tf-8h0" id="0vg-WU-TNk"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q1T-ch-swN" userLabel="First Responder" sceneMemberID="firstResponder"/>

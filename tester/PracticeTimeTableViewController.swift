@@ -11,7 +11,7 @@ import CoreData
 
 @objc(PracticeTimeTableViewController)class PracticeTimeTableViewController: UITableViewController {
     
-    let fetchRequest = NSFetchRequest(entityName: "Piece")
+    let fetchRequest = NSFetchRequest(entityName: "Item")
     let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     override func viewDidLoad() {
@@ -58,26 +58,26 @@ import CoreData
     
     func saveName(input: String) {
         
-        let entity =  NSEntityDescription.entityForName("Piece",
+        let entity =  NSEntityDescription.entityForName("Item",
                                                         inManagedObjectContext:
             managedContext!)
         
-        let piece = NSManagedObject(entity: entity!,
+        let item = NSManagedObject(entity: entity!,
                                     insertIntoManagedObjectContext:managedContext)
         let today = printDate(NSDate())
         let dict: Dictionary<String, NSNumber> = [today:0]
         
-        piece.setValue(input,    forKey: "title")
-        piece.setValue(0,        forKey: "totalTime")
-        piece.setValue(NSDate(), forKey: "lastAccess")
-        piece.setValue(0.0,      forKey: "timeSinceLastAccess")
-        piece.setValue(dict,     forKey: "times")
+        item.setValue(input,    forKey: "title")
+        item.setValue(0,        forKey: "totalTime")
+        item.setValue(NSDate(), forKey: "lastAccess")
+        item.setValue(0.0,      forKey: "timeSinceLastAccess")
+        item.setValue(dict,     forKey: "times")
         
         do {
             try managedContext?.save()
         } catch _ {
         }
-        DataStore.sharedInstance.itemObjects.append(piece)
+        DataStore.sharedInstance.itemObjects.append(item)
     }
     
     func printDate(date:NSDate) -> String {
@@ -110,14 +110,14 @@ import CoreData
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) 
         
-        let piece = DataStore.sharedInstance.itemObjects[indexPath.row]
+        let item = DataStore.sharedInstance.itemObjects[indexPath.row]
         
 //        var lastAccessDate = piece.valueForKey("lastAccess") as! NSDate
         //var newLastTime = calcLastTime(lastAccessDate)
         //piece.setValue(newLastTime, forKey: "timeSinceLastAccess")
         
-        let lastTime = abs(piece.valueForKey("timeSinceLastAccess") as! Double)
-        cell.textLabel!.text = piece.valueForKey("title") as? String
+        let lastTime = abs(item.valueForKey("timeSinceLastAccess") as! Double)
+        cell.textLabel!.text = item.valueForKey("title") as? String
         cell.textLabel!.font = UIFont(name: "Avenir-Medium", size:20.0)
         
         if (lastTime <= 24.0) {
@@ -182,12 +182,12 @@ import CoreData
         // so it includes the sort descriptor
         fetchRequest.sortDescriptors = [sortDescriptor]
         
-        if let fetchResults = (try? managedContext!.executeFetchRequest(fetchRequest)) as? [Piece] {
+        if let fetchResults = (try? managedContext!.executeFetchRequest(fetchRequest)) as? [Item] {
             DataStore.sharedInstance.itemObjects = fetchResults
         }
     }
     
-    // set current piece in 'pieces' when a row on the table is selected
+    // set current item in 'items' when a row on the table is selected
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         DataStore.sharedInstance.currentIndex = indexPath.row
         setAllTimes()  // load the allTimes dictionary that holds all total times, sets totalTimeInDict to hold sum
@@ -197,12 +197,12 @@ import CoreData
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        let fetchRequest = NSFetchRequest(entityName:"Piece")
+        let fetchRequest = NSFetchRequest(entityName:"Item")
         
 //        let error: NSError?
         
         let fetchedResults =
-        (try? managedContext?.executeFetchRequest(fetchRequest)) as? [Piece]
+        (try? managedContext?.executeFetchRequest(fetchRequest)) as? [Item]
         
         if let results = fetchedResults {
             DataStore.sharedInstance.itemObjects = results
