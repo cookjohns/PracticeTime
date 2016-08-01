@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-@objc(PracticeTimeTableViewController)class PracticeTimeTableViewController: UITableViewController {
+@objc(PracticeTimeTableViewController) class PracticeTimeTableViewController: UITableViewController {
     
     let fetchRequest = NSFetchRequest(entityName: "Item")
     let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -67,7 +67,7 @@ import CoreData
         let today = printDate(NSDate())
         let dict: Dictionary<String, NSNumber> = [today:0]
         
-        item.setValue(input,    forKey: "title")
+        item.setValue(input,    forKey: "name")
         item.setValue(0,        forKey: "totalTime")
         item.setValue(NSDate(), forKey: "lastAccess")
         item.setValue(0.0,      forKey: "timeSinceLastAccess")
@@ -117,7 +117,7 @@ import CoreData
         //piece.setValue(newLastTime, forKey: "timeSinceLastAccess")
         
         let lastTime = abs(item.valueForKey("timeSinceLastAccess") as! Double)
-        cell.textLabel!.text = item.valueForKey("title") as? String
+        cell.textLabel!.text = item.valueForKey("name") as? String
         cell.textLabel!.font = UIFont(name: "Avenir-Medium", size:20.0)
         
         if (lastTime <= 24.0) {
@@ -174,9 +174,9 @@ import CoreData
     }
     
     func fetch() {
-        // Create a sort descriptor object that sorts on the "title"
+        // Create a sort descriptor object that sorts on the "name"
         // property of the Core Data object
-        let sortDescriptor = NSSortDescriptor(key: "title", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         
         // Set the list of sort descriptors in the fetch request,
         // so it includes the sort descriptor

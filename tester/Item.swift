@@ -16,5 +16,4 @@ class Item: NSManagedObject {
     @NSManaged var totalTime: NSNumber
     @NSManaged var timeSinceLastAccess: NSNumber
     @NSManaged var times: Dictionary<String, NSNumber> // date in DDMMYY format, totalTime for that instance
-    
 }

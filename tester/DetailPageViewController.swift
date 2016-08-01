@@ -41,7 +41,7 @@ class DetailPageViewController: UIViewController, UIScrollViewDelegate {
 //        self.scrollView.directionalLockEnabled = true;
         self.navigationController?.navigationBar.tintColor = uicolorFromHex(0xffffff)
         
-        self.titleField.text     = piece.valueForKey("title") as? String
+        self.titleField.text     = piece.valueForKey("name") as? String
         startButtonObj.tintColor = uicolorFromHex(0x2ecc71)
         startButtonObj.titleLabel!.font      = UIFont(name: "Avenir-Medium", size:23.0)
         stopButtonObj.tintColor  = uicolorFromHex(0x2ecc71)

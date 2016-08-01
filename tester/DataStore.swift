@@ -30,7 +30,9 @@ class DataStore {
     
     var totalTimeInDict: Int?
     
-    var currentIndex: Int?
+    var currentIndex:  Int?
+    
+    var currentFolder: Int?
     
     func getItem(index: Int) -> NSManagedObject {
         return itemObjects[index]
