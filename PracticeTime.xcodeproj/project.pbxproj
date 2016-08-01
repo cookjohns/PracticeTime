@@ -16,6 +16,7 @@
 		BD833B511D4F11200034B233 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD833B501D4F11200034B233 /* DetailViewController.swift */; };
 		BD833B531D4F14D50034B233 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD833B521D4F14D50034B233 /* Folder.swift */; };
 		BD833B551D4F1A360034B233 /* FolderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD833B541D4F1A360034B233 /* FolderDetailViewController.swift */; };
+		BD833B591D4F254A0034B233 /* FolderPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD833B581D4F254A0034B233 /* FolderPopUpViewController.swift */; };
 		BDE711351AB55B5F0075A0F9 /* FolderPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE711341AB55B5F0075A0F9 /* FolderPageViewController.swift */; };
 		BDE711371AB55E260075A0F9 /* TotalsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE711361AB55E260075A0F9 /* TotalsPageViewController.swift */; };
 		BDF377761A41350A007FC9BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF377751A41350A007FC9BA /* AppDelegate.swift */; };
@@ -45,6 +46,7 @@
 		BD833B501D4F11200034B233 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BD833B521D4F14D50034B233 /* Folder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
 		BD833B541D4F1A360034B233 /* FolderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderDetailViewController.swift; sourceTree = "<group>"; };
+		BD833B581D4F254A0034B233 /* FolderPopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FolderPopUpViewController.swift; path = ../FolderPopUpViewController.swift; sourceTree = "<group>"; };
 		BDE711341AB55B5F0075A0F9 /* FolderPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderPageViewController.swift; sourceTree = "<group>"; };
 		BDE711361AB55E260075A0F9 /* TotalsPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalsPageViewController.swift; sourceTree = "<group>"; };
 		BDF377701A41350A007FC9BA /* PracticeTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,13 +102,14 @@
 		BDF377721A41350A007FC9BA /* tester */ = {
 			isa = PBXGroup;
 			children = (
-				BDE711361AB55E260075A0F9 /* TotalsPageViewController.swift */,
 				BDF377751A41350A007FC9BA /* AppDelegate.swift */,
 				BDF377771A41350A007FC9BA /* PracticeTimeTableViewController.swift */,
 				BDE711341AB55B5F0075A0F9 /* FolderPageViewController.swift */,
 				BD833B541D4F1A360034B233 /* FolderDetailViewController.swift */,
+				BD833B581D4F254A0034B233 /* FolderPopUpViewController.swift */,
 				BDF3779B1A41368B007FC9BA /* DetailPageViewController.swift */,
 				BD833B501D4F11200034B233 /* DetailViewController.swift */,
+				BDE711361AB55E260075A0F9 /* TotalsPageViewController.swift */,
 				BDF3779D1A4136B9007FC9BA /* DataStore.swift */,
 				BDF377A91A413CCD007FC9BA /* Item.swift */,
 				BD833B521D4F14D50034B233 /* Folder.swift */,
@@ -251,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD833B511D4F11200034B233 /* DetailViewController.swift in Sources */,
+				BD833B591D4F254A0034B233 /* FolderPopUpViewController.swift in Sources */,
 				BD833B531D4F14D50034B233 /* Folder.swift in Sources */,
 				BD6862F31A41523400B08E61 /* Model.xcdatamodeld in Sources */,
 				BDE711351AB55B5F0075A0F9 /* FolderPageViewController.swift in Sources */,

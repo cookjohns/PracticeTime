@@ -365,7 +365,7 @@ class DetailPageViewController: UIViewController, UIScrollViewDelegate {
 
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // Preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         timer.invalidate()
         if (didStop == false) {

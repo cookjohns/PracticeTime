@@ -76,7 +76,7 @@
         <!--Totals-->
         <scene sceneID="3r0-GU-YYm">
             <objects>
-                <viewController id="BzD-G0-oxD" sceneMemberID="viewController">
+                <viewController id="BzD-G0-oxD" customClass="TotalsPageViewController" customModule="PracticeTime" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xax-rb-RDb"/>
                         <viewControllerLayoutGuide type="bottom" id="tKW-ae-5Kb"/>
@@ -144,11 +144,61 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="d5G-Iy-7oS"/>
+                    <navigationItem key="navigationItem" id="d5G-Iy-7oS">
+                        <barButtonItem key="rightBarButtonItem" image="folder1.png" id="IRW-1R-aHf">
+                            <connections>
+                                <action selector="addToFolder:" destination="p3s-ku-HH9" id="ApE-5d-30a"/>
+                                <segue destination="glM-30-Jo7" kind="popoverPresentation" popoverAnchorBarButtonItem="IRW-1R-aHf" id="agI-yZ-9m8">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GbR-Qx-o6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="701" y="2229"/>
+        </scene>
+        <!--Folder Pop Up View Controller-->
+        <scene sceneID="gKc-Sq-aNH">
+            <objects>
+                <tableViewController id="glM-30-Jo7" customClass="FolderPopUpViewController" customModule="PracticeTime" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="nOq-7n-Icx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="GzL-Ur-Cqf">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="Move Item" id="UIB-fC-1Jn">
+                                    <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="jQv-ks-M8b">
+                                        <connections>
+                                            <action selector="cancel:" destination="glM-30-Jo7" id="e6O-dd-7JY"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="SlP-sh-DOx">
+                                <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SlP-sh-DOx" id="zJc-rO-YmY">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="glM-30-Jo7" id="giD-cy-wvw"/>
+                            <outlet property="delegate" destination="glM-30-Jo7" id="yOS-zq-vNE"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0lC-oL-64c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1444" y="2229"/>
         </scene>
         <!--Folder Detail View Controller-->
         <scene sceneID="Zy4-vh-waS">

@@ -13,4 +13,17 @@ class Folder: NSManagedObject {
     
     @NSManaged var name: String
     @NSManaged var items: [Item]
+    
+    func addItem(input: Item) {
+        items.append(input)
+    }
+    
+    func deleteItem(input: Item) {
+        for i in 0..<items.count {
+            let item = items[i]
+            if item.name == input.name {
+                items.removeAtIndex(i)
+            }
+        }
+    }
 }
