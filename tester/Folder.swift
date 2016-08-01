@@ -26,4 +26,8 @@ class Folder: NSManagedObject {
             }
         }
     }
+    
+    func getItem(index: Int) -> Item {
+        return items[index]
+    }
 }

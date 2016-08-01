@@ -14,7 +14,7 @@ import CoreData
     let fetchRequest = NSFetchRequest(entityName: "Folder")
     let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
-    let folder   = DataStore.sharedInstance.getFolder(DataStore.sharedInstance.currentFolder!) as! Folder
+    let folder = DataStore.sharedInstance.getFolder(DataStore.sharedInstance.currentFolder!) as! Folder
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,5 +57,34 @@ import CoreData
         cell.textLabel?.textColor = uicolorFromHex(0x2ecc71)
         
         return cell
+    }
+    
+    func fetch() {
+        // Create a sort descriptor object that sorts on the "name"
+        // property of the Core Data object
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        
+        // Set the list of sort descriptors in the fetch request,
+        // so it includes the sort descriptor
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        if let fetchResults = (try? managedContext!.executeFetchRequest(fetchRequest)) as? [Folder] {
+            DataStore.sharedInstance.folderObjects = fetchResults
+        }
+    }
+    
+    // Override to support conditional editing of the table view.
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return NO if you do not want the specified item to be editable.
+        return true
+    }
+    
+    // Override to support editing the table view.
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            let itemToDelete = folder.getItem(indexPath.row)
+            folder.deleteItem(itemToDelete)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
     }
 }

@@ -104,25 +104,4 @@ class FolderPopOverViewController: UITableViewController {
         }
         self.tableView.reloadData()
     }
-    
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            let itemToDelete = DataStore.sharedInstance.folderObjects[indexPath.row]
-            managedContext?.deleteObject(itemToDelete)
-            do {
-                try managedContext?.save()
-            } catch _ {
-            }
-            self.fetch()
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        }
-        DataStore.sharedInstance.currentItem = indexPath.row
-    }
 }
