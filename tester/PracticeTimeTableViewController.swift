@@ -170,7 +170,7 @@ import CoreData
             self.fetch()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
-        DataStore.sharedInstance.currentIndex = indexPath.row
+        DataStore.sharedInstance.currentItem = indexPath.row
     }
     
     func fetch() {
@@ -189,7 +189,7 @@ import CoreData
     
     // set current item in 'items' when a row on the table is selected
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        DataStore.sharedInstance.currentIndex = indexPath.row
+        DataStore.sharedInstance.currentItem = indexPath.row
         setAllTimes()  // load the allTimes dictionary that holds all total times, sets totalTimeInDict to hold sum
         return indexPath
     }

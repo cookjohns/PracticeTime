@@ -16,6 +16,11 @@ class DetailViewController: UIViewController {
         self.navigationController?.navigationBar.barStyle = UIBarStyle.BlackTranslucent
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(0x2ecc71)
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        
+        // set title
+        let instance = DataStore.sharedInstance
+        let item     = instance.getItem(instance.currentItem!) as! Item
+        self.navigationItem.title = item.name
     }
     
     func uicolorFromHex(rgbValue:UInt32)->UIColor{

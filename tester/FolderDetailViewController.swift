@@ -14,6 +14,8 @@ import CoreData
     let fetchRequest = NSFetchRequest(entityName: "Folder")
     let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
+    let folder   = DataStore.sharedInstance.getFolder(DataStore.sharedInstance.currentFolder!) as! Folder
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,7 +23,10 @@ import CoreData
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir-Medium", size:23.0)!, NSForegroundColorAttributeName: uicolorFromHex(0xffffff)]
         self.navigationController?.navigationBar.barStyle = UIBarStyle.BlackTranslucent
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(0x2ecc71)
-        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        
+        // set title
+        self.navigationItem.title = folder.name
     }
     
     func uicolorFromHex(rgbValue:UInt32)->UIColor{
@@ -39,13 +44,13 @@ import CoreData
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DataStore.sharedInstance.folderObjects.count
+        return folder.items.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
-        let item = DataStore.sharedInstance.folderObjects[indexPath.row]
+        let item = folder.items[indexPath.row]
         
         cell.textLabel!.text = item.valueForKey("name") as? String
         cell.textLabel!.font = UIFont(name: "Avenir-Medium", size:20.0)

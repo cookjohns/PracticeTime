@@ -121,7 +121,7 @@ import CoreData
             self.fetch()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
-        DataStore.sharedInstance.currentIndex = indexPath.row
+        DataStore.sharedInstance.currentItem = indexPath.row
     }
     
     func fetch() {

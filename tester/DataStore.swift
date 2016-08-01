@@ -30,7 +30,7 @@ class DataStore {
     
     var totalTimeInDict: Int?
     
-    var currentIndex:  Int?
+    var currentItem:  Int?
     
     var currentFolder: Int?
     

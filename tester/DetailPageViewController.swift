@@ -29,7 +29,7 @@ class DetailPageViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var ChartLabel:     UILabel!
     @IBOutlet weak var CircleLabel:    UILabel!
     
-    let piece = DataStore.sharedInstance.itemObjects[DataStore.sharedInstance.currentIndex!]
+    let piece = DataStore.sharedInstance.itemObjects[DataStore.sharedInstance.currentItem!]
     let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var didStop: Bool?
     

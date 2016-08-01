@@ -131,7 +131,7 @@
             </objects>
             <point key="canvasLocation" x="-44" y="3008"/>
         </scene>
-        <!--Temp-->
+        <!--Detail View Controller-->
         <scene sceneID="RAH-Fo-Lb8">
             <objects>
                 <viewController id="p3s-ku-HH9" customClass="DetailViewController" customModule="PracticeTime" customModuleProvider="target" sceneMemberID="viewController">
@@ -144,7 +144,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Temp" id="d5G-Iy-7oS"/>
+                    <navigationItem key="navigationItem" id="d5G-Iy-7oS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GbR-Qx-o6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
