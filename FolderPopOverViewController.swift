@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class FolderPopUpViewController: UITableViewController {
+class FolderPopOverViewController: UITableViewController {
     
     let fetchRequest = NSFetchRequest(entityName: "Folder")
     let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -61,6 +61,7 @@ class FolderPopUpViewController: UITableViewController {
         return cell
     }
     
+    // FIXME: - Item-in-folder PERSISTENCE
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let folder = instance.getFolder(indexPath.item) as! Folder
         folder.addItem(instance.getItem(instance.currentItem!) as! Item)
@@ -102,5 +103,26 @@ class FolderPopUpViewController: UITableViewController {
             print("Could not fetch")// \(error), \(error!.userInfo)")
         }
         self.tableView.reloadData()
+    }
+    
+    // Override to support conditional editing of the table view.
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return NO if you do not want the specified item to be editable.
+        return true
+    }
+    
+    // Override to support editing the table view.
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            let itemToDelete = DataStore.sharedInstance.folderObjects[indexPath.row]
+            managedContext?.deleteObject(itemToDelete)
+            do {
+                try managedContext?.save()
+            } catch _ {
+            }
+            self.fetch()
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+        DataStore.sharedInstance.currentItem = indexPath.row
     }
 }

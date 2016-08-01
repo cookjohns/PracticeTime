@@ -57,7 +57,6 @@
         <!--Pieces-->
         <scene sceneID="WGd-qy-Hgo">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kOa-pl-wO7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dmZ-9a-lcy" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Pieces" image="list1.png" id="eiu-6w-TNe"/>
                     <toolbarItems/>
@@ -70,6 +69,7 @@
                         <segue destination="gPM-CS-hFS" kind="relationship" relationship="rootViewController" id="z3r-0l-xcI"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kOa-pl-wO7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-777" y="2229"/>
         </scene>
@@ -159,10 +159,10 @@
             </objects>
             <point key="canvasLocation" x="701" y="2229"/>
         </scene>
-        <!--Folder Pop Up View Controller-->
+        <!--Folder Pop Over View Controller-->
         <scene sceneID="gKc-Sq-aNH">
             <objects>
-                <tableViewController id="glM-30-Jo7" customClass="FolderPopUpViewController" customModule="PracticeTime" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="glM-30-Jo7" customClass="FolderPopOverViewController" customModule="PracticeTime" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="nOq-7n-Icx">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -216,6 +216,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="p3s-ku-HH9" kind="show" id="GRE-Ne-xIE"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -241,7 +244,7 @@
                     </tabBar>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
-                            <integer key="value" value="2"/>
+                            <integer key="value" value="1"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
@@ -257,7 +260,6 @@
         <!--Folders-->
         <scene sceneID="8YC-xK-LoY">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="i93-EW-2hq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SjS-PL-gxo" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Folders" image="folder1.png" id="84t-AP-pbk"/>
                     <toolbarItems/>
@@ -270,6 +272,7 @@
                         <segue destination="Vgs-tf-8h0" kind="relationship" relationship="rootViewController" id="A0J-58-K7c"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i93-EW-2hq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-777" y="3008"/>
         </scene>
@@ -279,4 +282,7 @@
         <image name="folder1.png" width="30" height="30"/>
         <image name="list1.png" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="GRE-Ne-xIE"/>
+    </inferredMetricsTieBreakers>
 </document>
