@@ -160,13 +160,13 @@
                                 <rect key="frame" x="0.0" y="81" width="600" height="65"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time to add:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFj-PY-PHQ">
-                                        <rect key="frame" x="50" y="8" width="96" height="21"/>
+                                        <rect key="frame" x="50" y="8" width="537" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1QT-0n-kot">
-                                        <rect key="frame" x="50" y="37" width="296" height="21"/>
+                                        <rect key="frame" x="50" y="37" width="537" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -202,6 +202,7 @@
                     <connections>
                         <outlet property="datePicker" destination="53S-Gy-3hc" id="K90-Vo-NgO"/>
                         <outlet property="myLabel" destination="1QT-0n-kot" id="rwO-sn-kci"/>
+                        <outlet property="timeLabel" destination="YFj-PY-PHQ" id="lLX-US-d32"/>
                         <outlet property="timePicker" destination="bc6-Pj-VEt" id="bNc-Qw-4lY"/>
                     </connections>
                 </viewController>
@@ -224,21 +225,41 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tA0-xC-WeH">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmi-1j-vbB">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhe-j4-1Ju">
-                                        <rect key="frame" x="0.0" y="21" width="600" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zoc-ST-9aJ">
-                                        <rect key="frame" x="0.0" y="41" width="600" height="446"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zoc-ST-9aJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fWZ-X7-dFx">
+                                                <rect key="frame" x="0.0" y="34" width="600" height="62"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmi-1j-vbB">
+                                                        <rect key="frame" x="0.0" y="20" width="600" height="21"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.92549019607843142" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xyX-YJ-qe3">
+                                                <rect key="frame" x="0.0" y="137" width="600" height="62"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhe-j4-1Ju">
+                                                        <rect key="frame" x="0.0" y="20" width="600" height="21"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.92549019607843142" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                                            </view>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="xyX-YJ-qe3" firstAttribute="top" secondItem="fWZ-X7-dFx" secondAttribute="bottom" constant="41" id="FBK-uG-22x"/>
+                                            <constraint firstAttribute="trailing" secondItem="fWZ-X7-dFx" secondAttribute="trailing" id="YLQ-Qn-rfy"/>
+                                            <constraint firstItem="fWZ-X7-dFx" firstAttribute="top" secondItem="zoc-ST-9aJ" secondAttribute="top" constant="34" id="kOw-dj-CqZ"/>
+                                            <constraint firstItem="fWZ-X7-dFx" firstAttribute="leading" secondItem="zoc-ST-9aJ" secondAttribute="leading" id="sT7-pY-Nui"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -270,8 +291,8 @@
                         <outlet property="chartView" destination="zoc-ST-9aJ" id="iCW-1N-Q10"/>
                         <outlet property="totalLabel" destination="xhe-j4-1Ju" id="huE-Yu-e90"/>
                         <outlet property="weeklyTotalLabel" destination="qmi-1j-vbB" id="eFR-rM-wx4"/>
-                        <outletCollection property="totalLabel" destination="xhe-j4-1Ju" collectionClass="NSMutableArray" id="65U-UC-wME"/>
                         <outletCollection property="weeklyTotalLabel" destination="qmi-1j-vbB" id="5CK-ym-2YU"/>
+                        <outletCollection property="totalLabel" destination="xhe-j4-1Ju" collectionClass="NSMutableArray" id="65U-UC-wME"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GbR-Qx-o6K" userLabel="First Responder" sceneMemberID="firstResponder"/>

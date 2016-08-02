@@ -29,8 +29,13 @@ class DetailViewController: UIViewController {
         let item     = instance.getItem(instance.currentItem!) as! Item
         self.navigationItem.title = item.name
         
-        weeklyTotalLabel.text = "Weekly Total: \(item.getWeekTotal())"
-        totalLabel.text = "Total: \(item.getTotalTime())"
+        weeklyTotalLabel.text = "   Weekly Total: \(item.getWeekTotal())"
+        totalLabel.text = "   Total: \(item.getTotalTime())"
+        
+        weeklyTotalLabel.textColor = uicolorFromHex(0x2ecc71)
+        weeklyTotalLabel.font = UIFont(name: "Avenir-Medium", size: 19)
+        totalLabel.textColor = uicolorFromHex(0x2ecc71)
+        totalLabel.font = UIFont(name: "Avenir-Medium", size: 19)
     }
     
     func uicolorFromHex(rgbValue:UInt32)->UIColor{

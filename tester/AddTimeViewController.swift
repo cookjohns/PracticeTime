@@ -23,6 +23,7 @@ class AddTimeViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     @IBOutlet weak var myLabel:  UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var timePicker: UIPickerView!
     @IBOutlet weak var datePicker: UIDatePicker!
     
@@ -34,6 +35,12 @@ class AddTimeViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(0x2ecc71)
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
         self.navigationItem.leftBarButtonItem?.tintColor  = UIColor.whiteColor()
+        
+        myLabel.textColor = UIColor.blackColor()
+        myLabel.font = UIFont(name: "Avenir-Medium", size: 17)
+        
+        timeLabel.textColor = UIColor.blackColor()
+        timeLabel.font = UIFont(name: "Avenir-Medium", size: 17)
         
         timePicker.delegate = self
         timePicker.dataSource = self
