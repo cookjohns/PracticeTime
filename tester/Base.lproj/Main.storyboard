@@ -187,6 +187,9 @@
                             <constraint firstAttribute="trailing" secondItem="bc6-Pj-VEt" secondAttribute="trailing" id="tha-dh-FGj"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="BhZ-0I-5JX"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Add Time" id="sQT-93-4cU">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ALr-u1-JE3">
                             <connections>
@@ -199,6 +202,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="datePicker" destination="53S-Gy-3hc" id="K90-Vo-NgO"/>
                         <outlet property="myLabel" destination="1QT-0n-kot" id="rwO-sn-kci"/>
@@ -208,7 +212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RUw-Gm-sr3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1444" y="1464"/>
+            <point key="canvasLocation" x="2196" y="1464"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="RAH-Fo-Lb8">
@@ -237,8 +241,19 @@
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeR-7n-D7S">
+                                                        <rect key="frame" x="504" y="16" width="84" height="30"/>
+                                                        <state key="normal" image="gear1.png"/>
+                                                        <connections>
+                                                            <segue destination="Ri1-MH-gQj" kind="showDetail" id="cEi-HV-56i"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.92549019607843142" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="HeR-7n-D7S" secondAttribute="trailing" constant="12" id="Jcs-NG-1iV"/>
+                                                    <constraint firstItem="HeR-7n-D7S" firstAttribute="top" secondItem="fWZ-X7-dFx" secondAttribute="top" constant="16" id="yUq-NY-3ke"/>
+                                                </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xyX-YJ-qe3">
                                                 <rect key="frame" x="0.0" y="137" width="600" height="62"/>
@@ -290,6 +305,7 @@
                     <connections>
                         <outlet property="chartView" destination="zoc-ST-9aJ" id="iCW-1N-Q10"/>
                         <outlet property="totalLabel" destination="xhe-j4-1Ju" id="huE-Yu-e90"/>
+                        <outlet property="weekdayButton" destination="HeR-7n-D7S" id="F3j-Xu-WZc"/>
                         <outlet property="weeklyTotalLabel" destination="qmi-1j-vbB" id="eFR-rM-wx4"/>
                         <outletCollection property="weeklyTotalLabel" destination="qmi-1j-vbB" id="5CK-ym-2YU"/>
                         <outletCollection property="totalLabel" destination="xhe-j4-1Ju" collectionClass="NSMutableArray" id="65U-UC-wME"/>
@@ -446,7 +462,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bcA-Yq-bO9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="701" y="1464"/>
+            <point key="canvasLocation" x="1444" y="1464"/>
         </scene>
         <!--Folder PopOver-->
         <scene sceneID="i4F-zP-6g8">
@@ -467,11 +483,91 @@
             </objects>
             <point key="canvasLocation" x="1444" y="2229"/>
         </scene>
+        <!--Add Time-->
+        <scene sceneID="rnF-PZ-cMz">
+            <objects>
+                <navigationController title="Add Time" automaticallyAdjustsScrollViewInsets="NO" id="Ri1-MH-gQj" userLabel="Add Time" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Pieces" image="list1.png" id="KiN-uv-6TD" userLabel="Add Time"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="x5l-ZG-srh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kI9-Vc-aBf" kind="relationship" relationship="rootViewController" id="TvJ-SF-UvS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="15i-Up-kAg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="701" y="1464"/>
+        </scene>
+        <!--Weekday Start-->
+        <scene sceneID="g3m-ts-bC9">
+            <objects>
+                <viewController title="Weekday Start" id="kI9-Vc-aBf" customClass="WeekdayStartView" customModule="PracticeTime" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zpw-Ha-AbH"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rhy-ZF-ENs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9AR-GZ-knC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView alpha="0.80000001192092896" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QTn-wE-TsD">
+                                <rect key="frame" x="0.0" y="241" width="600" height="150"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </pickerView>
+                            <view alpha="0.80000001192092896" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mdk-JW-UBR">
+                                <rect key="frame" x="0.0" y="81" width="600" height="65"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select weekly start day:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VI3-5j-o5W">
+                                        <rect key="frame" x="32" y="22" width="537" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QTn-wE-TsD" firstAttribute="leading" secondItem="9AR-GZ-knC" secondAttribute="leading" id="JpM-n9-Qo3"/>
+                            <constraint firstAttribute="trailing" secondItem="Mdk-JW-UBR" secondAttribute="trailing" id="kD7-yt-SGX"/>
+                            <constraint firstItem="Mdk-JW-UBR" firstAttribute="leading" secondItem="9AR-GZ-knC" secondAttribute="leading" id="l2F-jT-8bJ"/>
+                            <constraint firstAttribute="trailing" secondItem="QTn-wE-TsD" secondAttribute="trailing" id="zZG-oV-Bu4"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Add Time" id="yld-0R-B4n">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Kxh-gL-ZoH">
+                            <connections>
+                                <action selector="cancel:" destination="kI9-Vc-aBf" id="If1-xu-dcM"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="d2y-AS-lT9">
+                            <connections>
+                                <action selector="save:" destination="kI9-Vc-aBf" id="acd-lN-XnQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="dayPicker" destination="QTn-wE-TsD" id="cqd-WB-RbB"/>
+                        <outlet property="myLabel" destination="VI3-5j-o5W" id="Ova-YS-JVO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eMm-v7-OY7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-44" y="1464"/>
+        </scene>
     </scenes>
     <resources>
         <image name="chart1.png" width="25" height="25"/>
         <image name="folder1.png" width="25" height="25"/>
         <image name="folder2.png" width="20" height="20"/>
+        <image name="gear1.png" width="30" height="30"/>
         <image name="list1.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>

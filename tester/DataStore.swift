@@ -34,6 +34,8 @@ class DataStore {
     
     var currentFolder: Int?
     
+    var startingDay: Int = 2 // start on Monday
+    
     func addItem(item: NSManagedObject) {
         itemObjects.append(item)
     }
@@ -48,5 +50,13 @@ class DataStore {
     
     func getFolder(index: Int) -> NSManagedObject {
         return folderObjects[index]
+    }
+    
+    func getStartingDay() -> Int {
+        return startingDay
+    }
+    
+    func setStartingDay(input: Int) {
+        startingDay = input
     }
 }

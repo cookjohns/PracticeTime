@@ -16,6 +16,7 @@ class DetailViewController: UIViewController {
     @IBOutlet var weeklyTotalLabel: UILabel!
     @IBOutlet var totalLabel: UILabel!
     @IBOutlet weak var chartView: UIView!
+    @IBOutlet weak var weekdayButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +30,14 @@ class DetailViewController: UIViewController {
         let item     = instance.getItem(instance.currentItem!) as! Item
         self.navigationItem.title = item.name
         
-        weeklyTotalLabel.text = "   Weekly Total: \(item.getWeekTotal())"
+        weeklyTotalLabel.text = "   This Week: \(item.getWeekTotal()) (since \(startingDayToString()))"
         totalLabel.text = "   Total: \(item.getTotalTime())"
         
         weeklyTotalLabel.textColor = uicolorFromHex(0x2ecc71)
         weeklyTotalLabel.font = UIFont(name: "Avenir-Medium", size: 19)
         totalLabel.textColor = uicolorFromHex(0x2ecc71)
         totalLabel.font = UIFont(name: "Avenir-Medium", size: 19)
+        
     }
     
     func uicolorFromHex(rgbValue:UInt32)->UIColor{
@@ -44,5 +46,34 @@ class DetailViewController: UIViewController {
         let blue  = CGFloat(rgbValue & 0xFF)/256.0
         
         return UIColor(red:red, green:green, blue:blue, alpha:1.0)
+    }
+    
+    func startingDayToString() -> String {
+        let dayInt = DataStore.sharedInstance.getStartingDay()
+        switch (dayInt) {
+        case 0:
+            return "Saturday"
+            break
+        case 1:
+            return "Sunday"
+            break
+        case 2:
+            return "Monday"
+            break
+        case 3:
+            return "Tuesday"
+            break
+        case 4:
+            return "Wednesday"
+            break
+        case 5:
+            return "Thursday"
+            break
+        case 6:
+            return "Friday"
+            break
+        default:
+            return "------"
+        }
     }
 }
