@@ -145,17 +145,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <pickerView alpha="0.5" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bc6-Pj-VEt">
+                                <rect key="frame" x="0.0" y="241" width="600" height="150"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </pickerView>
+                            <datePicker alpha="0.5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="53S-Gy-3hc">
+                                <rect key="frame" x="0.0" y="416" width="600" height="150"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <date key="date" timeIntervalSinceReferenceDate="491808287.86396599">
+                                    <!--2016-08-02 05:24:47 +0000-->
+                                </date>
+                            </datePicker>
                             <view alpha="0.5" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SgO-cb-P0x">
-                                <rect key="frame" x="0.0" y="72" width="600" height="109"/>
+                                <rect key="frame" x="0.0" y="81" width="600" height="65"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1QT-0n-kot">
-                                        <rect key="frame" x="50" y="59" width="296" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time to add:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFj-PY-PHQ">
+                                        <rect key="frame" x="50" y="8" width="96" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time to add:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFj-PY-PHQ">
-                                        <rect key="frame" x="50" y="30" width="96" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1QT-0n-kot">
+                                        <rect key="frame" x="50" y="37" width="296" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -163,22 +174,12 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <pickerView alpha="0.5" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bc6-Pj-VEt">
-                                <rect key="frame" x="0.0" y="211" width="600" height="216"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </pickerView>
-                            <datePicker alpha="0.5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="53S-Gy-3hc">
-                                <rect key="frame" x="0.0" y="457" width="600" height="143"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <date key="date" timeIntervalSinceReferenceDate="491808287.86396599">
-                                    <!--2016-08-02 05:24:47 +0000-->
-                                </date>
-                            </datePicker>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="53S-Gy-3hc" firstAttribute="top" secondItem="bc6-Pj-VEt" secondAttribute="bottom" constant="25" id="FBT-Ct-Noq"/>
+                            <constraint firstItem="VlO-a5-Ij3" firstAttribute="top" secondItem="53S-Gy-3hc" secondAttribute="bottom" constant="34" id="HlS-oC-OvD"/>
                             <constraint firstAttribute="trailing" secondItem="SgO-cb-P0x" secondAttribute="trailing" id="MYD-cb-UEO"/>
-                            <constraint firstItem="VlO-a5-Ij3" firstAttribute="top" secondItem="53S-Gy-3hc" secondAttribute="bottom" id="Xoa-Ux-hcd"/>
                             <constraint firstItem="SgO-cb-P0x" firstAttribute="leading" secondItem="UYd-c5-XJv" secondAttribute="leading" id="gsd-hm-V9K"/>
                             <constraint firstItem="53S-Gy-3hc" firstAttribute="leading" secondItem="UYd-c5-XJv" secondAttribute="leading" id="n67-WI-maK"/>
                             <constraint firstItem="bc6-Pj-VEt" firstAttribute="leading" secondItem="UYd-c5-XJv" secondAttribute="leading" id="nQR-U9-zST"/>

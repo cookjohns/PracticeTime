@@ -38,6 +38,13 @@ class AddTimeViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         timePicker.delegate = self
         timePicker.dataSource = self
         timePicker.selectRow(2, inComponent: PickerComponent.hours.rawValue, animated: false)
+        timePicker.backgroundColor = UIColor.whiteColor()
+        timePicker.setValue(UIColor.blackColor(), forKeyPath: "textColor")
+        
+        datePicker.backgroundColor = UIColor.whiteColor()
+        datePicker.setValue(UIColor.blackColor(), forKeyPath: "textColor")
+        datePicker.setValue(0.5, forKeyPath: "alpha")
+        
         updateLabel()
     }
     
