@@ -468,7 +468,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tester/DetailViewController.swift"
@@ -481,14 +481,14 @@
             landmarkType = "3">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "PracticeTime.DetailViewController.item.getter : __ObjC.NSManagedObject"
                   moduleName = "PracticeTime"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/johncook/Google%20Drive/Code/PracticeTime/tester/DetailViewController.swift"
-                  timestampString = "491796231.48842"
+                  timestampString = "491810129.741399"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "13"
@@ -496,14 +496,14 @@
                   offsetFromSymbolStart = "35">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "PracticeTime.DetailViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; PracticeTime.DetailViewController"
                   moduleName = "PracticeTime"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/johncook/Google%20Drive/Code/PracticeTime/tester/DetailViewController.swift"
-                  timestampString = "491796231.488549"
+                  timestampString = "491810129.741571"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "13"
@@ -511,14 +511,14 @@
                   offsetFromSymbolStart = "57">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "PracticeTime.DetailViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;PracticeTime.DetailViewController&gt;"
                   moduleName = "PracticeTime"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/johncook/Google%20Drive/Code/PracticeTime/tester/DetailViewController.swift"
-                  timestampString = "491796231.488741"
+                  timestampString = "491810129.742018"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "13"
@@ -526,6 +526,38 @@
                   offsetFromSymbolStart = "19">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tester/AddTimeViewController.swift"
+            timestampString = "491810124.505791"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "save(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tester/Item.swift"
+            timestampString = "491811261.67653"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "getWeekTotal()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

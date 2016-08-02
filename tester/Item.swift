@@ -13,9 +13,9 @@ class Item: NSManagedObject {
 
     @NSManaged var name: String
     @NSManaged var lastAccess: NSDate
-    @NSManaged var totalTime: NSNumber
+    @NSManaged var totalTime: Double
     @NSManaged var timeSinceLastAccess: NSNumber
-    @NSManaged var times: Dictionary<NSDate, NSNumber> // date as NSDate, totalTime for that instance
+    @NSManaged var times: Dictionary<String, Double> // date as NSDate, totalTime for that instance
     
     func getTotalTime() -> NSNumber {
         return self.totalTime
@@ -24,15 +24,18 @@ class Item: NSManagedObject {
     func getWeekTotal() -> NSNumber {
         let calendar = NSCalendar.currentCalendar()
 
-        var total: NSNumber = 0
+        var total: Double = 0
         
         for i in 0...7 {
             // calculate time for last week
-            if let time = times[calendar.dateByAddingUnit(.Day, value: -i, toDate: NSDate(), options: [])!] {
-                total = NSNumber(int: total.intValue + time.intValue)
+            let cal = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+            let today = cal.startOfDayForDate(NSDate())
+            let date = calendar.dateByAddingUnit(.Day, value: -i, toDate: today, options: [])!
+            if let time = times[printDate(date)] {
+                total = total + time
             }
         }
-        return 0
+        return total
     }
     
     func printDate(date:NSDate) -> String {
@@ -48,8 +51,16 @@ class Item: NSManagedObject {
     }
     
     func addTime(time: Double, date: NSDate) {
-        var temp = self.times[date]
-        var newTime = NSNumber(double: temp!.doubleValue + time)
-        times[date] = newTime
+        let cal = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        let newDate = cal.startOfDayForDate(date)
+        
+        var temp = self.times[printDate(newDate)]
+        if temp == nil {
+            temp = 0.0
+        }
+        
+        let newTime = temp! + time
+
+        times[printDate(newDate)] = newTime
     }
 }

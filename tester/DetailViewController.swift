@@ -40,6 +40,4 @@ class DetailViewController: UIViewController {
         
         return UIColor(red:red, green:green, blue:blue, alpha:1.0)
     }
-    
-    
 }
