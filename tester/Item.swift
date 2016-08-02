@@ -51,6 +51,10 @@ class Item: NSManagedObject {
     }
     
     func addTime(time: Double, date: NSDate) {
+        // add to totalTime
+        totalTime += time
+        
+        // add to current date in times
         let cal = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
         let newDate = cal.startOfDayForDate(date)
         
