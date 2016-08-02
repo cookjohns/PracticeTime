@@ -11,7 +11,7 @@ import CoreData
 
 @objc(PracticeTimeTableViewController) class PracticeTimeTableViewController: UITableViewController {
     
-    let fetchRequest = NSFetchRequest(entityName: "Item")
+    let itemFetchRequest = NSFetchRequest(entityName: "Item")
     let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     override func viewDidLoad() {
@@ -77,7 +77,7 @@ import CoreData
             try managedContext?.save()
         } catch _ {
         }
-        DataStore.sharedInstance.itemObjects.append(item)
+        DataStore.sharedInstance.addItem(item)
     }
     
     func printDate(date:NSDate) -> String {
@@ -180,9 +180,9 @@ import CoreData
         
         // Set the list of sort descriptors in the fetch request,
         // so it includes the sort descriptor
-        fetchRequest.sortDescriptors = [sortDescriptor]
+        itemFetchRequest.sortDescriptors = [sortDescriptor]
         
-        if let fetchResults = (try? managedContext!.executeFetchRequest(fetchRequest)) as? [Item] {
+        if let fetchResults = (try? managedContext!.executeFetchRequest(itemFetchRequest)) as? [Item] {
             DataStore.sharedInstance.itemObjects = fetchResults
         }
     }
@@ -197,10 +197,10 @@ import CoreData
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        let fetchRequest = NSFetchRequest(entityName:"Item")
+        let itemFetchRequest = NSFetchRequest(entityName:"Item")
         
         let fetchedResults =
-        (try? managedContext?.executeFetchRequest(fetchRequest)) as? [Item]
+        (try? managedContext?.executeFetchRequest(itemFetchRequest)) as? [Item]
         
         if let results = fetchedResults {
             DataStore.sharedInstance.itemObjects = results
@@ -223,11 +223,9 @@ import CoreData
         let bottomColor = UIColor(red: (255.0/255.0), green: (255.0/255.0), blue: (255.0/255.0), alpha: 1)
         
         let gradientColors: Array <AnyObject> = [topColor.CGColor, bottomColor.CGColor]
-//        let gradientLocations: Array <AnyObject> = [0.0, 1.0]
         
         let gradientLayer: CAGradientLayer = CAGradientLayer()
         gradientLayer.colors = gradientColors
-        //gradientLayer.locations = gradientLocations
         
         return gradientLayer
     }

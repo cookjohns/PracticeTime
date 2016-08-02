@@ -11,7 +11,7 @@ import CoreData
 
 @objc(FolderDetailViewController) class FolderDetailViewController: UITableViewController {
     
-    let fetchRequest = NSFetchRequest(entityName: "Folder")
+    let folderFetchRequest = NSFetchRequest(entityName: "Folder")
     let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     let folder = DataStore.sharedInstance.getFolder(DataStore.sharedInstance.currentFolder!) as! Folder
@@ -66,9 +66,9 @@ import CoreData
         
         // Set the list of sort descriptors in the fetch request,
         // so it includes the sort descriptor
-        fetchRequest.sortDescriptors = [sortDescriptor]
+        folderFetchRequest.sortDescriptors = [sortDescriptor]
         
-        if let fetchResults = (try? managedContext!.executeFetchRequest(fetchRequest)) as? [Folder] {
+        if let fetchResults = (try? managedContext!.executeFetchRequest(folderFetchRequest)) as? [Folder] {
             DataStore.sharedInstance.folderObjects = fetchResults
         }
     }
@@ -84,6 +84,12 @@ import CoreData
         if editingStyle == .Delete {
             let itemToDelete = folder.getItem(indexPath.row)
             folder.deleteItem(itemToDelete)
+            folder.setValue(folder.items, forKey: "items")
+            do {
+                try managedContext?.save()
+            } catch _ {
+            }
+            self.fetch()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
     }

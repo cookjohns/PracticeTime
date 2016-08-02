@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Current Pieces-->
@@ -87,10 +88,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Totals" image="chart1.png" id="hLv-vK-XqP"/>
+                    <navigationItem key="navigationItem" title="Totals" id="m6z-YH-h8P"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hZT-XB-hzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1505" y="3008"/>
+            <point key="canvasLocation" x="-1505" y="3788"/>
         </scene>
         <!--Folders-->
         <scene sceneID="blI-ve-a0I">
@@ -131,6 +133,81 @@
             </objects>
             <point key="canvasLocation" x="-44" y="3008"/>
         </scene>
+        <!--Add Time-->
+        <scene sceneID="k0M-4h-DOD">
+            <objects>
+                <viewController id="HdV-zI-uxO" customClass="AddTimeViewController" customModule="PracticeTime" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hCD-ln-2Ay"/>
+                        <viewControllerLayoutGuide type="bottom" id="VlO-a5-Ij3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UYd-c5-XJv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.5" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SgO-cb-P0x">
+                                <rect key="frame" x="0.0" y="72" width="600" height="109"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1QT-0n-kot">
+                                        <rect key="frame" x="50" y="59" width="296" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time to add:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFj-PY-PHQ">
+                                        <rect key="frame" x="50" y="30" width="96" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <pickerView alpha="0.5" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bc6-Pj-VEt">
+                                <rect key="frame" x="0.0" y="211" width="600" height="216"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </pickerView>
+                            <datePicker alpha="0.5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="53S-Gy-3hc">
+                                <rect key="frame" x="0.0" y="457" width="600" height="143"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <date key="date" timeIntervalSinceReferenceDate="491808287.86396599">
+                                    <!--2016-08-02 05:24:47 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="SgO-cb-P0x" secondAttribute="trailing" id="MYD-cb-UEO"/>
+                            <constraint firstItem="VlO-a5-Ij3" firstAttribute="top" secondItem="53S-Gy-3hc" secondAttribute="bottom" id="Xoa-Ux-hcd"/>
+                            <constraint firstItem="SgO-cb-P0x" firstAttribute="leading" secondItem="UYd-c5-XJv" secondAttribute="leading" id="gsd-hm-V9K"/>
+                            <constraint firstItem="53S-Gy-3hc" firstAttribute="leading" secondItem="UYd-c5-XJv" secondAttribute="leading" id="n67-WI-maK"/>
+                            <constraint firstItem="bc6-Pj-VEt" firstAttribute="leading" secondItem="UYd-c5-XJv" secondAttribute="leading" id="nQR-U9-zST"/>
+                            <constraint firstAttribute="trailing" secondItem="53S-Gy-3hc" secondAttribute="trailing" id="sEq-cY-cMz"/>
+                            <constraint firstAttribute="trailing" secondItem="bc6-Pj-VEt" secondAttribute="trailing" id="tha-dh-FGj"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Time" id="sQT-93-4cU">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ALr-u1-JE3">
+                            <connections>
+                                <action selector="cancel:" destination="HdV-zI-uxO" id="Zsm-J4-m2z"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="5dK-Zq-agp">
+                            <connections>
+                                <action selector="save:" destination="HdV-zI-uxO" id="4sg-O4-O3v"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="datePicker" destination="53S-Gy-3hc" id="K90-Vo-NgO"/>
+                        <outlet property="myLabel" destination="1QT-0n-kot" id="rwO-sn-kci"/>
+                        <outlet property="timePicker" destination="bc6-Pj-VEt" id="bNc-Qw-4lY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RUw-Gm-sr3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1444" y="1464"/>
+        </scene>
         <!--Detail View Controller-->
         <scene sceneID="RAH-Fo-Lb8">
             <objects>
@@ -142,24 +219,65 @@
                     <view key="view" contentMode="scaleToFill" id="IAZ-ol-Aje">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tA0-xC-WeH">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmi-1j-vbB">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhe-j4-1Ju">
+                                        <rect key="frame" x="0.0" y="21" width="600" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zoc-ST-9aJ">
+                                        <rect key="frame" x="0.0" y="41" width="600" height="446"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="g5E-Sk-iPs" firstAttribute="top" secondItem="tA0-xC-WeH" secondAttribute="bottom" id="1VN-ve-bYr"/>
+                            <constraint firstItem="tA0-xC-WeH" firstAttribute="leading" secondItem="IAZ-ol-Aje" secondAttribute="leading" id="FfN-N5-vD8"/>
+                            <constraint firstAttribute="trailing" secondItem="tA0-xC-WeH" secondAttribute="trailing" id="PVh-tz-Xrk"/>
+                            <constraint firstItem="tA0-xC-WeH" firstAttribute="top" secondItem="nzG-fc-Ckg" secondAttribute="bottom" id="Vue-Ub-m6F"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="d5G-Iy-7oS">
-                        <barButtonItem key="rightBarButtonItem" image="folder1.png" id="IRW-1R-aHf">
-                            <connections>
-                                <action selector="addToFolder:" destination="p3s-ku-HH9" id="ApE-5d-30a"/>
-                                <segue destination="glM-30-Jo7" kind="popoverPresentation" popoverAnchorBarButtonItem="IRW-1R-aHf" id="agI-yZ-9m8">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="folder1.png" id="IRW-1R-aHf">
+                                <connections>
+                                    <action selector="addToFolder:" destination="p3s-ku-HH9" id="ApE-5d-30a"/>
+                                    <segue destination="bRK-vm-7RD" kind="showDetail" id="7CP-in-jK4"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="Kkq-YJ-Afj">
+                                <connections>
+                                    <segue destination="Lsm-DS-gEq" kind="showDetail" id="dFv-Wu-mHG"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chartView" destination="zoc-ST-9aJ" id="iCW-1N-Q10"/>
+                        <outlet property="totalLabel" destination="xhe-j4-1Ju" id="huE-Yu-e90"/>
+                        <outlet property="weeklyTotalLabel" destination="qmi-1j-vbB" id="eFR-rM-wx4"/>
+                        <outletCollection property="totalLabel" destination="xhe-j4-1Ju" collectionClass="NSMutableArray" id="65U-UC-wME"/>
+                        <outletCollection property="weeklyTotalLabel" destination="qmi-1j-vbB" id="5CK-ym-2YU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GbR-Qx-o6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="701" y="2229"/>
         </scene>
-        <!--Folder Pop Over View Controller-->
+        <!--Move Item-->
         <scene sceneID="gKc-Sq-aNH">
             <objects>
                 <tableViewController id="glM-30-Jo7" customClass="FolderPopOverViewController" customModule="PracticeTime" customModuleProvider="target" sceneMemberID="viewController">
@@ -167,22 +285,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="GzL-Ur-Cqf">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <items>
-                                <navigationItem title="Move Item" id="UIB-fC-1Jn">
-                                    <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="jQv-ks-M8b">
-                                        <connections>
-                                            <action selector="cancel:" destination="glM-30-Jo7" id="e6O-dd-7JY"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </navigationItem>
-                            </items>
-                        </navigationBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="SlP-sh-DOx">
-                                <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SlP-sh-DOx" id="zJc-rO-YmY">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -195,10 +300,17 @@
                             <outlet property="delegate" destination="glM-30-Jo7" id="yOS-zq-vNE"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Move Item" id="aYv-vg-S37">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="jQv-ks-M8b">
+                            <connections>
+                                <action selector="cancel:" destination="glM-30-Jo7" id="e6O-dd-7JY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0lC-oL-64c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1444" y="2229"/>
+            <point key="canvasLocation" x="2196" y="2229"/>
         </scene>
         <!--Folder Detail View Controller-->
         <scene sceneID="Zy4-vh-waS">
@@ -248,7 +360,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="BzD-G0-oxD" kind="relationship" relationship="viewControllers" id="Uu2-FX-Xhg"/>
+                        <segue destination="7Cj-Si-8b3" kind="relationship" relationship="viewControllers" id="tIq-G8-vTc"/>
                         <segue destination="SjS-PL-gxo" kind="relationship" relationship="viewControllers" id="lDX-fp-7an"/>
                         <segue destination="dmZ-9a-lcy" kind="relationship" relationship="viewControllers" id="t9L-9e-F91"/>
                     </connections>
@@ -275,6 +387,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i93-EW-2hq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-777" y="3008"/>
+        </scene>
+        <!--Totals-->
+        <scene sceneID="VrS-9E-61d">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Cj-Si-8b3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Totals" image="chart1.png" id="Ecu-63-CSU"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yln-1C-1Hu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BzD-G0-oxD" kind="relationship" relationship="rootViewController" id="OYE-fY-MWJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mif-3g-0t4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1505" y="3008"/>
+        </scene>
+        <!--Add Time-->
+        <scene sceneID="hGY-ih-9f8">
+            <objects>
+                <navigationController title="Add Time" automaticallyAdjustsScrollViewInsets="NO" id="Lsm-DS-gEq" userLabel="Add Time" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Pieces" image="list1.png" id="1wi-nP-Seq" userLabel="Add Time"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nJG-dl-I9w">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HdV-zI-uxO" kind="relationship" relationship="rootViewController" id="oV1-m5-3iS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bcA-Yq-bO9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="701" y="1464"/>
+        </scene>
+        <!--Folder PopOver-->
+        <scene sceneID="i4F-zP-6g8">
+            <objects>
+                <navigationController title="Folder PopOver" automaticallyAdjustsScrollViewInsets="NO" id="bRK-vm-7RD" userLabel="Folder PopOver" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Pieces" image="list1.png" id="rTn-Pt-hto"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lRy-pH-L9w">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="glM-30-Jo7" kind="relationship" relationship="rootViewController" id="xqh-Gh-xn8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vnw-Yt-4Os" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1444" y="2229"/>
         </scene>
     </scenes>
     <resources>

@@ -11,7 +11,6 @@ import CoreData
 
 @objc(FolderPageViewController) class FolderPageViewController: UITableViewController {
     
-    let fetchRequest = NSFetchRequest(entityName: "Folder")
     let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
     override func viewDidLoad() {
@@ -43,7 +42,7 @@ import CoreData
                                        handler: { (action:UIAlertAction) -> Void in
                                         
                                         let textField = alert.textFields!.first
-                                        self.saveName(textField!.text!)
+                                        self.saveFolder(textField!.text!)
                                         self.tableView.reloadData()
         })
         
@@ -63,7 +62,7 @@ import CoreData
                               completion: nil)
     }
     
-    func saveName(input: String) {
+    func saveFolder(input: String) {
         
         let entity =  NSEntityDescription.entityForName("Folder",
                                                         inManagedObjectContext:
@@ -79,7 +78,7 @@ import CoreData
             try managedContext?.save()
         } catch _ {
         }
-        DataStore.sharedInstance.folderObjects.append(folder)
+        DataStore.sharedInstance.addFolder(folder)
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -125,16 +124,23 @@ import CoreData
     }
     
     func fetch() {
+        let folderFetchRequest = NSFetchRequest(entityName: "Folder")
+        let itemFetchRequest = NSFetchRequest(entityName: "Item")
+
         // Create a sort descriptor object that sorts on the "name"
         // property of the Core Data object
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         
         // Set the list of sort descriptors in the fetch request,
         // so it includes the sort descriptor
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        
-        if let fetchResults = (try? managedContext!.executeFetchRequest(fetchRequest)) as? [Folder] {
-            DataStore.sharedInstance.folderObjects = fetchResults
+        folderFetchRequest.sortDescriptors = [sortDescriptor]
+        itemFetchRequest.sortDescriptors = [sortDescriptor]
+                
+        if let folderFetchResults = (try? managedContext!.executeFetchRequest(folderFetchRequest)) as? [Folder] {
+            DataStore.sharedInstance.folderObjects = folderFetchResults
+        }
+        if let itemFetchResults = (try? managedContext!.executeFetchRequest(itemFetchRequest)) as? [Item] {
+            DataStore.sharedInstance.itemObjects = itemFetchResults
         }
     }
     
@@ -147,16 +153,17 @@ import CoreData
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        let fetchRequest = NSFetchRequest(entityName:"Folder")
-        
-        let fetchedResults =
-            (try? managedContext?.executeFetchRequest(fetchRequest)) as? [Folder]
-        
-        if let results = fetchedResults {
-            DataStore.sharedInstance.folderObjects = results
-        } else {
-            print("Could not fetch")// \(error), \(error!.userInfo)")
-        }
+//        let folderFetchRequest = NSFetchRequest(entityName:"Folder")
+//        
+//        let fetchedResults =
+//            (try? managedContext?.executeFetchRequest(folderFetchRequest)) as? [Folder]
+//        
+//        if let results = fetchedResults {
+//            DataStore.sharedInstance.folderObjects = results
+//        } else {
+//            print("Could not fetch")// \(error), \(error!.userInfo)")
+//        }
+        self.fetch()
         self.tableView.reloadData()
     }
 }

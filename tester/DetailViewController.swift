@@ -12,6 +12,11 @@ class DetailViewController: UIViewController {
     
     let item = DataStore.sharedInstance.getItem(DataStore.sharedInstance.currentItem!)
     
+
+    @IBOutlet var weeklyTotalLabel: UILabel!
+    @IBOutlet var totalLabel: UILabel!
+    @IBOutlet weak var chartView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir-Medium", size:23.0)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
@@ -23,6 +28,9 @@ class DetailViewController: UIViewController {
         let instance = DataStore.sharedInstance
         let item     = instance.getItem(instance.currentItem!) as! Item
         self.navigationItem.title = item.name
+        
+        weeklyTotalLabel.text = "Weekly Total: \(item.getWeekTotal())"
+        totalLabel.text = "Total: \(item.getTotalTime())"
     }
     
     func uicolorFromHex(rgbValue:UInt32)->UIColor{
@@ -33,7 +41,5 @@ class DetailViewController: UIViewController {
         return UIColor(red:red, green:green, blue:blue, alpha:1.0)
     }
     
-    @IBAction func addToFolder(sender: AnyObject) {
-        
-    }
+    
 }

@@ -34,6 +34,14 @@ class DataStore {
     
     var currentFolder: Int?
     
+    func addItem(item: NSManagedObject) {
+        itemObjects.append(item)
+    }
+    
+    func addFolder(folder: NSManagedObject) {
+        folderObjects.append(folder)
+    }
+    
     func getItem(index: Int) -> NSManagedObject {
         return itemObjects[index]
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD668CAB1D503EF200493011 /* AddTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD668CAA1D503EF200493011 /* AddTimeViewController.swift */; };
 		BD6862F21A41516E00B08E61 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF377A91A413CCD007FC9BA /* Item.swift */; };
 		BD6862F31A41523400B08E61 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BDF377A61A413BFD007FC9BA /* Model.xcdatamodeld */; };
 		BD833B4C1D4C6EAD0034B233 /* chart1.png in Resources */ = {isa = PBXBuildFile; fileRef = BD833B481D4C6EAD0034B233 /* chart1.png */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BD668CAA1D503EF200493011 /* AddTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTimeViewController.swift; sourceTree = "<group>"; };
 		BD833B481D4C6EAD0034B233 /* chart1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chart1.png; sourceTree = "<group>"; };
 		BD833B491D4C6EAD0034B233 /* folder1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder1.png; sourceTree = "<group>"; };
 		BD833B4A1D4C6EAD0034B233 /* gear1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear1.png; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				BDF377751A41350A007FC9BA /* AppDelegate.swift */,
 				BDF377771A41350A007FC9BA /* PracticeTimeTableViewController.swift */,
 				BDE711341AB55B5F0075A0F9 /* FolderPageViewController.swift */,
+				BD668CAA1D503EF200493011 /* AddTimeViewController.swift */,
 				BD833B541D4F1A360034B233 /* FolderDetailViewController.swift */,
 				BD833B581D4F254A0034B233 /* FolderPopOverViewController.swift */,
 				BDF3779B1A41368B007FC9BA /* DetailPageViewController.swift */,
@@ -255,6 +258,7 @@
 			files = (
 				BD833B511D4F11200034B233 /* DetailViewController.swift in Sources */,
 				BD833B591D4F254A0034B233 /* FolderPopOverViewController.swift in Sources */,
+				BD668CAB1D503EF200493011 /* AddTimeViewController.swift in Sources */,
 				BD833B531D4F14D50034B233 /* Folder.swift in Sources */,
 				BD6862F31A41523400B08E61 /* Model.xcdatamodeld in Sources */,
 				BDE711351AB55B5F0075A0F9 /* FolderPageViewController.swift in Sources */,
