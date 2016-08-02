@@ -252,7 +252,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="d5G-Iy-7oS">
                         <rightBarButtonItems>
-                            <barButtonItem image="folder1.png" id="IRW-1R-aHf">
+                            <barButtonItem image="folder2.png" id="IRW-1R-aHf">
                                 <connections>
                                     <action selector="addToFolder:" destination="p3s-ku-HH9" id="ApE-5d-30a"/>
                                     <segue destination="bRK-vm-7RD" kind="showDetail" id="7CP-in-jK4"/>
@@ -447,9 +447,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chart1.png" width="30" height="30"/>
-        <image name="folder1.png" width="30" height="30"/>
-        <image name="list1.png" width="30" height="30"/>
+        <image name="chart1.png" width="25" height="25"/>
+        <image name="folder1.png" width="25" height="25"/>
+        <image name="folder2.png" width="20" height="20"/>
+        <image name="list1.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="GRE-Ne-xIE"/>

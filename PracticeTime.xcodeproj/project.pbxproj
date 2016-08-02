@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BD668CAB1D503EF200493011 /* AddTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD668CAA1D503EF200493011 /* AddTimeViewController.swift */; };
+		BD668CAD1D50764500493011 /* folder2.png in Resources */ = {isa = PBXBuildFile; fileRef = BD668CAC1D50764500493011 /* folder2.png */; };
 		BD6862F21A41516E00B08E61 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF377A91A413CCD007FC9BA /* Item.swift */; };
 		BD6862F31A41523400B08E61 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BDF377A61A413BFD007FC9BA /* Model.xcdatamodeld */; };
 		BD833B4C1D4C6EAD0034B233 /* chart1.png in Resources */ = {isa = PBXBuildFile; fileRef = BD833B481D4C6EAD0034B233 /* chart1.png */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		BD668CAA1D503EF200493011 /* AddTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTimeViewController.swift; sourceTree = "<group>"; };
+		BD668CAC1D50764500493011 /* folder2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder2.png; sourceTree = "<group>"; };
 		BD833B481D4C6EAD0034B233 /* chart1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chart1.png; sourceTree = "<group>"; };
 		BD833B491D4C6EAD0034B233 /* folder1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder1.png; sourceTree = "<group>"; };
 		BD833B4A1D4C6EAD0034B233 /* gear1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear1.png; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				BDF3777C1A41350A007FC9BA /* Images.xcassets */,
 				BD833B481D4C6EAD0034B233 /* chart1.png */,
 				BD833B491D4C6EAD0034B233 /* folder1.png */,
+				BD668CAC1D50764500493011 /* folder2.png */,
 				BD833B4A1D4C6EAD0034B233 /* gear1.png */,
 				BD833B4B1D4C6EAD0034B233 /* list1.png */,
 			);
@@ -236,6 +239,7 @@
 				BD833B4C1D4C6EAD0034B233 /* chart1.png in Resources */,
 				BDF3777B1A41350A007FC9BA /* Main.storyboard in Resources */,
 				BD833B4D1D4C6EAD0034B233 /* folder1.png in Resources */,
+				BD668CAD1D50764500493011 /* folder2.png in Resources */,
 				BDF377801A41350A007FC9BA /* LaunchScreen.xib in Resources */,
 				BD833B4E1D4C6EAD0034B233 /* gear1.png in Resources */,
 				BDF3777D1A41350A007FC9BA /* Images.xcassets in Resources */,
