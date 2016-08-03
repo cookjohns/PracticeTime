@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BD49507A1D51C16B00902AA3 /* Charts in Resources */ = {isa = PBXBuildFile; fileRef = BD4950791D51C16B00902AA3 /* Charts */; };
+		BD49507C1D51C37400902AA3 /* FolderPopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD49507B1D51C37400902AA3 /* FolderPopOverViewController.swift */; };
 		BD668CAB1D503EF200493011 /* AddTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD668CAA1D503EF200493011 /* AddTimeViewController.swift */; };
 		BD668CAD1D50764500493011 /* folder2.png in Resources */ = {isa = PBXBuildFile; fileRef = BD668CAC1D50764500493011 /* folder2.png */; };
 		BD668CAF1D511A0900493011 /* WeekdayStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD668CAE1D511A0900493011 /* WeekdayStartView.swift */; };
@@ -20,7 +21,6 @@
 		BD833B511D4F11200034B233 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD833B501D4F11200034B233 /* DetailViewController.swift */; };
 		BD833B531D4F14D50034B233 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD833B521D4F14D50034B233 /* Folder.swift */; };
 		BD833B551D4F1A360034B233 /* FolderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD833B541D4F1A360034B233 /* FolderDetailViewController.swift */; };
-		BD833B591D4F254A0034B233 /* FolderPopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD833B581D4F254A0034B233 /* FolderPopOverViewController.swift */; };
 		BDE711351AB55B5F0075A0F9 /* FolderPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE711341AB55B5F0075A0F9 /* FolderPageViewController.swift */; };
 		BDE711371AB55E260075A0F9 /* TotalsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE711361AB55E260075A0F9 /* TotalsPageViewController.swift */; };
 		BDF377761A41350A007FC9BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF377751A41350A007FC9BA /* AppDelegate.swift */; };
@@ -34,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		BD4950791D51C16B00902AA3 /* Charts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Charts; sourceTree = "<group>"; };
+		BD49507B1D51C37400902AA3 /* FolderPopOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderPopOverViewController.swift; sourceTree = "<group>"; };
 		BD668CAA1D503EF200493011 /* AddTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTimeViewController.swift; sourceTree = "<group>"; };
 		BD668CAC1D50764500493011 /* folder2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder2.png; sourceTree = "<group>"; };
 		BD668CAE1D511A0900493011 /* WeekdayStartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekdayStartView.swift; sourceTree = "<group>"; };
@@ -44,7 +45,6 @@
 		BD833B501D4F11200034B233 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BD833B521D4F14D50034B233 /* Folder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
 		BD833B541D4F1A360034B233 /* FolderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderDetailViewController.swift; sourceTree = "<group>"; };
-		BD833B581D4F254A0034B233 /* FolderPopOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FolderPopOverViewController.swift; path = ../FolderPopOverViewController.swift; sourceTree = "<group>"; };
 		BDE711341AB55B5F0075A0F9 /* FolderPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderPageViewController.swift; sourceTree = "<group>"; };
 		BDE711361AB55E260075A0F9 /* TotalsPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalsPageViewController.swift; sourceTree = "<group>"; };
 		BDF377701A41350A007FC9BA /* PracticeTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,7 +97,7 @@
 				BDE711341AB55B5F0075A0F9 /* FolderPageViewController.swift */,
 				BD668CAA1D503EF200493011 /* AddTimeViewController.swift */,
 				BD833B541D4F1A360034B233 /* FolderDetailViewController.swift */,
-				BD833B581D4F254A0034B233 /* FolderPopOverViewController.swift */,
+				BD49507B1D51C37400902AA3 /* FolderPopOverViewController.swift */,
 				BDF3779B1A41368B007FC9BA /* DetailPageViewController.swift */,
 				BD833B501D4F11200034B233 /* DetailViewController.swift */,
 				BD668CAE1D511A0900493011 /* WeekdayStartView.swift */,
@@ -219,9 +219,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD49507C1D51C37400902AA3 /* FolderPopOverViewController.swift in Sources */,
 				BD668CAF1D511A0900493011 /* WeekdayStartView.swift in Sources */,
 				BD833B511D4F11200034B233 /* DetailViewController.swift in Sources */,
-				BD833B591D4F254A0034B233 /* FolderPopOverViewController.swift in Sources */,
 				BD668CAB1D503EF200493011 /* AddTimeViewController.swift in Sources */,
 				BD833B531D4F14D50034B233 /* Folder.swift in Sources */,
 				BD6862F31A41523400B08E61 /* Model.xcdatamodeld in Sources */,
