@@ -48,10 +48,11 @@ class DetailViewController: UIViewController {
         lineChartView.leftAxis.drawGridLinesEnabled = false
         lineChartView.xAxis.drawGridLinesEnabled = false
         lineChartView.xAxis.labelPosition = .Bottom
-        lineChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        lineChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+        
     }
     
-    func uicolorFromHex(rgbValue:UInt32)->UIColor{
+    func uicolorFromHex(rgbValue:UInt32) -> UIColor{
         let red   = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
         let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
         let blue  = CGFloat(rgbValue & 0xFF)/256.0
@@ -104,5 +105,7 @@ class DetailViewController: UIViewController {
         
         // remove "Description" label from chart
         lineChartView.descriptionText = ""
+        
+        lineChartDataSet.colors = [uicolorFromHex(0x2ecc71)]
     }
 }
