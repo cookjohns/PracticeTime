@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Charts
 
 class DetailViewController: UIViewController {
     
@@ -17,6 +18,7 @@ class DetailViewController: UIViewController {
     @IBOutlet var totalLabel: UILabel!
     @IBOutlet weak var chartView: UIView!
     @IBOutlet weak var weekdayButton: UIButton!
+    @IBOutlet weak var lineChartView: LineChartView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

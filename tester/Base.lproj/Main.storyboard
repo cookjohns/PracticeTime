@@ -310,6 +310,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="chartView" destination="zoc-ST-9aJ" id="iCW-1N-Q10"/>
+                        <outlet property="lineChartView" destination="MKn-c4-vR9" id="PmU-E0-dRX"/>
                         <outlet property="totalLabel" destination="xhe-j4-1Ju" id="huE-Yu-e90"/>
                         <outlet property="weekdayButton" destination="HeR-7n-D7S" id="F3j-Xu-WZc"/>
                         <outlet property="weeklyTotalLabel" destination="qmi-1j-vbB" id="eFR-rM-wx4"/>
