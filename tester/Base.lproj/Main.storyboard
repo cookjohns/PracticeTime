@@ -263,10 +263,21 @@
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.92549019607843142" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MKn-c4-vR9" customClass="LineChartView">
+                                                <rect key="frame" x="0.0" y="238" width="600" height="249"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="MKn-c4-vR9" secondAttribute="trailing" id="Cyt-ZJ-70L"/>
                                             <constraint firstItem="xyX-YJ-qe3" firstAttribute="top" secondItem="fWZ-X7-dFx" secondAttribute="bottom" constant="41" id="L7n-Jm-xbe"/>
+                                            <constraint firstAttribute="trailing" secondItem="MKn-c4-vR9" secondAttribute="trailing" id="YT0-Kk-aUW"/>
+                                            <constraint firstAttribute="bottom" secondItem="MKn-c4-vR9" secondAttribute="bottom" id="avf-Eo-Jmu"/>
+                                            <constraint firstItem="MKn-c4-vR9" firstAttribute="leading" secondItem="zoc-ST-9aJ" secondAttribute="leading" id="czG-1P-ook"/>
+                                            <constraint firstAttribute="bottom" secondItem="MKn-c4-vR9" secondAttribute="bottom" id="iIA-EN-vQw"/>
+                                            <constraint firstItem="MKn-c4-vR9" firstAttribute="leading" secondItem="zoc-ST-9aJ" secondAttribute="leading" id="jc6-Nw-ENg"/>
+                                            <constraint firstItem="MKn-c4-vR9" firstAttribute="top" secondItem="xyX-YJ-qe3" secondAttribute="bottom" constant="39" id="u20-6v-ROj"/>
                                         </constraints>
                                     </view>
                                 </subviews>

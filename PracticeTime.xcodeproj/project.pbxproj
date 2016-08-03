@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD49507A1D51C16B00902AA3 /* Charts in Resources */ = {isa = PBXBuildFile; fileRef = BD4950791D51C16B00902AA3 /* Charts */; };
 		BD668CAB1D503EF200493011 /* AddTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD668CAA1D503EF200493011 /* AddTimeViewController.swift */; };
 		BD668CAD1D50764500493011 /* folder2.png in Resources */ = {isa = PBXBuildFile; fileRef = BD668CAC1D50764500493011 /* folder2.png */; };
 		BD668CAF1D511A0900493011 /* WeekdayStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD668CAE1D511A0900493011 /* WeekdayStartView.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD4950791D51C16B00902AA3 /* Charts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Charts; sourceTree = "<group>"; };
 		BD668CAA1D503EF200493011 /* AddTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTimeViewController.swift; sourceTree = "<group>"; };
 		BD668CAC1D50764500493011 /* folder2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder2.png; sourceTree = "<group>"; };
 		BD668CAE1D511A0900493011 /* WeekdayStartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekdayStartView.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				BDF377721A41350A007FC9BA /* tester */,
 				BDF377881A41350A007FC9BA /* testerTests */,
 				BDF377711A41350A007FC9BA /* Products */,
+				BD4950791D51C16B00902AA3 /* Charts */,
 			);
 			sourceTree = "<group>";
 		};
@@ -201,6 +204,7 @@
 				BD833B4C1D4C6EAD0034B233 /* chart1.png in Resources */,
 				BDF3777B1A41350A007FC9BA /* Main.storyboard in Resources */,
 				BD833B4D1D4C6EAD0034B233 /* folder1.png in Resources */,
+				BD49507A1D51C16B00902AA3 /* Charts in Resources */,
 				BD668CAD1D50764500493011 /* folder2.png in Resources */,
 				BDF377801A41350A007FC9BA /* LaunchScreen.xib in Resources */,
 				BD833B4E1D4C6EAD0034B233 /* gear1.png in Resources */,
