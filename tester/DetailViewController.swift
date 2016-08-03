@@ -40,6 +40,15 @@ class DetailViewController: UIViewController {
         totalLabel.textColor = uicolorFromHex(0x2ecc71)
         totalLabel.font = UIFont(name: "Avenir-Medium", size: 19)
         
+        // set up chart
+        let days = ["Sat","Sun","Mon","Tues","Wed","Thurs","Fri"]
+        let tempTimeData = [1.5, 2.75, 0.5, 1.75, 4.5, 3.0, 2.75]
+        setChart(days, values: tempTimeData)
+        lineChartView.legend.enabled = false
+        lineChartView.leftAxis.drawGridLinesEnabled = false
+        lineChartView.xAxis.drawGridLinesEnabled = false
+        lineChartView.xAxis.labelPosition = .Bottom
+        lineChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
     }
     
     func uicolorFromHex(rgbValue:UInt32)->UIColor{
@@ -77,5 +86,23 @@ class DetailViewController: UIViewController {
         default:
             return "------"
         }
+    }
+    
+    func setChart(dataPoints:[String], values: [Double]) {
+        // add dataPoints to chart's dataPoints array
+        var dataEntries: [ChartDataEntry] = []
+        
+        for i in 0..<dataPoints.count {
+            let dataEntry = BarChartDataEntry(value: values[i], xIndex: i)
+            dataEntries.append(dataEntry)
+        }
+        
+        // set up line chart data
+        let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "")
+        let lineChartData    = LineChartData(xVals: ["Sat","Sun","Mon","Tues","Wed","Thurs","Fri"], dataSet: lineChartDataSet)
+        lineChartView.data = lineChartData
+        
+        // remove "Description" label from chart
+        lineChartView.descriptionText = ""
     }
 }
