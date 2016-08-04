@@ -16,9 +16,14 @@ class DetailViewController: UIViewController {
 
     @IBOutlet var weeklyTotalLabel: UILabel!
     @IBOutlet var totalLabel: UILabel!
+    @IBOutlet weak var goalLabel: UILabel!
+
     @IBOutlet weak var chartView: UIView!
     @IBOutlet weak var weekdayButton: UIButton!
     @IBOutlet weak var lineChartView: LineChartView!
+    @IBOutlet weak var barChartView:  HorizontalBarChartView!
+    
+    var GOAL = 20.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +39,14 @@ class DetailViewController: UIViewController {
         
         weeklyTotalLabel.text = "   This Week: \(item.getWeekTotal()) (since \(startingDayToString()))"
         totalLabel.text = "   Total: \(item.getTotalTime())"
+        goalLabel.text = "   Percent to weekly goal:"
         
         weeklyTotalLabel.textColor = uicolorFromHex(0x2ecc71)
         weeklyTotalLabel.font = UIFont(name: "Avenir-Medium", size: 19)
         totalLabel.textColor = uicolorFromHex(0x2ecc71)
         totalLabel.font = UIFont(name: "Avenir-Medium", size: 19)
+        goalLabel.textColor = uicolorFromHex(0x2ecc71)
+        goalLabel.font = UIFont(name: "Avenir-Medium", size: 19)
         
         // set up chart
         let days = ["Sat","Sun","Mon","Tues","Wed","Thurs","Fri"]
@@ -46,10 +54,34 @@ class DetailViewController: UIViewController {
         setChart(days, values: tempTimeData)
         lineChartView.legend.enabled = false
         lineChartView.leftAxis.drawGridLinesEnabled = false
+        lineChartView.rightAxis.drawGridLinesEnabled = false
+        lineChartView.xAxis.drawAxisLineEnabled = false
+        lineChartView.leftAxis.drawAxisLineEnabled = false
+        lineChartView.rightAxis.drawAxisLineEnabled = false
+        lineChartView.leftAxis.labelFont = UIFont(name: "Avenir-Medium", size: 12)!
+        lineChartView.leftAxis.labelTextColor = uicolorFromHex(0x2ecc71)
         lineChartView.xAxis.drawGridLinesEnabled = false
         lineChartView.xAxis.labelPosition = .Bottom
         lineChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+        lineChartView.rightAxis.drawLabelsEnabled = false
+        lineChartView.xAxis.labelFont = UIFont(name: "Avenir-Medium", size: 12)!
+        lineChartView.xAxis.labelTextColor = uicolorFromHex(0x2ecc71)
+        lineChartView.minOffset = CGFloat(20.0)
         
+        let percentMarkers = [""]
+        var percentToGoal  = Double(Double(item.getWeekTotal()) / GOAL) * 100
+        setBarChart(percentMarkers, values: [percentToGoal])
+        barChartView.legend.enabled = false
+        barChartView.xAxis.drawGridLinesEnabled = false
+        barChartView.leftAxis.drawGridLinesEnabled = false
+        barChartView.rightAxis.drawGridLinesEnabled = false
+        barChartView.rightAxis.drawLabelsEnabled = false
+        barChartView.leftAxis.drawLabelsEnabled = false
+        barChartView.leftAxis.axisMinValue = 0.0
+        barChartView.leftAxis.axisMaxValue = 100.0
+        barChartView.drawMarkers = false
+        barChartView.drawBordersEnabled = true
+        barChartView.borderColor = uicolorFromHex(0x2ecc71)
     }
     
     func uicolorFromHex(rgbValue:UInt32) -> UIColor{
@@ -100,12 +132,40 @@ class DetailViewController: UIViewController {
         
         // set up line chart data
         let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "")
-        let lineChartData    = LineChartData(xVals: ["Sat","Sun","Mon","Tues","Wed","Thurs","Fri"], dataSet: lineChartDataSet)
+        let lineChartData    = LineChartData(xVals: ["S","S","M","T","W","Th","F"], dataSet: lineChartDataSet)
         lineChartView.data = lineChartData
+        
+        // set circle on data points and set line thickness
+        lineChartDataSet.circleRadius = CGFloat(4)
+        lineChartDataSet.circleColors = [uicolorFromHex(0x2ecc71)]
+        lineChartDataSet.drawCircleHoleEnabled = false
+        lineChartDataSet.lineWidth = 3
+        lineChartDataSet.drawValuesEnabled = false
         
         // remove "Description" label from chart
         lineChartView.descriptionText = ""
         
         lineChartDataSet.colors = [uicolorFromHex(0x2ecc71)]
+    }
+    
+    func setBarChart(dataPoints:[String], values: [Double]) {
+        // add dataPoints to chart's dataPoints array
+        var barDataEntries: [ChartDataEntry] = []
+        
+        for i in 0..<dataPoints.count {
+            let barDataEntry = BarChartDataEntry(value: values[i], xIndex: i)
+            barDataEntries.append(barDataEntry)
+        }
+        
+        // set up line chart data
+        let barChartDataSet = BarChartDataSet(yVals: barDataEntries, label: "")
+        let barChartData    = BarChartData(xVals: [""], dataSet: barChartDataSet)
+        barChartView.data = barChartData
+        
+        // remove "Description" label from chart
+        barChartView.descriptionText = ""
+        
+        barChartDataSet.colors = [uicolorFromHex(0x2ecc71)]
+        barChartDataSet.drawValuesEnabled = false
     }
 }
