@@ -29,7 +29,7 @@ class DetailPageViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var ChartLabel:     UILabel!
     @IBOutlet weak var CircleLabel:    UILabel!
     
-    let piece = DataStore.sharedInstance.itemObjects[DataStore.sharedInstance.currentItem!]
+    let piece = DataStore.sharedInstance.itemObjects[DataStore.sharedInstance.info.currentItem]
     let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var didStop: Bool?
     
@@ -176,11 +176,11 @@ class DetailPageViewController: UIViewController, UIScrollViewDelegate {
         }
         
         // print portion of total practice time
-        var appTime = DataStore.sharedInstance.totalTimeInDict
-        if (appTime == nil) {
-            appTime = 0
-        }
-        let perc: Double   = Double(totalTime) / Double(appTime!)
+        var appTime = DataStore.sharedInstance.info.totalTimeInDict
+//        if (appTime == nil) {
+//            appTime = 0
+//        }
+        let perc: Double   = Double(totalTime) / Double(appTime)
         var percentOfTotal = 100 * (perc)
         if (appTime == 0) {
             percentOfTotal = 0

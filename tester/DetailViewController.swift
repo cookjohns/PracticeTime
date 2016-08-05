@@ -9,9 +9,10 @@
 import UIKit
 import Charts
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, ModalTransitionListener {
     
-    let item = DataStore.sharedInstance.getItem(DataStore.sharedInstance.currentItem!) as! Item
+    let info = DataStore.sharedInstance.info! as Info
+//    let item: Item?
     
 
     @IBOutlet var weeklyTotalLabel: UILabel!
@@ -27,14 +28,20 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        item = DataStore.sharedInstance.getItem(info.currentItem) as! Item
+        
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir-Medium", size:23.0)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController?.navigationBar.barStyle = UIBarStyle.BlackTranslucent
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(0x2ecc71)
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
+        // listener for resetting view
+        ModalTransitionMediator.instance.setListener(self)
+        
         // set title
         let instance = DataStore.sharedInstance
-        let item     = instance.getItem(instance.currentItem!) as! Item
+        let item     = instance.getItem(info.currentItem) as! Item
         self.navigationItem.title = item.name
         
         weeklyTotalLabel.text = "   This Week: \(item.getWeekTotal()) hours (since \(startingDayToString()))"
@@ -92,7 +99,7 @@ class DetailViewController: UIViewController {
     }
     
     func startingDayToString() -> String {
-        let dayInt = DataStore.sharedInstance.getStartingDay()
+        let dayInt = info.getStartingDay()
         switch (dayInt) {
         case 0:
             return "Saturday"
@@ -116,7 +123,7 @@ class DetailViewController: UIViewController {
     func getDayLabels() -> [String] {
         var result = ["","","","","","",""]
         let days = ["S","S","M","T","W","Th","F"]
-        var dayInt = DataStore.sharedInstance.getStartingDay()
+        var dayInt = info.getStartingDay()
         for i in 0...6 {
             result[i] = days[dayInt % 7]
             dayInt += 1
@@ -126,8 +133,9 @@ class DetailViewController: UIViewController {
     
     func getWeekToDateTimes() -> [Double] {
         var result = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        let item   = DataStore.sharedInstance.getItem(info.currentItem) as! Item
         
-        let dayInt = DataStore.sharedInstance.getStartingDay()
+        let dayInt = info.getStartingDay()
         let temp = NSDate().dayOfWeek()! - dayInt
         var daysInPast = temp >= 0 ? temp : dayInt + abs(temp)
         
@@ -215,6 +223,15 @@ class DetailViewController: UIViewController {
         
         barChartDataSet.colors = [uicolorFromHex(0x2ecc71)]
         barChartDataSet.drawValuesEnabled = false
+    }
+    
+    // MARK: - ModalTransitionListener
+    
+    func popoverDismissed() {
+        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+        //        yourTableViev.reloadData() (if you use tableview)
+        let item   = DataStore.sharedInstance.getItem(info.currentItem) as! Item
+        weeklyTotalLabel.text = "   This Week: \(item.getWeekTotal()) hours (since \(startingDayToString()))"
     }
 }
 extension NSDate {

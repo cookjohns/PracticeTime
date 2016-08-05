@@ -11,6 +11,7 @@ import UIKit
 class AddTimeViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    let info = DataStore.sharedInstance.info! as Info
     
     let pickerData = [
         ["0 hours","1 hour","2 hours","3 hours","4 hours"],
@@ -98,7 +99,7 @@ class AddTimeViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         }
         
         // save time
-        let item = DataStore.sharedInstance.getItem(DataStore.sharedInstance.currentItem!) as! Item
+        let item = DataStore.sharedInstance.getItem(info.currentItem) as! Item
         item.addTime(hours, date: datePicker.date)
         
         do {

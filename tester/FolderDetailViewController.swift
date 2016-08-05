@@ -13,8 +13,9 @@ import CoreData
     
     let folderFetchRequest = NSFetchRequest(entityName: "Folder")
     let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    let info = DataStore.sharedInstance.info! as Info
     
-    let folder = DataStore.sharedInstance.getFolder(DataStore.sharedInstance.currentFolder!) as! Folder
+    var folder: Folder?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,8 @@ import CoreData
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
         // set title
-        self.navigationItem.title = folder.name
+        self.navigationItem.title = folder!.name
+        folder = DataStore.sharedInstance.getFolder(info.currentFolder) as! Folder
     }
     
     func uicolorFromHex(rgbValue:UInt32)->UIColor{
@@ -44,13 +46,13 @@ import CoreData
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return folder.items.count
+        return folder!.items.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
-        let item = folder.items[indexPath.row]
+        let item = folder!.items[indexPath.row]
         
         cell.textLabel!.text = item.valueForKey("name") as? String
         cell.textLabel!.font = UIFont(name: "Avenir-Medium", size:20.0)
@@ -82,9 +84,9 @@ import CoreData
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            let itemToDelete = folder.getItem(indexPath.row)
-            folder.deleteItem(itemToDelete)
-            folder.setValue(folder.items, forKey: "items")
+            let itemToDelete = folder!.getItem(indexPath.row)
+            folder!.deleteItem(itemToDelete)
+            folder!.setValue(folder!.items, forKey: "items")
             do {
                 try managedContext?.save()
             } catch _ {

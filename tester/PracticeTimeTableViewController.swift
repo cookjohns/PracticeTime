@@ -170,7 +170,9 @@ import CoreData
             self.fetch()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
-        DataStore.sharedInstance.currentItem = indexPath.row
+//        DataStore.sharedInstance.info.currentItem = indexPath.row
+        let info = DataStore.sharedInstance.info! as Info
+        info.currentItem = indexPath.row
     }
     
     func fetch() {
@@ -189,7 +191,9 @@ import CoreData
     
     // set current item in 'items' when a row on the table is selected
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        DataStore.sharedInstance.currentItem = indexPath.row
+//        DataStore.sharedInstance.info.currentItem = indexPath.row
+        let info = DataStore.sharedInstance.info! as Info
+        info.currentItem = indexPath.row
         setAllTimes()  // load the allTimes dictionary that holds all total times, sets totalTimeInDict to hold sum
         return indexPath
     }
@@ -215,7 +219,9 @@ import CoreData
         for x: NSManagedObject in DataStore.sharedInstance.itemObjects {
             total += x.valueForKey("totalTime") as! Int
         }
-        DataStore.sharedInstance.totalTimeInDict = total
+//        DataStore.sharedInstance.info.totalTimeInDict = total
+        let info = DataStore.sharedInstance.info! as Info
+        info.totalTimeInDict = total
     }
     
     func greenColor() -> CAGradientLayer {

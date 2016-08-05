@@ -11,6 +11,7 @@ import UIKit
 class WeekdayStartView: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    let info = DataStore.sharedInstance.info! as Info
     
     let pickerData = [
         ["Saturday","Sunday","Monday","Tuesday","Wednesday", "Thursday", "Friday"]
@@ -44,6 +45,10 @@ class WeekdayStartView: UIViewController, UIPickerViewDataSource, UIPickerViewDe
         dayPicker.setValue(0.8, forKeyPath: "alpha")
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        ModalTransitionMediator.instance.sendPopoverDismissed(true)
+    }
+    
     func uicolorFromHex(rgbValue:UInt32)->UIColor{
         let red   = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
         let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
@@ -61,12 +66,13 @@ class WeekdayStartView: UIViewController, UIPickerViewDataSource, UIPickerViewDe
         
         // calculate hours from picker
         let day = dayPicker.selectedRowInComponent(daysComponent)
-        DataStore.sharedInstance.setStartingDay(day)
+//        DataStore.sharedInstance.info.changeStartingDay(day)
+        info.changeStartingDay(day)
         
         // save
         do {
             try managedContext?.save()
-        } catch _ {
+        } catch {
         }
         
         self.dismissViewControllerAnimated(true, completion: nil)

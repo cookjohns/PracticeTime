@@ -120,7 +120,9 @@ import CoreData
             self.fetch()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
-        DataStore.sharedInstance.currentItem = indexPath.row
+//        DataStore.sharedInstance.info.currentItem = indexPath.row
+        let info = DataStore.sharedInstance.info! as Info
+        info.currentItem = indexPath.row
     }
     
     func fetch() {
@@ -146,7 +148,9 @@ import CoreData
     
     // set current folder in 'folders' when a row on the table is selected
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        DataStore.sharedInstance.currentFolder = indexPath.row
+//        DataStore.sharedInstance.info.currentFolder = indexPath.row
+        let info = DataStore.sharedInstance.info! as Info
+        info.currentFolder = indexPath.row
         return indexPath
     }
     

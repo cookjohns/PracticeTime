@@ -13,6 +13,7 @@ class FolderPopOverViewController: UITableViewController {
     
     let folderFetchRequest = NSFetchRequest(entityName: "Folder")
     let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    let info = DataStore.sharedInstance.info! as Info
 
     let instance = DataStore.sharedInstance
     
@@ -26,7 +27,7 @@ class FolderPopOverViewController: UITableViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
 
         // test
-        let item = instance.getItem(instance.currentItem!) as! Item
+        let item = instance.getItem(info.currentItem) as! Item
         print("name: \(item.name)")
     }
     
@@ -65,7 +66,7 @@ class FolderPopOverViewController: UITableViewController {
     
     // FIXME: - Item-in-folder PERSISTENCE
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let item = instance.getItem(instance.currentItem!) as! Item
+        let item = instance.getItem(info.currentItem) as! Item
         let folder = instance.getFolder(indexPath.item) as! Folder
         folder.addItem(item)
         folder.setValue(folder.items, forKey: "items")

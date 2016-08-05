@@ -22,19 +22,12 @@ class DataStore {
         return Static.instance!
     }
     
+    var info: Info?
+    
     var itemObjects  = [NSManagedObject]()
     
     var folderObjects = [NSManagedObject]()
     
-    var allTimes: Dictionary<String, NSNumber>!
-    
-    var totalTimeInDict: Int?
-    
-    var currentItem:  Int?
-    
-    var currentFolder: Int?
-    
-    var startingDay: Int = 2 // start on Monday
     
     func addItem(item: NSManagedObject) {
         itemObjects.append(item)
@@ -50,13 +43,5 @@ class DataStore {
     
     func getFolder(index: Int) -> NSManagedObject {
         return folderObjects[index]
-    }
-    
-    func getStartingDay() -> Int {
-        return startingDay
-    }
-    
-    func setStartingDay(input: Int) {
-        startingDay = input
     }
 }
