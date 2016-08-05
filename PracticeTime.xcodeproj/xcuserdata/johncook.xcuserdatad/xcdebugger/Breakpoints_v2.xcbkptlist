@@ -567,27 +567,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tester/DetailViewController.swift"
-            timestampString = "492069796.682427"
+            timestampString = "492110813.161844"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
-            landmarkName = "setChart(_:values:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "tester/DetailViewController.swift"
-            timestampString = "492069796.682427"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
             landmarkName = "setBarChart(_:values:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -615,11 +599,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tester/DetailViewController.swift"
-            timestampString = "492069796.682427"
+            timestampString = "492110813.161844"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "getWeekToDateTimes()"
             landmarkType = "5">
          </BreakpointContent>
@@ -631,11 +615,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tester/DetailViewController.swift"
-            timestampString = "492069796.682427"
+            timestampString = "492110813.161844"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "getDayLabels()"
             landmarkType = "5">
          </BreakpointContent>

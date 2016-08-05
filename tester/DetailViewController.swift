@@ -69,7 +69,6 @@ class DetailViewController: UIViewController {
         lineChartView.pinchZoomEnabled = false
         
         let percentMarkers = [""]
-        let percentToGoal  = Double(Double(item.getWeekTotal()) / GOAL) * 100
         setBarChart(percentMarkers, values: [getWeekToDateTotal()])
         barChartView.legend.enabled = false
         barChartView.xAxis.drawGridLinesEnabled = false
@@ -181,7 +180,6 @@ class DetailViewController: UIViewController {
         
         // set up line chart data
         let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "")
-        let labels = getDayLabels()
         let lineChartData    = LineChartData(xVals: getDayLabels(), dataSet: lineChartDataSet)
         lineChartView.data = lineChartData
         
