@@ -11,7 +11,7 @@ import Charts
 
 class DetailViewController: UIViewController {
     
-    let item = DataStore.sharedInstance.getItem(DataStore.sharedInstance.currentItem!)
+    let item = DataStore.sharedInstance.getItem(DataStore.sharedInstance.currentItem!) as! Item
     
 
     @IBOutlet var weeklyTotalLabel: UILabel!
@@ -37,8 +37,8 @@ class DetailViewController: UIViewController {
         let item     = instance.getItem(instance.currentItem!) as! Item
         self.navigationItem.title = item.name
         
-        weeklyTotalLabel.text = "   This Week: \(item.getWeekTotal()) (since \(startingDayToString()))"
-        totalLabel.text = "   Total: \(item.getTotalTime())"
+        weeklyTotalLabel.text = "   This Week: \(item.getWeekTotal()) hours (since \(startingDayToString()))"
+        totalLabel.text = "   Total: \(item.getTotalTime()) hours"
         goalLabel.text = "   Percent to weekly goal:"
         
         weeklyTotalLabel.textColor = uicolorFromHex(0x2ecc71)
@@ -50,8 +50,7 @@ class DetailViewController: UIViewController {
         
         // set up chart
         let days = ["Sat","Sun","Mon","Tues","Wed","Thurs","Fri"]
-        let tempTimeData = [1.5, 2.75, 0.5, 1.75, 4.5, 3.0, 2.75]
-        setChart(days, values: tempTimeData)
+        setChart(days, values: getWeekToDateTimes())
         lineChartView.legend.enabled = false
         lineChartView.leftAxis.drawGridLinesEnabled = false
         lineChartView.rightAxis.drawGridLinesEnabled = false
@@ -71,7 +70,7 @@ class DetailViewController: UIViewController {
         
         let percentMarkers = [""]
         let percentToGoal  = Double(Double(item.getWeekTotal()) / GOAL) * 100
-        setBarChart(percentMarkers, values: [percentToGoal])
+        setBarChart(percentMarkers, values: [getWeekToDateTotal()])
         barChartView.legend.enabled = false
         barChartView.xAxis.drawGridLinesEnabled = false
         barChartView.leftAxis.drawGridLinesEnabled = false
@@ -98,28 +97,77 @@ class DetailViewController: UIViewController {
         switch (dayInt) {
         case 0:
             return "Saturday"
-            break
         case 1:
             return "Sunday"
-            break
         case 2:
             return "Monday"
-            break
         case 3:
             return "Tuesday"
-            break
         case 4:
             return "Wednesday"
-            break
         case 5:
             return "Thursday"
-            break
         case 6:
             return "Friday"
-            break
         default:
             return "------"
         }
+    }
+    
+    func getDayLabels() -> [String] {
+        var result = ["","","","","","",""]
+        let days = ["S","S","M","T","W","Th","F"]
+        var dayInt = DataStore.sharedInstance.getStartingDay()
+        for i in 0...6 {
+            result[i] = days[dayInt % 7]
+            dayInt += 1
+        }
+        return result
+    }
+    
+    func getWeekToDateTimes() -> [Double] {
+        var result = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        
+        let dayInt = DataStore.sharedInstance.getStartingDay()
+        let temp = NSDate().dayOfWeek()! - dayInt
+        var daysInPast = temp >= 0 ? temp : dayInt + abs(temp)
+        
+        let cal = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        let today = cal.startOfDayForDate(NSDate())
+        
+        for i in 0...dayInt {
+            // get date for key
+            let date = NSCalendar.currentCalendar().dateByAddingUnit(.Day, value: -daysInPast, toDate: today, options: [])!
+            // save to array, if it's not nil (meaning no entry for that date)
+            let key = printDate(date)
+            let dict = item.times as Dictionary<String,Double>
+            if dict[key] != nil {
+                result[i] = dict[key]!
+            }
+            daysInPast -= 1
+        }
+        
+        return result
+    }
+    
+    func getWeekToDateTotal() -> Double {
+        var result = 0.0
+        for i in getWeekToDateTimes() {
+            result += i
+        }
+        return result
+    }
+    
+    func printDate(date:NSDate) -> String {
+        let dateFormatter = NSDateFormatter()
+        
+        let theDateFormat = NSDateFormatterStyle.ShortStyle
+        let theTimeFormat = NSDateFormatterStyle.ShortStyle
+        
+        dateFormatter.dateStyle = theDateFormat
+        dateFormatter.timeStyle = theTimeFormat
+        
+        return dateFormatter.stringFromDate(date)
     }
     
     func setChart(dataPoints:[String], values: [Double]) {
@@ -133,7 +181,8 @@ class DetailViewController: UIViewController {
         
         // set up line chart data
         let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "")
-        let lineChartData    = LineChartData(xVals: ["S","S","M","T","W","Th","F"], dataSet: lineChartDataSet)
+        let labels = getDayLabels()
+        let lineChartData    = LineChartData(xVals: getDayLabels(), dataSet: lineChartDataSet)
         lineChartView.data = lineChartData
         
         // set circle on data points and set line thickness
@@ -168,5 +217,13 @@ class DetailViewController: UIViewController {
         
         barChartDataSet.colors = [uicolorFromHex(0x2ecc71)]
         barChartDataSet.drawValuesEnabled = false
+    }
+}
+extension NSDate {
+    func dayOfWeek() -> Int? {
+        guard
+            let cal: NSCalendar = NSCalendar.currentCalendar(),
+            let comp: NSDateComponents = cal.components(.Weekday, fromDate: self) else { return nil }
+        return comp.weekday
     }
 }
