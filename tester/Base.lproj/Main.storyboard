@@ -232,16 +232,16 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zoc-ST-9aJ">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fWZ-X7-dFx">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fWZ-X7-dFx">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="62"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmi-1j-vbB">
-                                                        <rect key="frame" x="0.0" y="20" width="600" height="21"/>
+                                                        <rect key="frame" x="0.0" y="20" width="427" height="21"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeR-7n-D7S">
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeR-7n-D7S">
                                                         <rect key="frame" x="558" y="16" width="30" height="30"/>
                                                         <state key="normal" image="gear1.png"/>
                                                         <connections>
@@ -250,6 +250,10 @@
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.92549019607843142" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="62" id="AB2-dO-y6O"/>
+                                                    <constraint firstAttribute="trailing" secondItem="HeR-7n-D7S" secondAttribute="trailing" constant="12" id="rBU-RM-6n9"/>
+                                                </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xyX-YJ-qe3">
                                                 <rect key="frame" x="0.0" y="428" width="600" height="62"/>
@@ -263,7 +267,7 @@
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.92549019607843142" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MKn-c4-vR9" customClass="LineChartView" customModule="Charts">
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MKn-c4-vR9" customClass="LineChartView" customModule="Charts">
                                                 <rect key="frame" x="0.0" y="87" width="600" height="134"/>
                                                 <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
@@ -287,12 +291,14 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="yGA-wJ-0zU" secondAttribute="trailing" id="5qj-OC-vlI"/>
+                                            <constraint firstAttribute="trailing" secondItem="fWZ-X7-dFx" secondAttribute="trailing" id="BbJ-T4-Jb1"/>
                                             <constraint firstItem="yGA-wJ-0zU" firstAttribute="leading" secondItem="zoc-ST-9aJ" secondAttribute="leading" id="Bsf-jU-Fni"/>
                                             <constraint firstAttribute="trailing" secondItem="MKn-c4-vR9" secondAttribute="trailing" id="Cyt-ZJ-70L"/>
                                             <constraint firstItem="MKn-c4-vR9" firstAttribute="top" secondItem="fWZ-X7-dFx" secondAttribute="bottom" constant="25" id="QbB-vJ-iKI"/>
                                             <constraint firstAttribute="trailing" secondItem="MKn-c4-vR9" secondAttribute="trailing" id="YT0-Kk-aUW"/>
                                             <constraint firstAttribute="trailing" secondItem="UPs-JI-CyF" secondAttribute="trailing" id="ZYa-F3-oGb"/>
                                             <constraint firstItem="MKn-c4-vR9" firstAttribute="leading" secondItem="zoc-ST-9aJ" secondAttribute="leading" id="czG-1P-ook"/>
+                                            <constraint firstItem="fWZ-X7-dFx" firstAttribute="leading" secondItem="zoc-ST-9aJ" secondAttribute="leading" id="hHZ-OX-OQG"/>
                                             <constraint firstItem="yGA-wJ-0zU" firstAttribute="top" secondItem="MKn-c4-vR9" secondAttribute="bottom" constant="25" id="im3-H6-37m"/>
                                             <constraint firstItem="MKn-c4-vR9" firstAttribute="leading" secondItem="zoc-ST-9aJ" secondAttribute="leading" id="jc6-Nw-ENg"/>
                                             <constraint firstItem="UPs-JI-CyF" firstAttribute="leading" secondItem="zoc-ST-9aJ" secondAttribute="leading" id="lab-s9-PwW"/>
@@ -546,13 +552,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView alpha="0.80000001192092896" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QTn-wE-TsD">
-                                <rect key="frame" x="0.0" y="241" width="600" height="150"/>
+                                <rect key="frame" x="0.0" y="191" width="600" height="145"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </pickerView>
-                            <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mdk-JW-UBR">
-                                <rect key="frame" x="0.0" y="81" width="600" height="65"/>
+                            <view alpha="0.80000001192092896" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mdk-JW-UBR">
+                                <rect key="frame" x="0.0" y="81" width="600" height="63"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select weekly start day:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VI3-5j-o5W">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="248" fixedFrame="YES" text="Select weekly start day:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VI3-5j-o5W">
                                         <rect key="frame" x="32" y="22" width="537" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -564,16 +570,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="QTn-wE-TsD" firstAttribute="top" secondItem="Mdk-JW-UBR" secondAttribute="bottom" constant="50" id="5mL-Ov-xCr"/>
                             <constraint firstItem="QTn-wE-TsD" firstAttribute="leading" secondItem="9AR-GZ-knC" secondAttribute="leading" id="JpM-n9-Qo3"/>
-                            <constraint firstItem="Rhy-ZF-ENs" firstAttribute="top" secondItem="Mdk-JW-UBR" secondAttribute="bottom" constant="410" id="QQX-eJ-Ql8"/>
                             <constraint firstAttribute="trailing" secondItem="Mdk-JW-UBR" secondAttribute="trailing" id="kD7-yt-SGX"/>
                             <constraint firstItem="Mdk-JW-UBR" firstAttribute="leading" secondItem="9AR-GZ-knC" secondAttribute="leading" id="l2F-jT-8bJ"/>
-                            <constraint firstItem="Mdk-JW-UBR" firstAttribute="top" secondItem="Zpw-Ha-AbH" secondAttribute="bottom" constant="17" id="vQm-Gi-zqP"/>
                             <constraint firstAttribute="trailing" secondItem="QTn-wE-TsD" secondAttribute="trailing" id="zZG-oV-Bu4"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Add Time" id="yld-0R-B4n">
+                    <navigationItem key="navigationItem" title="Weekly Start Day" id="yld-0R-B4n">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Kxh-gL-ZoH">
                             <connections>
                                 <action selector="cancel:" destination="kI9-Vc-aBf" id="If1-xu-dcM"/>

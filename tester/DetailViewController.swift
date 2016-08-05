@@ -67,9 +67,10 @@ class DetailViewController: UIViewController {
         lineChartView.xAxis.labelFont = UIFont(name: "Avenir-Medium", size: 12)!
         lineChartView.xAxis.labelTextColor = uicolorFromHex(0x2ecc71)
         lineChartView.minOffset = CGFloat(20.0)
+        lineChartView.pinchZoomEnabled = false
         
         let percentMarkers = [""]
-        var percentToGoal  = Double(Double(item.getWeekTotal()) / GOAL) * 100
+        let percentToGoal  = Double(Double(item.getWeekTotal()) / GOAL) * 100
         setBarChart(percentMarkers, values: [percentToGoal])
         barChartView.legend.enabled = false
         barChartView.xAxis.drawGridLinesEnabled = false
@@ -81,7 +82,7 @@ class DetailViewController: UIViewController {
         barChartView.leftAxis.axisMaxValue = 100.0
         barChartView.drawMarkers = false
         barChartView.drawBordersEnabled = true
-        barChartView.borderColor = uicolorFromHex(0x2ecc71)
+        barChartView.borderColor = uicolorFromHex(0x2ecc71)        
     }
     
     func uicolorFromHex(rgbValue:UInt32) -> UIColor{
