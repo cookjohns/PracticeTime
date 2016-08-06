@@ -54,9 +54,14 @@ import CoreData
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
-        let item = folder!.getItem(indexPath.row)
+        var testIndex = indexPath.row
+        var testFolderName = folder!.getName()
         
-        cell.textLabel!.text = item.valueForKey("name") as? String
+        let item = folder!.getItem(indexPath.row) 
+        
+        var testItemname = item.getName()
+        
+        cell.textLabel!.text = item.name
         cell.textLabel!.font = UIFont(name: "Avenir-Medium", size:20.0)
         cell.textLabel?.textColor = uicolorFromHex(0x2ecc71)
         
@@ -73,7 +78,7 @@ import CoreData
         folderFetchRequest.sortDescriptors = [sortDescriptor]
         
         if let fetchResults = (try? managedContext!.executeFetchRequest(folderFetchRequest)) as? [Folder] {
-            DataStore.sharedInstance.folderObjects = fetchResults
+            DataStore.sharedInstance.setFolderObjects(fetchResults)
         }
     }
     

@@ -25,10 +25,6 @@ class FolderPopOverViewController: UITableViewController {
         self.navigationController?.navigationBar.barStyle = UIBarStyle.BlackTranslucent
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(0x2ecc71)
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-
-        // test
-        let item = instance.getItem(info.currentItem) as! Item
-        print("name: \(item.name)")
     }
     
     func uicolorFromHex(rgbValue:UInt32)->UIColor{
@@ -49,13 +45,13 @@ class FolderPopOverViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return instance.folderObjects.count
+        return instance.folderCount()
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
-        let item = instance.folderObjects[indexPath.row]
+        let item = instance.getFolder(indexPath.row)
         
         cell.textLabel!.text = item.valueForKey("name") as? String
         cell.textLabel!.font = UIFont(name: "Avenir-Medium", size:20.0)
@@ -64,17 +60,14 @@ class FolderPopOverViewController: UITableViewController {
         return cell
     }
     
-    // FIXME: - Item-in-folder PERSISTENCE
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let item = instance.getItem(info.currentItem) as! Item
         let folder = instance.getFolder(indexPath.item) as! Folder
         folder.addItem(info.currentItem)
         folder.setValue(folder.items, forKey: "items")
         
-//        do {
-//            try managedContext?.save()
-//        } catch _ {
-//        }
+        var testCurrentItem = info.currentItem
+        var testVar = folder.items
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -94,10 +87,10 @@ class FolderPopOverViewController: UITableViewController {
         itemFetchRequest.sortDescriptors = [sortDescriptor]
         
         if let folderFetchResults = (try? managedContext!.executeFetchRequest(folderFetchRequest)) as? [Folder] {
-            DataStore.sharedInstance.folderObjects = folderFetchResults
+            DataStore.sharedInstance.setFolderObjects(folderFetchResults)
         }
         if let itemFetchResults = (try? managedContext!.executeFetchRequest(itemFetchRequest)) as? [Item] {
-            DataStore.sharedInstance.itemObjects = itemFetchResults
+            DataStore.sharedInstance.setItemObjects(itemFetchResults)
         }
     }
     

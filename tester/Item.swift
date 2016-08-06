@@ -17,23 +17,46 @@ class Item: NSManagedObject {
     @NSManaged var timeSinceLastAccess: NSNumber
     @NSManaged var times: Dictionary<String, Double> // date as NSDate, totalTime for that instance
     
-    func getTotalTime() -> NSNumber {
+    func getTotalTime() -> Double {
         return self.totalTime
     }
     
-    func getWeekTotal() -> NSNumber {
-        let calendar = NSCalendar.currentCalendar()
-
-        var total: Double = 0
+    func getName() -> String {
+        return name
+    }
+    
+    func getWeekToDateTimes() -> [Double] {
+        var result = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        let info = DataStore.sharedInstance.info! as Info
         
-        for i in 0...7 {
-            // calculate time for last week
-            let cal = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-            let today = cal.startOfDayForDate(NSDate())
-            let date = calendar.dateByAddingUnit(.Day, value: -i, toDate: today, options: [])!
-            if let time = times[printDate(date)] {
-                total = total + time
+        let dayInt = info.getStartingDay()
+        let temp = NSDate().dayOfWeek()! - dayInt
+        var daysInPast = temp >= 0 ? temp : dayInt + abs(temp)
+        
+        let cal = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        let today = cal.startOfDayForDate(NSDate())
+        
+        for i in 0...daysInPast {
+            // get date for key
+            let date = NSCalendar.currentCalendar().dateByAddingUnit(.Day, value: -daysInPast, toDate: today, options: [])!
+            // save to array, if it's not nil (meaning no entry for that date)
+            let key = printDate(date)
+            let dict = times as Dictionary<String,Double>
+            var test = dict[key]
+            if dict[key] != nil {
+                result[i] = dict[key]!
             }
+            daysInPast -= 1
+        }
+        
+        return result
+    }
+    
+    func getWeekToDateTotal() -> Double {
+        var total = 0.0
+        let times = self.getWeekToDateTimes()
+        for time in times {
+            total += time
         }
         return total
     }

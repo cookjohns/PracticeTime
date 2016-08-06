@@ -6,7 +6,7 @@
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
-        <!--Current Pieces-->
+        <!--All Items-->
         <scene sceneID="o8X-w3-jXE">
             <objects>
                 <tableViewController id="gPM-CS-hFS" customClass="PracticeTimeTableViewController" sceneMemberID="viewController">
@@ -43,7 +43,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Pieces" image="list1.png" id="YNS-CE-CGe"/>
-                    <navigationItem key="navigationItem" title="Current Pieces" id="Vyc-do-8Dd">
+                    <navigationItem key="navigationItem" title="All Items" id="Vyc-do-8Dd">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="q1l-gx-Xfl">
                             <connections>
                                 <action selector="addItem:" destination="gPM-CS-hFS" id="bzU-Dc-KDl"/>
@@ -672,7 +672,7 @@
                                         <rect key="frame" x="0.0" y="432" width="600" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="244" verticalHuggingPriority="244" horizontalCompressionResistancePriority="744" verticalCompressionResistancePriority="744" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qje-W8-Zp8">
-                                                <rect key="frame" x="8" y="13" width="148" height="21"/>
+                                                <rect key="frame" x="8" y="13" width="344" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -695,12 +695,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="UUh-nc-qqL">
-                        <rightBarButtonItems>
-                            <barButtonItem image="folder2.png" id="Hae-a6-8Zv"/>
-                            <barButtonItem systemItem="add" id="Wft-Aq-m9t"/>
-                        </rightBarButtonItems>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Title" id="UUh-nc-qqL"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="barChartView" destination="5Uv-OT-9Vc" id="1Wu-tY-mK5"/>
@@ -723,6 +718,6 @@
         <image name="list1.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ucu-aj-viD"/>
+        <segue reference="bOI-2G-Wjp"/>
     </inferredMetricsTieBreakers>
 </document>

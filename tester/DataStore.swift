@@ -22,11 +22,11 @@ class DataStore {
         return Static.instance!
     }
     
-    var info: Info?
+    internal var info: Info?
     
-    var itemObjects  = [NSManagedObject]()
+    private var itemObjects  = [NSManagedObject]()
     
-    var folderObjects = [NSManagedObject]()
+    private var folderObjects = [NSManagedObject]()
     
     
     func addItem(item: NSManagedObject) {
@@ -41,8 +41,36 @@ class DataStore {
         return itemObjects[index]
     }
     
+    func getAllItems() -> [NSManagedObject] {
+        return itemObjects
+    }
+    
+    func setItemObjects(input: [Item]) {
+        itemObjects = input
+        for i in input {
+            print(i.getName())
+        }
+        print("\n")
+    }
+    
+    func itemCount() -> Int {
+        return itemObjects.count
+    }
+    
     func getFolder(index: Int) -> NSManagedObject {
         var test = folderObjects[index]
         return folderObjects[index]
+    }
+    
+    func getAllFolders() -> [NSManagedObject] {
+        return folderObjects
+    }
+    
+    func setFolderObjects(input: [Folder]) {
+        folderObjects = input
+    }
+    
+    func folderCount() -> Int {
+        return folderObjects.count
     }
 }

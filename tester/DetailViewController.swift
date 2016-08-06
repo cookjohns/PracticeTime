@@ -30,8 +30,6 @@ class DetailViewController: UIViewController, ModalTransitionListener {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        item = DataStore.sharedInstance.getItem(info.currentItem) as! Item
-        
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir-Medium", size:23.0)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController?.navigationBar.barStyle = UIBarStyle.BlackTranslucent
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(0x2ecc71)
@@ -57,7 +55,7 @@ class DetailViewController: UIViewController, ModalTransitionListener {
         goalLabel.font = UIFont(name: "Avenir-Medium", size: 19)
         
         // set up week chart
-        setChart(days, values: getWeekToDateTimes())
+        setChart(days, values: item.getWeekToDateTimes())
         lineChartView.legend.enabled = false
         lineChartView.leftAxis.drawGridLinesEnabled = false
         lineChartView.rightAxis.drawGridLinesEnabled = false
@@ -88,6 +86,7 @@ class DetailViewController: UIViewController, ModalTransitionListener {
         barChartView.drawMarkers = false
         barChartView.drawBordersEnabled = true
         barChartView.borderColor = uicolorFromHex(0x2ecc71)
+        barChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -138,36 +137,10 @@ class DetailViewController: UIViewController, ModalTransitionListener {
         return result
     }
     
-    func getWeekToDateTimes() -> [Double] {
-        var result = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-        let item   = DataStore.sharedInstance.getItem(info.currentItem) as! Item
-        
-        let dayInt = info.getStartingDay()
-        let temp = NSDate().dayOfWeek()! - dayInt
-        var daysInPast = temp >= 0 ? temp : dayInt + abs(temp)
-        
-        let cal = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        let today = cal.startOfDayForDate(NSDate())
-        
-        for i in 0...daysInPast {
-            // get date for key
-            let date = NSCalendar.currentCalendar().dateByAddingUnit(.Day, value: -daysInPast, toDate: today, options: [])!
-            // save to array, if it's not nil (meaning no entry for that date)
-            let key = printDate(date)
-            let dict = item.times as Dictionary<String,Double>
-            var test = dict[key]
-            if dict[key] != nil {
-                result[i] = dict[key]!
-            }
-            daysInPast -= 1
-        }
-        
-        return result
-    }
-    
     func getWeekToDateTotal() -> Double {
+        let item   = DataStore.sharedInstance.getItem(info.currentItem) as! Item
         var result = 0.0
-        for i in getWeekToDateTimes() {
+        for i in item.getWeekToDateTimes() {
             result += i
         }
         return result
@@ -237,13 +210,15 @@ class DetailViewController: UIViewController, ModalTransitionListener {
     
     func popoverDismissed() {
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
-        //        yourTableViev.reloadData() (if you use tableview)
         let item   = DataStore.sharedInstance.getItem(info.currentItem) as! Item
         weeklyTotalLabel.text = "   This Week: \(getWeekToDateTotal()) hours" // (since \(startingDayToString()))"
-        setChart(days, values: getWeekToDateTimes())
+        setChart(days, values: item.getWeekToDateTimes())
         setBarChart([""], values: [getWeekToDateTotal()])
     }
 }
+
+// MARK: - Date Extension
+
 extension NSDate {
     func dayOfWeek() -> Int? {
         guard

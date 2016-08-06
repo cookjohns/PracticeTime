@@ -104,13 +104,13 @@ import CoreData
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DataStore.sharedInstance.itemObjects.count
+        return DataStore.sharedInstance.itemCount()
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) 
         
-        let item = DataStore.sharedInstance.itemObjects[indexPath.row]
+        let item = DataStore.sharedInstance.getItem(indexPath.row)
         
 //        var lastAccessDate = piece.valueForKey("lastAccess") as! NSDate
         //var newLastTime = calcLastTime(lastAccessDate)
@@ -161,7 +161,7 @@ import CoreData
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            let itemToDelete = DataStore.sharedInstance.itemObjects[indexPath.row]
+            let itemToDelete = DataStore.sharedInstance.getItem(indexPath.row)
             managedContext?.deleteObject(itemToDelete)
             do {
                 try managedContext?.save()
@@ -185,7 +185,7 @@ import CoreData
         itemFetchRequest.sortDescriptors = [sortDescriptor]
         
         if let fetchResults = (try? managedContext!.executeFetchRequest(itemFetchRequest)) as? [Item] {
-            DataStore.sharedInstance.itemObjects = fetchResults
+            DataStore.sharedInstance.setItemObjects(fetchResults)
         }
     }
     
@@ -207,7 +207,7 @@ import CoreData
         (try? managedContext?.executeFetchRequest(itemFetchRequest)) as? [Item]
         
         if let results = fetchedResults {
-            DataStore.sharedInstance.itemObjects = results
+            DataStore.sharedInstance.setItemObjects(results)
         } else {
             print("Could not fetch")// \(error), \(error!.userInfo)")
         }
@@ -216,7 +216,7 @@ import CoreData
     
     func setAllTimes() {
         var total = 0
-        for x: NSManagedObject in DataStore.sharedInstance.itemObjects {
+        for x: NSManagedObject in DataStore.sharedInstance.getAllItems() {
             total += x.valueForKey("totalTime") as! Int
         }
 //        DataStore.sharedInstance.info.totalTimeInDict = total

@@ -87,17 +87,28 @@ import CoreData
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DataStore.sharedInstance.folderObjects.count
+        return DataStore.sharedInstance.folderCount()
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
-        let item = DataStore.sharedInstance.folderObjects[indexPath.row]
+        let folder = DataStore.sharedInstance.getFolder(indexPath.row) as! Folder
 
-        cell.textLabel!.text = item.valueForKey("name") as? String
+        cell.textLabel!.text = folder.getName()
         cell.textLabel!.font = UIFont(name: "Avenir-Medium", size:20.0)
         cell.textLabel?.textColor = uicolorFromHex(0x2ecc71)
+        
+        // test
+//        let itemsInFolder = folder.getItems()
+//        print(folder.getName())
+//        
+//        print("Contents: ")
+//        for i in itemsInFolder {
+//            var item = i as! Item
+//            print(item.getName())
+//        }
+//        print("\n")
 
         return cell
     }
@@ -111,7 +122,7 @@ import CoreData
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            let itemToDelete = DataStore.sharedInstance.folderObjects[indexPath.row]
+            let itemToDelete = DataStore.sharedInstance.getFolder(indexPath.row)
             managedContext?.deleteObject(itemToDelete)
             do {
                 try managedContext?.save()
@@ -122,7 +133,7 @@ import CoreData
         }
 //        DataStore.sharedInstance.info.currentItem = indexPath.row
         let info = DataStore.sharedInstance.info! as Info
-        info.currentItem = indexPath.row
+//        info.currentItem = indexPath.row
     }
     
     func fetch() {
@@ -139,10 +150,10 @@ import CoreData
         itemFetchRequest.sortDescriptors = [sortDescriptor]
                 
         if let folderFetchResults = (try? managedContext!.executeFetchRequest(folderFetchRequest)) as? [Folder] {
-            DataStore.sharedInstance.folderObjects = folderFetchResults
+            DataStore.sharedInstance.setFolderObjects(folderFetchResults)
         }
         if let itemFetchResults = (try? managedContext!.executeFetchRequest(itemFetchRequest)) as? [Item] {
-            DataStore.sharedInstance.itemObjects = itemFetchResults
+            DataStore.sharedInstance.setItemObjects(itemFetchResults)
         }
     }
     
