@@ -12,15 +12,16 @@ import CoreData
 class Folder: NSManagedObject {
     
     @NSManaged var name: String
-    @NSManaged var items: [Item]
+    @NSManaged var items: [Int]
     
-    func addItem(input: Item) {
+    func addItem(input: Int) {
         items.append(input)
     }
     
     func deleteItem(input: Item) {
         for i in 0..<items.count {
-            let item = items[i]
+//            let item = items[i] as! Item
+            let item = DataStore.sharedInstance.getItem(i) as! Item
             if item.name == input.name {
                 items.removeAtIndex(i)
             }
@@ -28,6 +29,7 @@ class Folder: NSManagedObject {
     }
     
     func getItem(index: Int) -> Item {
-        return items[index]
+//        return items[index] as! Item
+        return DataStore.sharedInstance.getItem(index) as! Item
     }
 }

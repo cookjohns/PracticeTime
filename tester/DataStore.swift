@@ -42,6 +42,7 @@ class DataStore {
     }
     
     func getFolder(index: Int) -> NSManagedObject {
+        var test = folderObjects[index]
         return folderObjects[index]
     }
 }

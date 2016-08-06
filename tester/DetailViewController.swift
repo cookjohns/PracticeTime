@@ -11,8 +11,8 @@ import Charts
 
 class DetailViewController: UIViewController, ModalTransitionListener {
     
+    let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     let info = DataStore.sharedInstance.info! as Info
-//    let item: Item?
     
 
     @IBOutlet var weeklyTotalLabel: UILabel!
@@ -87,6 +87,13 @@ class DetailViewController: UIViewController, ModalTransitionListener {
         barChartView.drawMarkers = false
         barChartView.drawBordersEnabled = true
         barChartView.borderColor = uicolorFromHex(0x2ecc71)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        do {
+            try managedContext?.save()
+        } catch _ {
+        }
     }
     
     func uicolorFromHex(rgbValue:UInt32) -> UIColor{

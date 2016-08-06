@@ -68,12 +68,11 @@ class FolderPopOverViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let item = instance.getItem(info.currentItem) as! Item
         let folder = instance.getFolder(indexPath.item) as! Folder
-        folder.addItem(item)
+        folder.addItem(info.currentItem)
         folder.setValue(folder.items, forKey: "items")
         
 //        do {
-//            //try managedContext?.save()
-//            try folder.managedObjectContext!.save()
+//            try managedContext?.save()
 //        } catch _ {
 //        }
         
