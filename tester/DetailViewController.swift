@@ -45,9 +45,9 @@ class DetailViewController: UIViewController, ModalTransitionListener {
         let item     = instance.getItem(info.currentItem) as! Item
         self.navigationItem.title = item.name
         
-        weeklyTotalLabel.text = "   This Week: \(getWeekToDateTotal()) hours (since \(startingDayToString()))"
-        totalLabel.text = "   Total: \(item.getTotalTime()) hours"
-        goalLabel.text = "   Percent to weekly goal (\(goal)):"
+        weeklyTotalLabel.text = "  This Week: \(getWeekToDateTotal()) hours" //(since \(startingDayToString()))"
+        totalLabel.text = "  Total: \(item.getTotalTime()) hours"
+        goalLabel.text = "  Percent to weekly goal (\(goal)):"
         
         weeklyTotalLabel.textColor = uicolorFromHex(0x2ecc71)
         weeklyTotalLabel.font = UIFont(name: "Avenir-Medium", size: 19)
