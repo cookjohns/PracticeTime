@@ -98,17 +98,6 @@ import CoreData
         cell.textLabel!.text = folder.getName()
         cell.textLabel!.font = UIFont(name: "Avenir-Medium", size:20.0)
         cell.textLabel?.textColor = uicolorFromHex(0x2ecc71)
-        
-        // test
-//        let itemsInFolder = folder.getItems()
-//        print(folder.getName())
-//        
-//        print("Contents: ")
-//        for i in itemsInFolder {
-//            var item = i as! Item
-//            print(item.getName())
-//        }
-//        print("\n")
 
         return cell
     }
@@ -131,9 +120,7 @@ import CoreData
             self.fetch()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
-//        DataStore.sharedInstance.info.currentItem = indexPath.row
         let info = DataStore.sharedInstance.info! as Info
-//        info.currentItem = indexPath.row
     }
     
     func fetch() {
@@ -159,7 +146,6 @@ import CoreData
     
     // set current folder in 'folders' when a row on the table is selected
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-//        DataStore.sharedInstance.info.currentFolder = indexPath.row
         let info = DataStore.sharedInstance.info! as Info
         info.currentFolder = indexPath.row
         return indexPath
@@ -167,17 +153,6 @@ import CoreData
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-//        let folderFetchRequest = NSFetchRequest(entityName:"Folder")
-//        
-//        let fetchedResults =
-//            (try? managedContext?.executeFetchRequest(folderFetchRequest)) as? [Folder]
-//        
-//        if let results = fetchedResults {
-//            DataStore.sharedInstance.folderObjects = results
-//        } else {
-//            print("Could not fetch")// \(error), \(error!.userInfo)")
-//        }
         self.fetch()
         self.tableView.reloadData()
     }

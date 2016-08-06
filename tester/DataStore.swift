@@ -58,7 +58,6 @@ class DataStore {
     }
     
     func getFolder(index: Int) -> NSManagedObject {
-        var test = folderObjects[index]
         return folderObjects[index]
     }
     
@@ -72,15 +71,5 @@ class DataStore {
     
     func folderCount() -> Int {
         return folderObjects.count
-    }
-    
-    // MARK: FOR TESTING
-    func getAllFolderNames() -> [String] {
-        var result: [String] = []
-        for f in getAllFolders() {
-            let folder = f as! Folder
-            result.append(folder.getName())
-        }
-        return result
     }
 }
