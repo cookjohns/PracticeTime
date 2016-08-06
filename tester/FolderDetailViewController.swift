@@ -48,6 +48,9 @@ import CoreData
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var cF = info.currentFolder
         folder = DataStore.sharedInstance.getFolder(info.currentFolder) as! Folder
+        
+        print("Items in table: \(folder!.items.count)")
+        
         return folder!.items.count
     }
     
@@ -56,6 +59,7 @@ import CoreData
         
         var testIndex = indexPath.row
         var testFolderName = folder!.getName()
+        var testFolders = DataStore.sharedInstance.getAllFolderNames()
         
         let item = folder!.getItem(indexPath.row) 
         
