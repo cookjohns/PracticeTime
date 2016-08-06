@@ -42,7 +42,6 @@ class Item: NSManagedObject {
             // save to array, if it's not nil (meaning no entry for that date)
             let key = printDate(date)
             let dict = times as Dictionary<String,Double>
-            var test = dict[key]
             if dict[key] != nil {
                 result[i] = dict[key]!
             }

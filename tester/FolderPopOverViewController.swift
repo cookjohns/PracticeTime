@@ -66,9 +66,6 @@ class FolderPopOverViewController: UITableViewController {
         folder.addItem(info.currentItem)
         folder.setValue(folder.items, forKey: "items")
         
-        var testCurrentItem = info.currentItem
-        var testVar = folder.items
-        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -96,17 +93,6 @@ class FolderPopOverViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-//        let fetchRequest = NSFetchRequest(entityName:"Folder")
-//        
-//        let fetchedResults =
-//            (try? managedContext?.executeFetchRequest(fetchRequest)) as? [Folder]
-//        
-//        if let results = fetchedResults {
-//            DataStore.sharedInstance.folderObjects = results
-//        } else {
-//            print("Could not fetch")// \(error), \(error!.userInfo)")
-//        }
         self.fetch()
         self.tableView.reloadData()
     }

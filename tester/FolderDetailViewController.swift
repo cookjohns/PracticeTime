@@ -48,18 +48,13 @@ import CoreData
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var cF = info.currentFolder
         folder = DataStore.sharedInstance.getFolder(info.currentFolder) as! Folder
+        
         return folder!.items.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        
-        var testIndex = indexPath.row
-        var testFolderName = folder!.getName()
-        
         let item = folder!.getItem(indexPath.row) 
-        
-        var testItemname = item.getName()
         
         cell.textLabel!.text = item.name
         cell.textLabel!.font = UIFont(name: "Avenir-Medium", size:20.0)
