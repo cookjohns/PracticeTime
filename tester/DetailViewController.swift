@@ -238,7 +238,7 @@ class DetailViewController: UIViewController, ModalTransitionListener {
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
         //        yourTableViev.reloadData() (if you use tableview)
         let item   = DataStore.sharedInstance.getItem(info.currentItem) as! Item
-        weeklyTotalLabel.text = "   This Week: \(getWeekToDateTotal()) hours (since \(startingDayToString()))"
+        weeklyTotalLabel.text = "   This Week: \(getWeekToDateTotal()) hours" // (since \(startingDayToString()))"
         setChart(days, values: getWeekToDateTimes())
         setBarChart([""], values: [getWeekToDateTotal()])
     }
