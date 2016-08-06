@@ -19,12 +19,12 @@ class DetailViewController: UIViewController, ModalTransitionListener {
     @IBOutlet var totalLabel: UILabel!
     @IBOutlet weak var goalLabel: UILabel!
 
-    @IBOutlet weak var chartView: UIView!
+//    @IBOutlet weak var chartView: UIView!
     @IBOutlet weak var weekdayButton: UIButton!
     @IBOutlet weak var lineChartView: LineChartView!
     @IBOutlet weak var barChartView:  HorizontalBarChartView!
     
-    var goal = 20
+    var goal = 6
     let days = ["Sat","Sun","Mon","Tues","Wed","Thurs","Fri"]
     
     override func viewDidLoad() {
@@ -56,7 +56,7 @@ class DetailViewController: UIViewController, ModalTransitionListener {
         goalLabel.textColor = uicolorFromHex(0x2ecc71)
         goalLabel.font = UIFont(name: "Avenir-Medium", size: 19)
         
-        // set up chart
+        // set up week chart
         setChart(days, values: getWeekToDateTimes())
         lineChartView.legend.enabled = false
         lineChartView.leftAxis.drawGridLinesEnabled = false
@@ -75,6 +75,7 @@ class DetailViewController: UIViewController, ModalTransitionListener {
         lineChartView.minOffset = CGFloat(20.0)
         lineChartView.pinchZoomEnabled = false
         
+        // set up goal chart
         setBarChart([""], values: [getWeekToDateTotal()])
         barChartView.legend.enabled = false
         barChartView.xAxis.drawGridLinesEnabled = false
@@ -83,7 +84,7 @@ class DetailViewController: UIViewController, ModalTransitionListener {
         barChartView.rightAxis.drawLabelsEnabled = false
         barChartView.leftAxis.drawLabelsEnabled = false
         barChartView.leftAxis.axisMinValue = 0.0
-        barChartView.leftAxis.axisMaxValue = 20.0
+        barChartView.leftAxis.axisMaxValue = 6.0
         barChartView.drawMarkers = false
         barChartView.drawBordersEnabled = true
         barChartView.borderColor = uicolorFromHex(0x2ecc71)

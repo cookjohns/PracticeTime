@@ -10,6 +10,7 @@
 		BD36544F1D554B20001EC650 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3654481D554B13001EC650 /* Charts.framework */; };
 		BD3654501D554B20001EC650 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD3654481D554B13001EC650 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BD3654561D554EDB001EC650 /* ModalTransitionMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8506921D55268100F4A899 /* ModalTransitionMediator.swift */; };
+		BD3F2B561D55B7D400446E43 /* TotalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3F2B551D55B7D400446E43 /* TotalsViewController.swift */; };
 		BD49507C1D51C37400902AA3 /* FolderPopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD49507B1D51C37400902AA3 /* FolderPopOverViewController.swift */; };
 		BD668CAB1D503EF200493011 /* AddTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD668CAA1D503EF200493011 /* AddTimeViewController.swift */; };
 		BD668CAD1D50764500493011 /* folder2.png in Resources */ = {isa = PBXBuildFile; fileRef = BD668CAC1D50764500493011 /* folder2.png */; };
@@ -25,7 +26,6 @@
 		BD833B551D4F1A360034B233 /* FolderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD833B541D4F1A360034B233 /* FolderDetailViewController.swift */; };
 		BD85069C1D552FBE00F4A899 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD85069B1D552FBE00F4A899 /* Info.swift */; };
 		BDE711351AB55B5F0075A0F9 /* FolderPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE711341AB55B5F0075A0F9 /* FolderPageViewController.swift */; };
-		BDE711371AB55E260075A0F9 /* TotalsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE711361AB55E260075A0F9 /* TotalsPageViewController.swift */; };
 		BDF377761A41350A007FC9BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF377751A41350A007FC9BA /* AppDelegate.swift */; };
 		BDF377781A41350A007FC9BA /* PracticeTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF377771A41350A007FC9BA /* PracticeTimeTableViewController.swift */; };
 		BDF3777B1A41350A007FC9BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDF377791A41350A007FC9BA /* Main.storyboard */; };
@@ -88,6 +88,7 @@
 
 /* Begin PBXFileReference section */
 		BD3654401D554B13001EC650 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = "<group>"; };
+		BD3F2B551D55B7D400446E43 /* TotalsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalsViewController.swift; sourceTree = "<group>"; };
 		BD49507B1D51C37400902AA3 /* FolderPopOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderPopOverViewController.swift; sourceTree = "<group>"; };
 		BD668CAA1D503EF200493011 /* AddTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTimeViewController.swift; sourceTree = "<group>"; };
 		BD668CAC1D50764500493011 /* folder2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder2.png; sourceTree = "<group>"; };
@@ -102,7 +103,6 @@
 		BD8506921D55268100F4A899 /* ModalTransitionMediator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTransitionMediator.swift; sourceTree = "<group>"; };
 		BD85069B1D552FBE00F4A899 /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		BDE711341AB55B5F0075A0F9 /* FolderPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderPageViewController.swift; sourceTree = "<group>"; };
-		BDE711361AB55E260075A0F9 /* TotalsPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalsPageViewController.swift; sourceTree = "<group>"; };
 		BDF377701A41350A007FC9BA /* PracticeTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF377751A41350A007FC9BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDF377771A41350A007FC9BA /* PracticeTimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeTimeTableViewController.swift; sourceTree = "<group>"; };
@@ -162,13 +162,13 @@
 				BDF377751A41350A007FC9BA /* AppDelegate.swift */,
 				BDF377771A41350A007FC9BA /* PracticeTimeTableViewController.swift */,
 				BDE711341AB55B5F0075A0F9 /* FolderPageViewController.swift */,
+				BD3F2B551D55B7D400446E43 /* TotalsViewController.swift */,
 				BD668CAA1D503EF200493011 /* AddTimeViewController.swift */,
 				BD833B541D4F1A360034B233 /* FolderDetailViewController.swift */,
 				BD49507B1D51C37400902AA3 /* FolderPopOverViewController.swift */,
 				BD833B501D4F11200034B233 /* DetailViewController.swift */,
 				BD8506921D55268100F4A899 /* ModalTransitionMediator.swift */,
 				BD668CAE1D511A0900493011 /* WeekdayStartView.swift */,
-				BDE711361AB55E260075A0F9 /* TotalsPageViewController.swift */,
 				BDF3779D1A4136B9007FC9BA /* DataStore.swift */,
 				BD85069B1D552FBE00F4A899 /* Info.swift */,
 				BDF377A91A413CCD007FC9BA /* Item.swift */,
@@ -334,8 +334,8 @@
 				BD833B531D4F14D50034B233 /* Folder.swift in Sources */,
 				BD6862F31A41523400B08E61 /* Model.xcdatamodeld in Sources */,
 				BDE711351AB55B5F0075A0F9 /* FolderPageViewController.swift in Sources */,
-				BDE711371AB55E260075A0F9 /* TotalsPageViewController.swift in Sources */,
 				BD6862F21A41516E00B08E61 /* Item.swift in Sources */,
+				BD3F2B561D55B7D400446E43 /* TotalsViewController.swift in Sources */,
 				BDF377781A41350A007FC9BA /* PracticeTimeTableViewController.swift in Sources */,
 				BDF3779E1A4136B9007FC9BA /* DataStore.swift in Sources */,
 				BDF377761A41350A007FC9BA /* AppDelegate.swift in Sources */,

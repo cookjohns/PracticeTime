@@ -74,26 +74,6 @@
             </objects>
             <point key="canvasLocation" x="-777" y="2229"/>
         </scene>
-        <!--Totals-->
-        <scene sceneID="3r0-GU-YYm">
-            <objects>
-                <viewController id="BzD-G0-oxD" customClass="TotalsPageViewController" customModule="PracticeTime" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xax-rb-RDb"/>
-                        <viewControllerLayoutGuide type="bottom" id="tKW-ae-5Kb"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Nfl-ic-Uzg">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Totals" image="chart1.png" id="hLv-vK-XqP"/>
-                    <navigationItem key="navigationItem" title="Totals" id="m6z-YH-h8P"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hZT-XB-hzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1505" y="3788"/>
-        </scene>
         <!--Folders-->
         <scene sceneID="blI-ve-a0I">
             <objects>
@@ -338,7 +318,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BzD-G0-oxD" kind="relationship" relationship="rootViewController" id="OYE-fY-MWJ"/>
+                        <segue destination="0lw-6h-ALT" kind="relationship" relationship="rootViewController" id="Vsv-52-fiG"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mif-3g-0t4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -607,6 +587,132 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eMm-v7-OY7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-44" y="1464"/>
+        </scene>
+        <!--Totals-->
+        <scene sceneID="vS4-PN-UlF">
+            <objects>
+                <viewController title="Totals" id="0lw-6h-ALT" customClass="TotalsViewController" customModule="PracticeTime" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pu5-Kr-Ac9"/>
+                        <viewControllerLayoutGuide type="bottom" id="e1c-f4-24q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iau-xF-emg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="x83-JJ-Q4r">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="246" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dot-M6-TEe">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="246" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Yr-qS-Nyl">
+                                                <rect key="frame" x="8" y="14" width="328" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Ssa-H3-e2t"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="246" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="34R-k1-o9Q">
+                                        <rect key="frame" x="0.0" y="60" width="600" height="61"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="le4-Mx-e7Y"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="245" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Uv-OT-9Vc" customClass="BarChartView" customModule="Charts">
+                                        <rect key="frame" x="0.0" y="121" width="600" height="71"/>
+                                        <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="220" id="ZqO-HD-DWC"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="246" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9gS-vR-C12">
+                                        <rect key="frame" x="0.0" y="192" width="600" height="62"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="tRq-fz-kIj"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="246" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zeZ-FJ-sUF">
+                                        <rect key="frame" x="0.0" y="254" width="600" height="59"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="246" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukb-kA-OHL">
+                                                <rect key="frame" x="8" y="12" width="342" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="xWZ-iR-pHq"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="245" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="86T-81-KCU" customClass="HorizontalBarChartView" customModule="Charts">
+                                        <rect key="frame" x="0.0" y="313" width="600" height="58"/>
+                                        <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="cdO-Mn-6Ve"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="246" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BJa-xY-hs9">
+                                        <rect key="frame" x="0.0" y="371" width="600" height="61"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="Ob6-2d-Yud"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="246" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zWd-tk-H29">
+                                        <rect key="frame" x="0.0" y="432" width="600" height="60"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="244" verticalHuggingPriority="244" horizontalCompressionResistancePriority="744" verticalCompressionResistancePriority="744" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qje-W8-Zp8">
+                                                <rect key="frame" x="8" y="13" width="148" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="PrP-bE-B16"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="x83-JJ-Q4r" secondAttribute="trailing" id="7a8-pj-JPT"/>
+                            <constraint firstItem="x83-JJ-Q4r" firstAttribute="bottom" secondItem="e1c-f4-24q" secondAttribute="top" id="c7B-eU-z82"/>
+                            <constraint firstItem="x83-JJ-Q4r" firstAttribute="leading" secondItem="iau-xF-emg" secondAttribute="leading" id="csC-GX-rhT"/>
+                            <constraint firstItem="x83-JJ-Q4r" firstAttribute="top" secondItem="pu5-Kr-Ac9" secondAttribute="bottom" id="rTO-RW-sMU"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="UUh-nc-qqL">
+                        <rightBarButtonItems>
+                            <barButtonItem image="folder2.png" id="Hae-a6-8Zv"/>
+                            <barButtonItem systemItem="add" id="Wft-Aq-m9t"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="barChartView" destination="5Uv-OT-9Vc" id="1Wu-tY-mK5"/>
+                        <outlet property="goalChartView" destination="86T-81-KCU" id="VC1-GO-RKJ"/>
+                        <outlet property="goalLabel" destination="ukb-kA-OHL" id="Pgo-t6-Ubu"/>
+                        <outlet property="totalLabel" destination="qje-W8-Zp8" id="wro-iq-Ezm"/>
+                        <outlet property="weeklyTotalLabel" destination="0Yr-qS-Nyl" id="Jh4-eO-xHx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="00E-b8-Nl8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1505" y="3786"/>
         </scene>
     </scenes>
     <resources>
