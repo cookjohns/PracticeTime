@@ -92,6 +92,7 @@ import CoreData
         item.setValue(NSDate(), forKey: "lastAccess")
         item.setValue(0.0,      forKey: "timeSinceLastAccess")
         item.setValue(dict,     forKey: "times")
+        item.setValue(6,        forKey: "goal")
         
         do {
             try managedContext?.save()

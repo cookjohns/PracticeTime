@@ -25,7 +25,6 @@ class DetailViewController: UIViewController, ModalTransitionListener {
     @IBOutlet weak var lineChartView: LineChartView!
     @IBOutlet weak var barChartView:  HorizontalBarChartView!
     
-    var goal = 6
     let days = ["Sat","Sun","Mon","Tues","Wed","Thurs","Fri"]
     
     // MARK: - viewDid
@@ -48,7 +47,7 @@ class DetailViewController: UIViewController, ModalTransitionListener {
         
         weeklyTotalLabel.text = "  This Week: \(getWeekToDateTotal()) hours" //(since \(startingDayToString()))"
         totalLabel.text = "  Total: \(item.getTotalTime()) hours"
-        goalLabel.text = "  Percent to weekly goal (\(goal)):"
+        goalLabel.text = "  Percent to weekly goal (\(item.goal)):"
         
         weeklyTotalLabel.textColor = uicolorFromHex(0x2ecc71)
         weeklyTotalLabel.font = UIFont(name: "Avenir-Medium", size: 19)
@@ -69,6 +68,47 @@ class DetailViewController: UIViewController, ModalTransitionListener {
             try managedContext?.save()
         } catch _ {
         }
+    }
+    
+    @IBAction func changeGoal(sender: AnyObject) {
+        let item  = DataStore.sharedInstance.getItem(info.currentItem) as! Item
+        let alert = UIAlertController(title:   "Change Goal",
+                                      message: "Enter new goal",
+                                      preferredStyle: .Alert)
+        
+        let saveAction = UIAlertAction(title: "Save",
+                                       style: .Default,
+                                       handler: { (action:UIAlertAction) -> Void in
+                                        
+                                        let textField = alert.textFields!.first
+                                        // set new goal property
+                                        item.goal = Int(textField!.text!)!
+                                        // reload goal chart and label
+                                        self.setBarChart([""], values: [self.getWeekToDateTotal()])
+                                        self.goalLabel.text = "  Percent to weekly goal (\(item.goal)):"
+                                        
+                                        // save
+                                        do {
+                                            try self.managedContext?.save()
+                                        } catch _ {
+                                        }
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .Default) { (action: UIAlertAction) -> Void in
+        }
+        
+        alert.addTextFieldWithConfigurationHandler {
+            (textField: UITextField) -> Void in
+            textField.keyboardType = UIKeyboardType.NumberPad
+        }
+        
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
+        presentViewController(alert,
+                              animated:   true,
+                              completion: nil)
     }
     
     // MARK: - Getter Functions
@@ -146,6 +186,7 @@ class DetailViewController: UIViewController, ModalTransitionListener {
     }
     
     func setBarChart(dataPoints:[String], values: [Double]) {
+        let item = DataStore.sharedInstance.getItem(info.currentItem) as! Item
         // add dataPoints to chart's dataPoints array
         var barDataEntries: [ChartDataEntry] = []
         
@@ -180,7 +221,7 @@ class DetailViewController: UIViewController, ModalTransitionListener {
 
         // various others
         barChartView.leftAxis.axisMinValue = 0.0
-        barChartView.leftAxis.axisMaxValue = 6.0
+        barChartView.leftAxis.axisMaxValue = Double(item.goal)
         barChartView.drawBordersEnabled    = true
         barChartView.drawMarkers = false
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WeekdayStartView: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class SettingsView: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     // MARK: - Variables
     
@@ -30,7 +30,7 @@ class WeekdayStartView: UIViewController, UIPickerViewDataSource, UIPickerViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir-Medium", size:23.0)!, NSForegroundColorAttributeName: uicolorFromHex(0xffffff)]
         self.navigationController?.navigationBar.barStyle = UIBarStyle.BlackTranslucent
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(0x2ecc71)

@@ -13,11 +13,13 @@ class Item: NSManagedObject {
 
     // MARK: - Variables
     
-    @NSManaged var name: String
+    @NSManaged var name:       String
     @NSManaged var lastAccess: NSDate
-    @NSManaged var totalTime: Double
+    @NSManaged var totalTime:  Double
+    @NSManaged var times:      Dictionary<String, Double> // date as NSDate, totalTime for that instance
+    @NSManaged var goal:       Int
     @NSManaged var timeSinceLastAccess: NSNumber
-    @NSManaged var times: Dictionary<String, Double> // date as NSDate, totalTime for that instance
+
     
     // MARK: - Functions
     

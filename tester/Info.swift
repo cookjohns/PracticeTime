@@ -24,17 +24,12 @@ class Info: NSManagedObject {
         return Static.instance!
     }
     
-    @NSManaged var name: String
-    
-    @NSManaged var allTimes: Dictionary<String, NSNumber>!
-        
+    @NSManaged var name:            String
+    @NSManaged var allTimes:        Dictionary<String, NSNumber>!
     @NSManaged var totalTimeInDict: Int
-        
-    @NSManaged var currentItem:  Int
-        
-    @NSManaged var currentFolder: Int
-        
-    @NSManaged var startingDay: Int // Saturday = 0
+    @NSManaged var currentItem:     Int
+    @NSManaged var currentFolder:   Int
+    @NSManaged var startingDay:     Int // Saturday = 0
     
     func getStartingDay() -> Int {
         return startingDay

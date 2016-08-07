@@ -44,11 +44,24 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Pieces" image="list1.png" id="YNS-CE-CGe"/>
                     <navigationItem key="navigationItem" title="All Items" id="Vyc-do-8Dd">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="q1l-gx-Xfl">
-                            <connections>
-                                <action selector="addItem:" destination="gPM-CS-hFS" id="bzU-Dc-KDl"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem style="plain" id="t7i-WL-la2">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4fa-3I-mKa">
+                                    <rect key="frame" x="550" y="7" width="30" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="gear1.png"/>
+                                    <connections>
+                                        <segue destination="kI9-Vc-aBf" kind="showDetail" id="bpY-p3-ILI"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="q1l-gx-Xfl">
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="addItem:" destination="gPM-CS-hFS" id="bzU-Dc-KDl"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7jY-bp-tRB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -102,11 +115,24 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Folders" image="folder1.png" id="61u-eY-mw1"/>
                     <navigationItem key="navigationItem" title="Folders" id="hF8-BZ-ETE">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gtK-3U-Z9J">
-                            <connections>
-                                <action selector="addFolder:" destination="Vgs-tf-8h0" id="0vg-WU-TNk"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem style="plain" id="yRi-6M-tWy">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lhq-rE-Nur">
+                                    <rect key="frame" x="550" y="7" width="30" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Button" image="gear1.png"/>
+                                    <connections>
+                                        <segue destination="kI9-Vc-aBf" kind="showDetail" id="FeI-jO-1GV"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="gtK-3U-Z9J">
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="addFolder:" destination="Vgs-tf-8h0" id="0vg-WU-TNk"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q1T-ch-swN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -283,6 +309,14 @@
                             <outlet property="delegate" destination="IHt-9W-R89" id="pDU-ld-JDN"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="UVP-Nq-p7Q">
+                        <barButtonItem key="rightBarButtonItem" image="gear1.png" id="rCX-jS-ZrN">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="kI9-Vc-aBf" kind="showDetail" id="Sae-fy-OgD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j4w-r7-4YT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -436,7 +470,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="246" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jwv-cT-BeO">
-                                        <rect key="frame" x="0.0" y="192" width="600" height="62"/>
+                                        <rect key="frame" x="0.0" y="191" width="600" height="62"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="4Nd-gu-B0y"/>
@@ -451,10 +485,18 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydt-wO-P0u">
+                                                <rect key="frame" x="518" y="11" width="74" height="22"/>
+                                                <state key="normal" image="info.png"/>
+                                                <connections>
+                                                    <action selector="changeGoal:" destination="sxE-MH-ZNr" eventType="touchUpInside" id="bkX-T8-BEi"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="iel-g7-bSw"/>
+                                            <constraint firstAttribute="trailing" secondItem="ydt-wO-P0u" secondAttribute="trailing" constant="24" id="uH4-j8-Gqe"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="245" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6II-84-Rxo" customClass="HorizontalBarChartView" customModule="Charts">
@@ -501,25 +543,25 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="qUJ-1x-CMZ">
                         <rightBarButtonItems>
-                            <barButtonItem image="folder2.png" id="7H0-4I-VDp">
-                                <connections>
-                                    <segue destination="bRK-vm-7RD" kind="showDetail" id="SOt-3C-XSs"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="add" id="tHa-2p-dlY">
-                                <connections>
-                                    <segue destination="Lsm-DS-gEq" kind="showDetail" id="Q1S-2J-j4P"/>
-                                </connections>
-                            </barButtonItem>
                             <barButtonItem image="gear1.png" style="plain" id="0mQ-De-OWv">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5QU-aF-FwZ">
-                                    <rect key="frame" x="463" y="7" width="30" height="30"/>
+                                    <rect key="frame" x="550" y="7" width="30" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="gear1.png"/>
                                     <connections>
                                         <segue destination="Ri1-MH-gQj" kind="showDetail" id="nfZ-CL-jNR"/>
                                     </connections>
                                 </button>
+                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="tHa-2p-dlY">
+                                <connections>
+                                    <segue destination="Lsm-DS-gEq" kind="showDetail" id="Q1S-2J-j4P"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="folder2.png" id="7H0-4I-VDp">
+                                <connections>
+                                    <segue destination="bRK-vm-7RD" kind="showDetail" id="SOt-3C-XSs"/>
+                                </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
@@ -556,10 +598,28 @@
             </objects>
             <point key="canvasLocation" x="701" y="1464"/>
         </scene>
-        <!--Weekday Start-->
+        <!--Settings View-->
+        <scene sceneID="g5y-n1-WYC">
+            <objects>
+                <viewController id="suL-F2-3KE" customClass="SettingsView" customModule="PracticeTime" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aRt-zh-0Mv"/>
+                        <viewControllerLayoutGuide type="bottom" id="0KP-LH-0MZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6W9-q7-5s7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xpG-PI-dHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-789" y="1464"/>
+        </scene>
+        <!--Settings-->
         <scene sceneID="g3m-ts-bC9">
             <objects>
-                <viewController title="Weekday Start" id="kI9-Vc-aBf" customClass="WeekdayStartView" customModule="PracticeTime" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Settings" id="kI9-Vc-aBf" customClass="SettingsView" customModule="PracticeTime" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zpw-Ha-AbH"/>
                         <viewControllerLayoutGuide type="bottom" id="Rhy-ZF-ENs"/>
@@ -584,29 +644,31 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sjb-N1-VLf">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Settings" id="4YT-EC-ndI">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Ctn-qu-dQR"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="vY3-qj-297"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="QTn-wE-TsD" firstAttribute="top" secondItem="Mdk-JW-UBR" secondAttribute="bottom" constant="50" id="5mL-Ov-xCr"/>
+                            <constraint firstItem="Sjb-N1-VLf" firstAttribute="top" secondItem="Zpw-Ha-AbH" secondAttribute="bottom" id="F1g-js-oSj"/>
                             <constraint firstItem="QTn-wE-TsD" firstAttribute="leading" secondItem="9AR-GZ-knC" secondAttribute="leading" id="JpM-n9-Qo3"/>
+                            <constraint firstItem="Sjb-N1-VLf" firstAttribute="leading" secondItem="Mdk-JW-UBR" secondAttribute="leading" id="URi-jt-Tun"/>
                             <constraint firstAttribute="trailing" secondItem="Mdk-JW-UBR" secondAttribute="trailing" id="kD7-yt-SGX"/>
                             <constraint firstItem="Mdk-JW-UBR" firstAttribute="leading" secondItem="9AR-GZ-knC" secondAttribute="leading" id="l2F-jT-8bJ"/>
+                            <constraint firstItem="Sjb-N1-VLf" firstAttribute="trailing" secondItem="Mdk-JW-UBR" secondAttribute="trailing" id="qFA-cj-82a"/>
+                            <constraint firstItem="Mdk-JW-UBR" firstAttribute="top" secondItem="Sjb-N1-VLf" secondAttribute="bottom" constant="17" id="zCZ-Nh-ocv"/>
                             <constraint firstAttribute="trailing" secondItem="QTn-wE-TsD" secondAttribute="trailing" id="zZG-oV-Bu4"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Options" id="yld-0R-B4n">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Kxh-gL-ZoH">
-                            <connections>
-                                <action selector="cancel:" destination="kI9-Vc-aBf" id="If1-xu-dcM"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="d2y-AS-lT9">
-                            <connections>
-                                <action selector="save:" destination="kI9-Vc-aBf" id="acd-lN-XnQ"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Title" id="NrQ-5G-4af"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="dayPicker" destination="QTn-wE-TsD" id="cqd-WB-RbB"/>
@@ -662,7 +724,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="246" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9gS-vR-C12">
-                                        <rect key="frame" x="0.0" y="192" width="600" height="62"/>
+                                        <rect key="frame" x="0.0" y="191" width="600" height="62"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="tRq-fz-kIj"/>
@@ -725,7 +787,13 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="UUh-nc-qqL"/>
+                    <navigationItem key="navigationItem" title="Title" id="UUh-nc-qqL">
+                        <barButtonItem key="rightBarButtonItem" image="gear1.png" id="5Oz-W7-NVT">
+                            <connections>
+                                <segue destination="kI9-Vc-aBf" kind="showDetail" id="8zB-cD-IwS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="barChartView" destination="5Uv-OT-9Vc" id="1Wu-tY-mK5"/>
@@ -745,9 +813,11 @@
         <image name="folder1.png" width="25" height="25"/>
         <image name="folder2.png" width="20" height="20"/>
         <image name="gear1.png" width="30" height="30"/>
+        <image name="info.png" width="20" height="20"/>
         <image name="list1.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bOI-2G-Wjp"/>
+        <segue reference="FeI-jO-1GV"/>
+        <segue reference="Ucu-aj-viD"/>
     </inferredMetricsTieBreakers>
 </document>
