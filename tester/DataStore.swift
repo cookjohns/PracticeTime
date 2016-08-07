@@ -10,6 +10,10 @@ import Foundation
 import CoreData
 
 class DataStore {
+    
+    // MARK: - Variables
+    
+    /* Singleton */
     class var sharedInstance: DataStore {
         struct Static {
             static var instance: DataStore?
@@ -22,12 +26,22 @@ class DataStore {
         return Static.instance!
     }
     
+    /*
+     * Contains all archived variables:
+     * 
+     * allTimes: Dictionary<String, NSNumber>!
+     * totalTimeInDict: Int
+     * currentTime:     Int
+     * currentFolder:   Int
+     * startingDat:     Int
+     */
     internal var info: Info?
     
-    private var itemObjects  = [NSManagedObject]()
+    private var itemObjects   = [NSManagedObject]()
     
     private var folderObjects = [NSManagedObject]()
     
+    // MARK: - Functions
     
     func addItem(item: NSManagedObject) {
         itemObjects.append(item)

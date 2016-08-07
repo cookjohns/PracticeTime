@@ -10,6 +10,8 @@ import Foundation
 import CoreData
 
 class Info: NSManagedObject {
+    
+    /* Singleton */
     class var sharedInstance: Info {
         struct Static {
             static var instance: Info?

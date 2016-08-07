@@ -11,11 +11,15 @@ import CoreData
 
 @objc(FolderDetailViewController) class FolderDetailViewController: UITableViewController {
     
+    // MARK: - Variables
+    
     let folderFetchRequest = NSFetchRequest(entityName: "Folder")
-    let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    let managedContext     = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     let info = DataStore.sharedInstance.info! as Info
     
     var folder: Folder?
+    
+    // MARK: - viewDid
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,14 +35,7 @@ import CoreData
         folder = (DataStore.sharedInstance.getFolder(info.currentFolder) as! Folder)
     }
     
-    func uicolorFromHex(rgbValue:UInt32)->UIColor{
-        let red   = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
-        let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
-        let blue  = CGFloat(rgbValue & 0xFF)/256.0
-        
-        return UIColor(red:red, green:green, blue:blue, alpha:1.0)
-    }
-    
+    // MARK: - UITableView
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // Return the number of sections.
@@ -62,20 +59,6 @@ import CoreData
         return cell
     }
     
-    func fetch() {
-        // Create a sort descriptor object that sorts on the "name"
-        // property of the Core Data object
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
-        
-        // Set the list of sort descriptors in the fetch request,
-        // so it includes the sort descriptor
-        folderFetchRequest.sortDescriptors = [sortDescriptor]
-        
-        if let fetchResults = (try? managedContext!.executeFetchRequest(folderFetchRequest)) as? [Folder] {
-            DataStore.sharedInstance.setFolderObjects(fetchResults)
-        }
-    }
-    
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return NO if you do not want the specified item to be editable.
@@ -95,5 +78,31 @@ import CoreData
             self.fetch()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
+    }
+    
+    // MARK: - CoreData
+    
+    func fetch() {
+        // Create a sort descriptor object that sorts on the "name"
+        // property of the Core Data object
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        
+        // Set the list of sort descriptors in the fetch request,
+        // so it includes the sort descriptor
+        folderFetchRequest.sortDescriptors = [sortDescriptor]
+        
+        if let fetchResults = (try? managedContext!.executeFetchRequest(folderFetchRequest)) as? [Folder] {
+            DataStore.sharedInstance.setFolderObjects(fetchResults)
+        }
+    }
+    
+    // MARK: - Formatting
+    
+    func uicolorFromHex(rgbValue:UInt32)->UIColor{
+        let red   = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
+        let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
+        let blue  = CGFloat(rgbValue & 0xFF)/256.0
+        
+        return UIColor(red:red, green:green, blue:blue, alpha:1.0)
     }
 }

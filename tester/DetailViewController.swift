@@ -11,21 +11,24 @@ import Charts
 
 class DetailViewController: UIViewController, ModalTransitionListener {
     
+    // MARK: - Variables
+    
     let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     let info = DataStore.sharedInstance.info! as Info
     
 
     @IBOutlet var weeklyTotalLabel: UILabel!
-    @IBOutlet var totalLabel: UILabel!
-    @IBOutlet weak var goalLabel: UILabel!
+    @IBOutlet var totalLabel:       UILabel!
+    @IBOutlet weak var goalLabel:   UILabel!
 
-//    @IBOutlet weak var chartView: UIView!
     @IBOutlet weak var weekdayButton: UIButton!
     @IBOutlet weak var lineChartView: LineChartView!
     @IBOutlet weak var barChartView:  HorizontalBarChartView!
     
     var goal = 6
     let days = ["Sat","Sun","Mon","Tues","Wed","Thurs","Fri"]
+    
+    // MARK: - viewDid
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,37 +59,9 @@ class DetailViewController: UIViewController, ModalTransitionListener {
         
         // set up week chart
         setChart(days, values: item.getWeekToDateTimes())
-        lineChartView.legend.enabled = false
-        lineChartView.leftAxis.drawGridLinesEnabled = false
-        lineChartView.rightAxis.drawGridLinesEnabled = false
-        lineChartView.xAxis.drawAxisLineEnabled = false
-        lineChartView.leftAxis.drawAxisLineEnabled = false
-        lineChartView.rightAxis.drawAxisLineEnabled = false
-        lineChartView.leftAxis.labelFont = UIFont(name: "Avenir-Medium", size: 12)!
-        lineChartView.leftAxis.labelTextColor = uicolorFromHex(0x2ecc71)
-        lineChartView.xAxis.drawGridLinesEnabled = false
-        lineChartView.xAxis.labelPosition = .Bottom
-        lineChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
-        lineChartView.rightAxis.drawLabelsEnabled = false
-        lineChartView.xAxis.labelFont = UIFont(name: "Avenir-Medium", size: 12)!
-        lineChartView.xAxis.labelTextColor = uicolorFromHex(0x2ecc71)
-        lineChartView.minOffset = CGFloat(20.0)
-        lineChartView.pinchZoomEnabled = false
         
         // set up goal chart
         setBarChart([""], values: [getWeekToDateTotal()])
-        barChartView.legend.enabled = false
-        barChartView.xAxis.drawGridLinesEnabled = false
-        barChartView.leftAxis.drawGridLinesEnabled = false
-        barChartView.rightAxis.drawGridLinesEnabled = false
-        barChartView.rightAxis.drawLabelsEnabled = false
-        barChartView.leftAxis.drawLabelsEnabled = false
-        barChartView.leftAxis.axisMinValue = 0.0
-        barChartView.leftAxis.axisMaxValue = 6.0
-        barChartView.drawMarkers = false
-        barChartView.drawBordersEnabled = true
-        barChartView.borderColor = uicolorFromHex(0x2ecc71)
-        barChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -95,6 +70,132 @@ class DetailViewController: UIViewController, ModalTransitionListener {
         } catch _ {
         }
     }
+    
+    // MARK: - Getter Functions
+    
+    func getWeekToDateTotal() -> Double {
+        let item   = DataStore.sharedInstance.getItem(info.currentItem) as! Item
+        var result = 0.0
+        for i in item.getWeekToDateTimes() {
+            result += i
+        }
+        return result
+    }
+    
+    func getDayLabels() -> [String] {
+        var result = ["","","","","","",""]
+        let days   = ["S","S","M","T","W","Th","F"]
+        var dayInt = info.getStartingDay()
+        for i in 0...6 {
+            result[i] = days[dayInt % 7]
+            dayInt += 1
+        }
+        return result
+    }
+    
+    // MARK: - Chart Setters
+    
+    func setChart(dataPoints:[String], values: [Double]) {
+        // add dataPoints to chart's dataPoints array
+        var dataEntries: [ChartDataEntry] = []
+        
+        for i in 0..<dataPoints.count {
+            let dataEntry = BarChartDataEntry(value: values[i], xIndex: i)
+            dataEntries.append(dataEntry)
+        }
+        
+        // set up line chart data
+        let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "")
+        let lineChartData    = LineChartData(xVals: getDayLabels(), dataSet: lineChartDataSet)
+        lineChartView.data   = lineChartData
+        
+        // set fonts and colors
+        lineChartDataSet.colors               = [uicolorFromHex(0x2ecc71)]
+        lineChartView.leftAxis.labelFont      = UIFont(name: "Avenir-Medium", size: 12)!
+        lineChartView.leftAxis.labelTextColor = uicolorFromHex(0x2ecc71)
+        lineChartView.xAxis.labelFont         = UIFont(name: "Avenir-Medium", size: 12)!
+        lineChartView.xAxis.labelTextColor    = uicolorFromHex(0x2ecc71)
+
+        // remove lines
+        lineChartView.leftAxis.drawGridLinesEnabled  = false
+        lineChartView.rightAxis.drawGridLinesEnabled = false
+        lineChartView.xAxis.drawAxisLineEnabled      = false
+        lineChartView.leftAxis.drawAxisLineEnabled   = false
+        lineChartView.rightAxis.drawAxisLineEnabled  = false
+        lineChartView.xAxis.drawGridLinesEnabled     = false
+        
+        // animate
+        lineChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+        
+        // set circle on data points and set line thickness
+        lineChartDataSet.circleRadius = CGFloat(4)
+        lineChartDataSet.circleColors = [uicolorFromHex(0x2ecc71)]
+        lineChartDataSet.lineWidth    = 3
+        lineChartDataSet.drawCircleHoleEnabled = false
+        lineChartDataSet.drawValuesEnabled     = false
+        
+        // label/description/legend formatting
+        lineChartView.descriptionText     = ""
+        lineChartView.legend.enabled      = false
+        lineChartView.xAxis.labelPosition = .Bottom
+        lineChartView.rightAxis.drawLabelsEnabled = false
+        
+        // various others
+        lineChartView.minOffset = CGFloat(20.0)
+        lineChartView.pinchZoomEnabled = false
+    }
+    
+    func setBarChart(dataPoints:[String], values: [Double]) {
+        // add dataPoints to chart's dataPoints array
+        var barDataEntries: [ChartDataEntry] = []
+        
+        for i in 0..<dataPoints.count {
+            let barDataEntry = BarChartDataEntry(value: values[i], xIndex: i)
+            barDataEntries.append(barDataEntry)
+        }
+        
+        // set up line chart data
+        let barChartDataSet = BarChartDataSet(yVals: barDataEntries, label: "")
+        let barChartData    = BarChartData(xVals: [""], dataSet: barChartDataSet)
+        barChartView.data   = barChartData
+        
+        // set colors
+        barChartDataSet.colors   = [uicolorFromHex(0x2ecc71)]
+        barChartView.borderColor = uicolorFromHex(0x2ecc71)
+
+        // remove lines
+        barChartView.xAxis.drawGridLinesEnabled     = false
+        barChartView.leftAxis.drawGridLinesEnabled  = false
+        barChartView.rightAxis.drawGridLinesEnabled = false
+        
+        // animate
+        barChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+
+        // label/description/legend formatting
+        barChartView.descriptionText      = ""
+        barChartDataSet.drawValuesEnabled = false
+        barChartView.legend.enabled       = false
+        barChartView.rightAxis.drawLabelsEnabled = false
+        barChartView.leftAxis.drawLabelsEnabled  = false
+
+        // various others
+        barChartView.leftAxis.axisMinValue = 0.0
+        barChartView.leftAxis.axisMaxValue = 6.0
+        barChartView.drawBordersEnabled    = true
+        barChartView.drawMarkers = false
+    }
+    
+    // MARK: - ModalTransitionListener
+    
+    func popoverDismissed() {
+        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+        let item   = DataStore.sharedInstance.getItem(info.currentItem) as! Item
+        weeklyTotalLabel.text = "   This Week: \(getWeekToDateTotal()) hours" // (since \(startingDayToString()))"
+        setChart(days, values: item.getWeekToDateTimes())
+        setBarChart([""], values: [getWeekToDateTotal()])
+    }
+    
+    // MARK: - Formatting
     
     func uicolorFromHex(rgbValue:UInt32) -> UIColor{
         let red   = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
@@ -126,26 +227,6 @@ class DetailViewController: UIViewController, ModalTransitionListener {
         }
     }
     
-    func getDayLabels() -> [String] {
-        var result = ["","","","","","",""]
-        let days = ["S","S","M","T","W","Th","F"]
-        var dayInt = info.getStartingDay()
-        for i in 0...6 {
-            result[i] = days[dayInt % 7]
-            dayInt += 1
-        }
-        return result
-    }
-    
-    func getWeekToDateTotal() -> Double {
-        let item   = DataStore.sharedInstance.getItem(info.currentItem) as! Item
-        var result = 0.0
-        for i in item.getWeekToDateTimes() {
-            result += i
-        }
-        return result
-    }
-    
     func printDate(date:NSDate) -> String {
         let dateFormatter = NSDateFormatter()
         
@@ -157,67 +238,9 @@ class DetailViewController: UIViewController, ModalTransitionListener {
         
         return dateFormatter.stringFromDate(date)
     }
-    
-    func setChart(dataPoints:[String], values: [Double]) {
-        // add dataPoints to chart's dataPoints array
-        var dataEntries: [ChartDataEntry] = []
-        
-        for i in 0..<dataPoints.count {
-            let dataEntry = BarChartDataEntry(value: values[i], xIndex: i)
-            dataEntries.append(dataEntry)
-        }
-        
-        // set up line chart data
-        let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "")
-        let lineChartData    = LineChartData(xVals: getDayLabels(), dataSet: lineChartDataSet)
-        lineChartView.data = lineChartData
-        
-        // set circle on data points and set line thickness
-        lineChartDataSet.circleRadius = CGFloat(4)
-        lineChartDataSet.circleColors = [uicolorFromHex(0x2ecc71)]
-        lineChartDataSet.drawCircleHoleEnabled = false
-        lineChartDataSet.lineWidth = 3
-        lineChartDataSet.drawValuesEnabled = false
-        
-        // remove "Description" label from chart
-        lineChartView.descriptionText = ""
-        
-        lineChartDataSet.colors = [uicolorFromHex(0x2ecc71)]
-    }
-    
-    func setBarChart(dataPoints:[String], values: [Double]) {
-        // add dataPoints to chart's dataPoints array
-        var barDataEntries: [ChartDataEntry] = []
-        
-        for i in 0..<dataPoints.count {
-            let barDataEntry = BarChartDataEntry(value: values[i], xIndex: i)
-            barDataEntries.append(barDataEntry)
-        }
-        
-        // set up line chart data
-        let barChartDataSet = BarChartDataSet(yVals: barDataEntries, label: "")
-        let barChartData    = BarChartData(xVals: [""], dataSet: barChartDataSet)
-        barChartView.data = barChartData
-        
-        // remove "Description" label from chart
-        barChartView.descriptionText = ""
-        
-        barChartDataSet.colors = [uicolorFromHex(0x2ecc71)]
-        barChartDataSet.drawValuesEnabled = false
-    }
-    
-    // MARK: - ModalTransitionListener
-    
-    func popoverDismissed() {
-        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
-        let item   = DataStore.sharedInstance.getItem(info.currentItem) as! Item
-        weeklyTotalLabel.text = "   This Week: \(getWeekToDateTotal()) hours" // (since \(startingDayToString()))"
-        setChart(days, values: item.getWeekToDateTimes())
-        setBarChart([""], values: [getWeekToDateTotal()])
-    }
 }
 
-// MARK: - Date Extension
+// MARK: - Weekday Date Extension
 
 extension NSDate {
     func dayOfWeek() -> Int? {

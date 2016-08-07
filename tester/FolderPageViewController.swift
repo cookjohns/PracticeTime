@@ -11,8 +11,12 @@ import CoreData
 
 @objc(FolderPageViewController) class FolderPageViewController: UITableViewController {
     
+    // MARK: - Variable
+    
     let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
+    // MARK: - viewDid
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,17 +27,16 @@ import CoreData
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
     }
     
-    func uicolorFromHex(rgbValue:UInt32)->UIColor{
-        let red   = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
-        let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
-        let blue  = CGFloat(rgbValue & 0xFF)/256.0
-        
-        return UIColor(red:red, green:green, blue:blue, alpha:1.0)
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.fetch()
+        self.tableView.reloadData()
     }
     
+    // MARK: - Actions
+    
     @IBAction func addFolder(sender: AnyObject) {
-        
-        let alert = UIAlertController(title: "New Name",
+        let alert = UIAlertController(title:   "New Name",
                                       message: "Add a new name",
                                       preferredStyle: .Alert)
         
@@ -58,12 +61,11 @@ import CoreData
         alert.addAction(cancelAction)
         
         presentViewController(alert,
-                              animated: true,
+                              animated:   true,
                               completion: nil)
     }
     
     func saveFolder(input: String) {
-        
         let entity =  NSEntityDescription.entityForName("Folder",
                                                         inManagedObjectContext:
             managedContext!)
@@ -80,6 +82,8 @@ import CoreData
         }
         DataStore.sharedInstance.addFolder(folder)
     }
+    
+    // MARK: - UITableView
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // Return the number of sections.
@@ -122,6 +126,15 @@ import CoreData
         }
     }
     
+    // set current folder in 'folders' when a row on the table is selected
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        let info = DataStore.sharedInstance.info! as Info
+        info.currentFolder = indexPath.row
+        return indexPath
+    }
+    
+    // MARK: - CoreData
+    
     func fetch() {
         let folderFetchRequest = NSFetchRequest(entityName: "Folder")
         let itemFetchRequest = NSFetchRequest(entityName: "Item")
@@ -143,16 +156,13 @@ import CoreData
         }
     }
     
-    // set current folder in 'folders' when a row on the table is selected
-    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        let info = DataStore.sharedInstance.info! as Info
-        info.currentFolder = indexPath.row
-        return indexPath
-    }
+    // MARK: - Formatting
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.fetch()
-        self.tableView.reloadData()
+    func uicolorFromHex(rgbValue:UInt32)->UIColor{
+        let red   = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
+        let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
+        let blue  = CGFloat(rgbValue & 0xFF)/256.0
+        
+        return UIColor(red:red, green:green, blue:blue, alpha:1.0)
     }
 }

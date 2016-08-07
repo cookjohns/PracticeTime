@@ -11,11 +11,15 @@ import CoreData
 
 class FolderPopOverViewController: UITableViewController {
     
+    // MARK: - Variables
+    
     let folderFetchRequest = NSFetchRequest(entityName: "Folder")
-    let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    let managedContext     = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     let info = DataStore.sharedInstance.info! as Info
 
     let instance = DataStore.sharedInstance
+
+    // MARK: - viewDid
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,13 +31,13 @@ class FolderPopOverViewController: UITableViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     }
     
-    func uicolorFromHex(rgbValue:UInt32)->UIColor{
-        let red   = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
-        let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
-        let blue  = CGFloat(rgbValue & 0xFF)/256.0
-        
-        return UIColor(red:red, green:green, blue:blue, alpha:1.0)
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.fetch()
+        self.tableView.reloadData()
     }
+    
+    // MARK: - Actions
     
     @IBAction func cancel(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -72,6 +76,8 @@ class FolderPopOverViewController: UITableViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    // MARK: - CoreData
+    
     func fetch() {
         let folderFetchRequest = NSFetchRequest(entityName: "Folder")
         let itemFetchRequest = NSFetchRequest(entityName: "Item")
@@ -94,9 +100,13 @@ class FolderPopOverViewController: UITableViewController {
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.fetch()
-        self.tableView.reloadData()
+    // MARK: - Formatting
+    
+    func uicolorFromHex(rgbValue:UInt32)->UIColor{
+        let red   = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
+        let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
+        let blue  = CGFloat(rgbValue & 0xFF)/256.0
+        
+        return UIColor(red:red, green:green, blue:blue, alpha:1.0)
     }
 }

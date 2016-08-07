@@ -10,6 +10,8 @@ import UIKit
 
 class AddTimeViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
+    // MARK: - Variables
+    
     let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     let info = DataStore.sharedInstance.info! as Info
     
@@ -23,10 +25,11 @@ class AddTimeViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         case minutes = 1
     }
     
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timeLabel:  UILabel!
     @IBOutlet weak var timePicker: UIPickerView!
     @IBOutlet weak var datePicker: UIDatePicker!
+    
+    // MARK: - viewDid
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,16 +40,13 @@ class AddTimeViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
         self.navigationItem.leftBarButtonItem?.tintColor  = UIColor.whiteColor()
         
-//        titleLabel.textColor = UIColor.blackColor()
-//        titleLabel.font = UIFont(name: "Avenir-Medium", size: 17)
-        
         timeLabel.textColor = UIColor.blackColor()
-        timeLabel.font = UIFont(name: "Avenir-Medium", size: 17)
+        timeLabel.font      = UIFont(name: "Avenir-Medium", size: 17)
         
-        timePicker.delegate = self
-        timePicker.dataSource = self
-        timePicker.selectRow(2, inComponent: PickerComponent.hours.rawValue, animated: false)
+        timePicker.delegate        = self
+        timePicker.dataSource      = self
         timePicker.backgroundColor = uicolorFromHex(0xecf0f1)
+        timePicker.selectRow(2, inComponent: PickerComponent.hours.rawValue, animated: false)
         timePicker.setValue(UIColor.blackColor(), forKeyPath: "textColor")
         timePicker.setValue(0.8, forKeyPath: "alpha")
         
@@ -61,21 +61,7 @@ class AddTimeViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         ModalTransitionMediator.instance.sendPopoverDismissed(true)
     }
     
-    func uicolorFromHex(rgbValue:UInt32)->UIColor{
-        let red   = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
-        let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
-        let blue  = CGFloat(rgbValue & 0xFF)/256.0
-        
-        return UIColor(red:red, green:green, blue:blue, alpha:1.0)
-    }
-    
-    func updateLabel() {
-        let hoursComponent   = PickerComponent.hours.rawValue
-        let minutesComponent = PickerComponent.minutes.rawValue
-        let hours   = pickerData[hoursComponent][timePicker.selectedRowInComponent(hoursComponent)]
-        let minutes = pickerData[minutesComponent][timePicker.selectedRowInComponent(minutesComponent)]
-        timeLabel.text = "  Time to add: " + hours + " " + minutes
-    }
+    // MARK: - Actions
     
     @IBAction func cancel(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -129,5 +115,23 @@ class AddTimeViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[component][row]
+    }
+    
+    // MARK: - Formatting
+    
+    func uicolorFromHex(rgbValue:UInt32)->UIColor{
+        let red   = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
+        let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
+        let blue  = CGFloat(rgbValue & 0xFF)/256.0
+        
+        return UIColor(red:red, green:green, blue:blue, alpha:1.0)
+    }
+    
+    func updateLabel() {
+        let hoursComponent   = PickerComponent.hours.rawValue
+        let minutesComponent = PickerComponent.minutes.rawValue
+        let hours      = pickerData[hoursComponent][timePicker.selectedRowInComponent(hoursComponent)]
+        let minutes    = pickerData[minutesComponent][timePicker.selectedRowInComponent(minutesComponent)]
+        timeLabel.text = "  Time to add: " + hours + " " + minutes
     }
 }

@@ -11,12 +11,16 @@ import CoreData
 
 @objc(PracticeTimeTableViewController) class PracticeTimeTableViewController: UITableViewController {
     
+    // MARK: - Variables
+    
     let itemFetchRequest = NSFetchRequest(entityName: "Item")
     let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
+    // MARK: - viewDid
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
         tableView.tableFooterView = UIView(frame:CGRectZero)
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir-Medium", size:23.0)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController?.navigationBar.barStyle = UIBarStyle.BlackTranslucent
@@ -24,18 +28,34 @@ import CoreData
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
     }
     
-    @IBAction func addItem(sender: AnyObject) {
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
-        let alert = UIAlertController(title: "New Name",
+        let itemFetchRequest = NSFetchRequest(entityName:"Item")
+        
+        let fetchedResults =
+            (try? managedContext?.executeFetchRequest(itemFetchRequest)) as? [Item]
+        
+        if let results = fetchedResults {
+            DataStore.sharedInstance.setItemObjects(results)
+        } else {
+            print("Could not fetch")
+        }
+        self.tableView.reloadData()
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func addItem(sender: AnyObject) {
+        let alert = UIAlertController(title:   "New Name",
                                       message: "Add a new name",
                                       preferredStyle: .Alert)
         
         let saveAction = UIAlertAction(title: "Save",
                                        style: .Default,
                                        handler: { (action:UIAlertAction) -> Void in
-                                        
+                                    
                                         let textField = alert.textFields!.first
-                                        //self.names.append(textField!.text!)
                                         self.saveName(textField!.text!)
                                         self.tableView.reloadData()
         })
@@ -52,7 +72,7 @@ import CoreData
         alert.addAction(cancelAction)
         
         presentViewController(alert,
-                              animated: true,
+                              animated:   true,
                               completion: nil)
     }
     
@@ -79,24 +99,33 @@ import CoreData
         }
         DataStore.sharedInstance.addItem(item)
     }
-    
-    func printDate(date:NSDate) -> String {
-        let dateFormatter = NSDateFormatter()
-        
-        let theDateFormat = NSDateFormatterStyle.ShortStyle
-        let theTimeFormat = NSDateFormatterStyle.ShortStyle
-        
-        dateFormatter.dateStyle = theDateFormat
-        dateFormatter.timeStyle = theTimeFormat
-        
-        return dateFormatter.stringFromDate(date)
-    }
 
+    // MARK: - Functions
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func calcLastTime(lastAccessIn: NSDate) -> Double {
+        let lastAccessDate = lastAccessIn
+        let today = NSDate()
+        let distanceBetweenDates: Double = lastAccessDate.timeIntervalSinceDate(today)
+        let secondsInAnHour: Double = 3600
+        let hoursBetweenDates = distanceBetweenDates / secondsInAnHour;
+        return hoursBetweenDates
+    }
+    
+    func setAllTimes() {
+        var total = 0
+        for x: NSManagedObject in DataStore.sharedInstance.getAllItems() {
+            total += x.valueForKey("totalTime") as! Int
+        }
+        let info = DataStore.sharedInstance.info! as Info
+        info.totalTimeInDict = total
+    }
+    
+    // MARK: - UITableView
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // Return the number of sections.
@@ -108,15 +137,11 @@ import CoreData
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) 
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         let item = DataStore.sharedInstance.getItem(indexPath.row)
         
-//        var lastAccessDate = piece.valueForKey("lastAccess") as! NSDate
-        //var newLastTime = calcLastTime(lastAccessDate)
-        //piece.setValue(newLastTime, forKey: "timeSinceLastAccess")
-        
         let lastTime = abs(item.valueForKey("timeSinceLastAccess") as! Double)
+        
         cell.textLabel!.text = item.valueForKey("name") as? String
         cell.textLabel!.font = UIFont(name: "Avenir-Medium", size:20.0)
         
@@ -131,25 +156,6 @@ import CoreData
             cell.textLabel?.textColor = uicolorFromHex(0xe74c3c)
         }
         return cell
-    }
-    
-    func calcLastTime(lastAccessIn: NSDate) -> Double {
-        let lastAccessDate = lastAccessIn
-        let today = NSDate()
-//        var date1 = lastAccessDate
-//        var date2 = today
-        let distanceBetweenDates: Double = lastAccessDate.timeIntervalSinceDate(today)
-        let secondsInAnHour: Double = 3600
-        let hoursBetweenDates = distanceBetweenDates / secondsInAnHour;
-        return hoursBetweenDates
-    }
-    
-    func uicolorFromHex(rgbValue:UInt32)->UIColor{
-        let red   = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
-        let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
-        let blue  = CGFloat(rgbValue & 0xFF)/256.0
-        
-        return UIColor(red:red, green:green, blue:blue, alpha:1.0)
     }
     
     // Override to support conditional editing of the table view.
@@ -170,10 +176,19 @@ import CoreData
             self.fetch()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
-//        DataStore.sharedInstance.info.currentItem = indexPath.row
         let info = DataStore.sharedInstance.info! as Info
         info.currentItem = indexPath.row
     }
+    
+    // set current item in 'items' when a row on the table is selected
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        let info = DataStore.sharedInstance.info! as Info
+        info.currentItem = indexPath.row
+        setAllTimes()  // load the allTimes dictionary that holds all total times, sets totalTimeInDict to hold sum
+        return indexPath
+    }
+    
+    // MARK: - Core Data
     
     func fetch() {
         // Create a sort descriptor object that sorts on the "name"
@@ -189,47 +204,34 @@ import CoreData
         }
     }
     
-    // set current item in 'items' when a row on the table is selected
-    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-//        DataStore.sharedInstance.info.currentItem = indexPath.row
-        let info = DataStore.sharedInstance.info! as Info
-        info.currentItem = indexPath.row
-        setAllTimes()  // load the allTimes dictionary that holds all total times, sets totalTimeInDict to hold sum
-        return indexPath
+    // MARK: - Formatting
+    
+    func printDate(date:NSDate) -> String {
+        let dateFormatter = NSDateFormatter()
+        
+        let theDateFormat = NSDateFormatterStyle.ShortStyle
+        let theTimeFormat = NSDateFormatterStyle.ShortStyle
+        
+        dateFormatter.dateStyle = theDateFormat
+        dateFormatter.timeStyle = theTimeFormat
+        
+        return dateFormatter.stringFromDate(date)
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    func uicolorFromHex(rgbValue:UInt32)->UIColor{
+        let red   = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
+        let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
+        let blue  = CGFloat(rgbValue & 0xFF)/256.0
         
-        let itemFetchRequest = NSFetchRequest(entityName:"Item")
-        
-        let fetchedResults =
-        (try? managedContext?.executeFetchRequest(itemFetchRequest)) as? [Item]
-        
-        if let results = fetchedResults {
-            DataStore.sharedInstance.setItemObjects(results)
-        } else {
-            print("Could not fetch")// \(error), \(error!.userInfo)")
-        }
-        self.tableView.reloadData()
-    }
-    
-    func setAllTimes() {
-        var total = 0
-        for x: NSManagedObject in DataStore.sharedInstance.getAllItems() {
-            total += x.valueForKey("totalTime") as! Int
-        }
-        let info = DataStore.sharedInstance.info! as Info
-        info.totalTimeInDict = total
+        return UIColor(red:red, green:green, blue:blue, alpha:1.0)
     }
     
     func greenColor() -> CAGradientLayer {
         let topColor = UIColor(red: (46/255.0), green: (204/255.0), blue: (113/255.0), alpha: 1)
         let bottomColor = UIColor(red: (255.0/255.0), green: (255.0/255.0), blue: (255.0/255.0), alpha: 1)
-        
         let gradientColors: Array <AnyObject> = [topColor.CGColor, bottomColor.CGColor]
-        
         let gradientLayer: CAGradientLayer = CAGradientLayer()
+        
         gradientLayer.colors = gradientColors
         
         return gradientLayer

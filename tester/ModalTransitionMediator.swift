@@ -11,6 +11,7 @@ protocol ModalTransitionListener {
 }
 
 class ModalTransitionMediator {
+    
     /* Singleton */
     class var instance: ModalTransitionMediator {
         struct Static {

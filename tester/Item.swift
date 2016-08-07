@@ -11,11 +11,15 @@ import CoreData
 
 class Item: NSManagedObject {
 
+    // MARK: - Variables
+    
     @NSManaged var name: String
     @NSManaged var lastAccess: NSDate
     @NSManaged var totalTime: Double
     @NSManaged var timeSinceLastAccess: NSNumber
     @NSManaged var times: Dictionary<String, Double> // date as NSDate, totalTime for that instance
+    
+    // MARK: - Functions
     
     func getTotalTime() -> Double {
         return self.totalTime
@@ -25,15 +29,33 @@ class Item: NSManagedObject {
         return name
     }
     
+    func addTime(time: Double, date: NSDate) {
+        // add to totalTime
+        totalTime += time
+        
+        // add to current date in times
+        let cal     = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        let newDate = cal.startOfDayForDate(date)
+        
+        var temp = self.times[printDate(newDate)]
+        if temp == nil {
+            temp = 0.0
+        }
+        
+        let newTime = temp! + time
+        
+        times[printDate(newDate)] = newTime
+    }
+    
     func getWeekToDateTimes() -> [Double] {
         var result = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-        let info = DataStore.sharedInstance.info! as Info
+        let info   = DataStore.sharedInstance.info! as Info
         
         let dayInt = info.getStartingDay()
-        let temp = NSDate().dayOfWeek()! - dayInt
+        let temp   = NSDate().dayOfWeek()! - dayInt
         var daysInPast = temp >= 0 ? temp : dayInt + abs(temp)
         
-        let cal = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        let cal   = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
         let today = cal.startOfDayForDate(NSDate())
         
         for i in 0...daysInPast {
@@ -60,6 +82,8 @@ class Item: NSManagedObject {
         return total
     }
     
+    // MARK: - Formatting
+    
     func printDate(date:NSDate) -> String {
         let dateFormatter = NSDateFormatter()
         
@@ -70,23 +94,5 @@ class Item: NSManagedObject {
         dateFormatter.timeStyle = theTimeFormat
         
         return dateFormatter.stringFromDate(date)
-    }
-    
-    func addTime(time: Double, date: NSDate) {
-        // add to totalTime
-        totalTime += time
-        
-        // add to current date in times
-        let cal = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        let newDate = cal.startOfDayForDate(date)
-        
-        var temp = self.times[printDate(newDate)]
-        if temp == nil {
-            temp = 0.0
-        }
-        
-        let newTime = temp! + time
-
-        times[printDate(newDate)] = newTime
     }
 }

@@ -11,7 +11,7 @@ import CoreData
 
 class Folder: NSManagedObject {
     
-    @NSManaged var name: String
+    @NSManaged var name:  String
     @NSManaged var items: [Int] // holds indices of objects in DataStore.itemObjects
     
     func addItem(input: Int) {
@@ -28,7 +28,6 @@ class Folder: NSManagedObject {
     
     func deleteItem(input: Item) {
         for i in 0..<items.count {
-//            let item = items[i] as! Item
             let item = DataStore.sharedInstance.getItem(i) as! Item
             if item.name == input.name {
                 items.removeAtIndex(i)

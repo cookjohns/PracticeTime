@@ -10,6 +10,8 @@ import UIKit
 
 class WeekdayStartView: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
+    // MARK: - Variables
+    
     let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     let info = DataStore.sharedInstance.info! as Info
     
@@ -24,6 +26,8 @@ class WeekdayStartView: UIViewController, UIPickerViewDataSource, UIPickerViewDe
     @IBOutlet weak var myLabel: UILabel!
     @IBOutlet weak var dayPicker: UIPickerView!
     
+    // MARK: - viewDid
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,13 +38,13 @@ class WeekdayStartView: UIViewController, UIPickerViewDataSource, UIPickerViewDe
         self.navigationItem.leftBarButtonItem?.tintColor  = UIColor.whiteColor()
         
         myLabel.textColor = UIColor.blackColor()
-        myLabel.font = UIFont(name: "Avenir-Medium", size: 17)
+        myLabel.font      = UIFont(name: "Avenir-Medium", size: 17)
 
         
-        dayPicker.delegate = self
-        dayPicker.dataSource = self
-        dayPicker.selectRow(2, inComponent: PickerComponent.days.rawValue, animated: false)
+        dayPicker.delegate        = self
+        dayPicker.dataSource      = self
         dayPicker.backgroundColor = uicolorFromHex(0xecf0f1)
+        dayPicker.selectRow(2, inComponent: PickerComponent.days.rawValue, animated: false)
         dayPicker.setValue(UIColor.blackColor(), forKeyPath: "textColor")
         dayPicker.setValue(0.8, forKeyPath: "alpha")
     }
@@ -49,13 +53,7 @@ class WeekdayStartView: UIViewController, UIPickerViewDataSource, UIPickerViewDe
         ModalTransitionMediator.instance.sendPopoverDismissed(true)
     }
     
-    func uicolorFromHex(rgbValue:UInt32)->UIColor{
-        let red   = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
-        let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
-        let blue  = CGFloat(rgbValue & 0xFF)/256.0
-        
-        return UIColor(red:red, green:green, blue:blue, alpha:1.0)
-    }
+    // MARK: - Actions
     
     @IBAction func cancel(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -66,7 +64,6 @@ class WeekdayStartView: UIViewController, UIPickerViewDataSource, UIPickerViewDe
         
         // calculate hours from picker
         let day = dayPicker.selectedRowInComponent(daysComponent)
-//        DataStore.sharedInstance.info.changeStartingDay(day)
         info.changeStartingDay(day)
         
         // save
@@ -90,5 +87,15 @@ class WeekdayStartView: UIViewController, UIPickerViewDataSource, UIPickerViewDe
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[component][row]
+    }
+    
+    // MARK: - Formatting
+    
+    func uicolorFromHex(rgbValue:UInt32)->UIColor{
+        let red   = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
+        let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
+        let blue  = CGFloat(rgbValue & 0xFF)/256.0
+        
+        return UIColor(red:red, green:green, blue:blue, alpha:1.0)
     }
 }
