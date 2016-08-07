@@ -648,11 +648,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tester/TotalsViewController.swift"
-            timestampString = "492233219.17363"
+            timestampString = "492235918.326505"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "getTotalTime()"
             landmarkType = "5">
          </BreakpointContent>
@@ -680,27 +680,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tester/TotalsViewController.swift"
-            timestampString = "492233219.17363"
+            timestampString = "492235918.326505"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "tester/TotalsViewController.swift"
-            timestampString = "492233219.17363"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
             landmarkName = "getFolderNames()"
             landmarkType = "5">
          </BreakpointContent>
@@ -712,11 +696,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tester/TotalsViewController.swift"
-            timestampString = "492233219.17363"
+            timestampString = "492235918.326505"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "getWeekToDateFolderTimes()"
             landmarkType = "5">
          </BreakpointContent>
@@ -788,7 +772,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tester/DataStore.swift"
@@ -814,22 +798,6 @@
             startingLineNumber = "41"
             endingLineNumber = "41"
             landmarkName = "getItem(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "tester/TotalsViewController.swift"
-            timestampString = "492233219.17363"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
-            landmarkName = "setChart(_:values:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

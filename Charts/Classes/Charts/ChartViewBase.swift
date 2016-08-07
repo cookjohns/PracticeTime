@@ -79,8 +79,10 @@ public class ChartViewBase: NSUIView, ChartDataProvider, ChartAnimatorDelegate
     public var descriptionTextPosition: CGPoint? = nil
     
     /// font object for drawing the information text when there are no values in the chart
-    public var infoFont: NSUIFont! = NSUIFont(name: "HelveticaNeue", size: 12.0)
-    public var infoTextColor: NSUIColor! = NSUIColor(red: 247.0/255.0, green: 189.0/255.0, blue: 51.0/255.0, alpha: 1.0) // orange
+    public var infoFont: NSUIFont! = NSUIFont(name: "Avenir-Medium", size: 14.0)
+    //NSUIFont! = NSUIFont(name: "HelveticaNeue", size: 14.0)
+    public var infoTextColor: NSUIColor! = NSUIColor(red: 46.0/255.0, green: 204/255.0, blue: 113/255.0, alpha: 1.0) // matching green
+    //NSUIColor(red: 247.0/255.0, green: 189.0/255.0, blue: 51.0/255.0, alpha: 1.0) // orange
     
     /// description text that appears in the bottom right corner of the chart
     public var descriptionText = "Description"
@@ -98,7 +100,7 @@ public class ChartViewBase: NSUIView, ChartDataProvider, ChartAnimatorDelegate
     public weak var delegate: ChartViewDelegate?
     
     /// text that is displayed when the chart is empty
-    public var noDataText = "No chart data available."
+    public var noDataText = "Create folders to see their data displayed here." //"No chart data available."
     
     /// text that is displayed when the chart is empty that describes why the chart is empty
     public var noDataTextDescription: String?
