@@ -648,11 +648,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tester/TotalsViewController.swift"
-            timestampString = "492211723.006038"
+            timestampString = "492220969.82025"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
             landmarkName = "getTotalTime()"
             landmarkType = "5">
          </BreakpointContent>
@@ -712,11 +712,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tester/TotalsViewController.swift"
-            timestampString = "492212486.078268"
+            timestampString = "492220969.82025"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "getFolderNames()"
             landmarkType = "5">
          </BreakpointContent>
@@ -728,11 +728,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tester/TotalsViewController.swift"
-            timestampString = "492212492.513873"
+            timestampString = "492220969.82025"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "getWeekToDateFolderTimes()"
             landmarkType = "5">
          </BreakpointContent>
@@ -749,7 +749,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "72"
             endingLineNumber = "72"
-            landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
+            landmarkName = "fetch()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -765,7 +765,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
             endingLineNumber = "69"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
+            landmarkName = "fetch()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
