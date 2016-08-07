@@ -38,7 +38,7 @@ class Folder: NSManagedObject {
     
     func getItem(index: Int) -> Item {
 //        return items[index] as! Item
-        return DataStore.sharedInstance.getItem(index) as! Item
+        return DataStore.sharedInstance.getItem(items[index]) as! Item
     }
     
     func getItems() -> [NSManagedObject] {
