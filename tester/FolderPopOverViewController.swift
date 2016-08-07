@@ -49,28 +49,41 @@ class FolderPopOverViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return instance.folderCount()
+        if instance.folderCount() > 0 {
+            return instance.folderCount()
+        }
+        return 1
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
-        let item = instance.getFolder(indexPath.row)
-        
-        cell.textLabel!.text = item.valueForKey("name") as? String
-        cell.textLabel!.font = UIFont(name: "Avenir-Medium", size:20.0)
+        cell.textLabel!.font = UIFont(name: "Avenir-Medium", size:18.0)
         cell.textLabel?.textColor = uicolorFromHex(0x2ecc71)
+        
+        if instance.folderCount() == 0 {
+            cell.textLabel!.text = "Please create a folder"
+            cell.textLabel!.textAlignment = .Center
+            tableView.separatorStyle = .None
+        }
+        else {
+            let item = instance.getFolder(indexPath.row)
+            
+            cell.textLabel!.text = item.valueForKey("name") as? String
+        }
         
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let folder = instance.getFolder(indexPath.item) as! Folder
-        folder.addItem(info.currentItem)
-        
-        do {
-            try managedContext?.save()
-        } catch _ {
+        if instance.folderCount() > 0 {
+            let folder = instance.getFolder(indexPath.item) as! Folder
+            folder.addItem(info.currentItem)
+            
+            do {
+                try managedContext?.save()
+            } catch _ {
+            }
         }
         
         self.dismissViewControllerAnimated(true, completion: nil)
