@@ -219,7 +219,6 @@ import CoreData
         for x: NSManagedObject in DataStore.sharedInstance.getAllItems() {
             total += x.valueForKey("totalTime") as! Int
         }
-//        DataStore.sharedInstance.info.totalTimeInDict = total
         let info = DataStore.sharedInstance.info! as Info
         info.totalTimeInDict = total
     }

@@ -47,10 +47,6 @@ class DataStore {
     
     func setItemObjects(input: [Item]) {
         itemObjects = input
-        for i in input {
-            print(i.getName())
-        }
-        print("\n")
     }
     
     func itemCount() -> Int {

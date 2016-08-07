@@ -21,24 +21,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         
         // set up DataStore Info
-        var entityDescription =
+        let entityDescription =
          NSEntityDescription.entityForName("Info",
                                               inManagedObjectContext: managedObjectContext!)
         
         let request = NSFetchRequest()
         request.entity = entityDescription
         
-//        let pred = NSPredicate(format: "(name = %@)", name.text)
-//        request.predicate = pred
-        
-        var error: NSError?
-        
-        var objects = (try? managedObjectContext?.executeFetchRequest(request))
+        let objects = (try? managedObjectContext?.executeFetchRequest(request))
         
         if let results = objects {
             
             if results!.count > 0 {
-                DataStore.sharedInstance.info = results![0] as! Info
+                DataStore.sharedInstance.info = (results![0] as! Info)
             } else {
                 // create new Info here and set it up
                 
@@ -49,7 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let info = NSManagedObject(entity: entity!,
                                            insertIntoManagedObjectContext:managedObjectContext)
                 
-                var main = "main"
                 info.setValue("main", forKey: "name")
                 info.setValue([:], forKey: "allTimes")
                 info.setValue(0, forKey: "totalTimeInDict")
@@ -61,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     try managedObjectContext?.save()
                 } catch _ {
                 }
-                DataStore.sharedInstance.info = info as! Info
+                DataStore.sharedInstance.info = (info as! Info)
             }
         }
         

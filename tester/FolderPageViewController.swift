@@ -120,7 +120,6 @@ import CoreData
             self.fetch()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
-        let info = DataStore.sharedInstance.info! as Info
     }
     
     func fetch() {

@@ -23,8 +23,8 @@ class AddTimeViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         case minutes = 1
     }
     
-    @IBOutlet weak var myLabel:  UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var timeLabel:  UILabel!
     @IBOutlet weak var timePicker: UIPickerView!
     @IBOutlet weak var datePicker: UIDatePicker!
     
@@ -37,8 +37,8 @@ class AddTimeViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
         self.navigationItem.leftBarButtonItem?.tintColor  = UIColor.whiteColor()
         
-        myLabel.textColor = UIColor.blackColor()
-        myLabel.font = UIFont(name: "Avenir-Medium", size: 17)
+//        titleLabel.textColor = UIColor.blackColor()
+//        titleLabel.font = UIFont(name: "Avenir-Medium", size: 17)
         
         timeLabel.textColor = UIColor.blackColor()
         timeLabel.font = UIFont(name: "Avenir-Medium", size: 17)
@@ -74,7 +74,7 @@ class AddTimeViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         let minutesComponent = PickerComponent.minutes.rawValue
         let hours   = pickerData[hoursComponent][timePicker.selectedRowInComponent(hoursComponent)]
         let minutes = pickerData[minutesComponent][timePicker.selectedRowInComponent(minutesComponent)]
-        myLabel.text = hours + " " + minutes
+        timeLabel.text = "  Time to add: " + hours + " " + minutes
     }
     
     @IBAction func cancel(sender: AnyObject) {

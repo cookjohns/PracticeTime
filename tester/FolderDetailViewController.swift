@@ -28,7 +28,7 @@ import CoreData
         
         // set title
         self.navigationItem.title = folder!.name
-        folder = DataStore.sharedInstance.getFolder(info.currentFolder) as! Folder
+        folder = (DataStore.sharedInstance.getFolder(info.currentFolder) as! Folder)
     }
     
     func uicolorFromHex(rgbValue:UInt32)->UIColor{
@@ -46,8 +46,7 @@ import CoreData
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var cF = info.currentFolder
-        folder = DataStore.sharedInstance.getFolder(info.currentFolder) as! Folder
+        folder = (DataStore.sharedInstance.getFolder(info.currentFolder) as! Folder)
         
         return folder!.items.count
     }

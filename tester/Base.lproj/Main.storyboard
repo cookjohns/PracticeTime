@@ -114,83 +114,111 @@
             <point key="canvasLocation" x="-44" y="3008"/>
         </scene>
         <!--Add Time-->
-        <scene sceneID="k0M-4h-DOD">
+        <scene sceneID="jME-wm-Hf5">
             <objects>
-                <viewController id="HdV-zI-uxO" customClass="AddTimeViewController" customModule="PracticeTime" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="EnS-HU-keX" customClass="AddTimeViewController" customModule="PracticeTime" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hCD-ln-2Ay"/>
-                        <viewControllerLayoutGuide type="bottom" id="VlO-a5-Ij3"/>
+                        <viewControllerLayoutGuide type="top" id="PEW-xe-hiw"/>
+                        <viewControllerLayoutGuide type="bottom" id="8fu-84-w8S"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="UYd-c5-XJv">
+                    <view key="view" contentMode="scaleToFill" id="1nu-Wt-zSM">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView alpha="0.80000000000000004" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bc6-Pj-VEt">
-                                <rect key="frame" x="0.0" y="241" width="600" height="150"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </pickerView>
-                            <datePicker alpha="0.80000000000000004" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="53S-Gy-3hc">
-                                <rect key="frame" x="0.0" y="416" width="600" height="150"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <date key="date" timeIntervalSinceReferenceDate="491808287.86396599">
-                                    <!--2016-08-02 05:24:47 +0000-->
-                                </date>
-                            </datePicker>
-                            <view alpha="0.80000000000000004" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SgO-cb-P0x">
-                                <rect key="frame" x="0.0" y="81" width="600" height="65"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="tOy-SF-gzN">
+                                <rect key="frame" x="0.0" y="20" width="600" height="536"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time to add:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFj-PY-PHQ">
-                                        <rect key="frame" x="50" y="8" width="537" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1QT-0n-kot">
-                                        <rect key="frame" x="50" y="37" width="537" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="246" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mdp-dn-Zxk">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="38"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="Jtm-tt-6hT"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="246" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DX8-ip-UvS">
+                                        <rect key="frame" x="0.0" y="38" width="600" height="39"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WCO-L8-OaX">
+                                                <rect key="frame" x="0.0" y="-10" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="b4x-di-Jhl"/>
+                                            <constraint firstItem="WCO-L8-OaX" firstAttribute="centerY" secondItem="DX8-ip-UvS" secondAttribute="centerY" id="rHN-yQ-vNP"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="246" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I4Y-pp-swb">
+                                        <rect key="frame" x="0.0" y="77" width="600" height="38"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="2c1-rt-wiJ"/>
+                                        </constraints>
+                                    </view>
+                                    <pickerView contentMode="scaleToFill" verticalHuggingPriority="245" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DjI-Av-HXX">
+                                        <rect key="frame" x="0.0" y="115" width="600" height="150"/>
+                                        <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="yTN-3Z-3uH"/>
+                                        </constraints>
+                                    </pickerView>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="246" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ir6-bf-2v1">
+                                        <rect key="frame" x="0.0" y="265" width="600" height="38"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="8RK-DK-kHB"/>
+                                        </constraints>
+                                    </view>
+                                    <datePicker contentMode="scaleToFill" verticalHuggingPriority="245" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Tkw-eG-iwm">
+                                        <rect key="frame" x="0.0" y="303" width="600" height="166"/>
+                                        <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="la5-DJ-P38"/>
+                                        </constraints>
+                                        <date key="date" timeIntervalSinceReferenceDate="492232889.07202703">
+                                            <!--2016-08-07 03:21:29 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="246" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OXl-SV-iZl">
+                                        <rect key="frame" x="0.0" y="469" width="600" height="67"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="5hz-W2-VVT"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.92549019607843142" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="53S-Gy-3hc" firstAttribute="top" secondItem="bc6-Pj-VEt" secondAttribute="bottom" constant="25" id="FBT-Ct-Noq"/>
-                            <constraint firstItem="VlO-a5-Ij3" firstAttribute="top" secondItem="53S-Gy-3hc" secondAttribute="bottom" constant="34" id="HlS-oC-OvD"/>
-                            <constraint firstAttribute="trailing" secondItem="SgO-cb-P0x" secondAttribute="trailing" id="MYD-cb-UEO"/>
-                            <constraint firstItem="SgO-cb-P0x" firstAttribute="leading" secondItem="UYd-c5-XJv" secondAttribute="leading" id="gsd-hm-V9K"/>
-                            <constraint firstItem="53S-Gy-3hc" firstAttribute="leading" secondItem="UYd-c5-XJv" secondAttribute="leading" id="n67-WI-maK"/>
-                            <constraint firstItem="bc6-Pj-VEt" firstAttribute="leading" secondItem="UYd-c5-XJv" secondAttribute="leading" id="nQR-U9-zST"/>
-                            <constraint firstAttribute="trailing" secondItem="53S-Gy-3hc" secondAttribute="trailing" id="sEq-cY-cMz"/>
-                            <constraint firstAttribute="trailing" secondItem="bc6-Pj-VEt" secondAttribute="trailing" id="tha-dh-FGj"/>
+                            <constraint firstItem="tOy-SF-gzN" firstAttribute="leading" secondItem="1nu-Wt-zSM" secondAttribute="leading" id="6Nq-4b-Cfr"/>
+                            <constraint firstItem="tOy-SF-gzN" firstAttribute="top" secondItem="PEW-xe-hiw" secondAttribute="bottom" id="ZUW-XX-Kpa"/>
+                            <constraint firstAttribute="trailing" secondItem="tOy-SF-gzN" secondAttribute="trailing" id="dTN-wA-c8k"/>
+                            <constraint firstItem="8fu-84-w8S" firstAttribute="top" secondItem="tOy-SF-gzN" secondAttribute="bottom" id="lnn-ai-Rf6"/>
                         </constraints>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="BhZ-0I-5JX"/>
-                    </toolbarItems>
-                    <navigationItem key="navigationItem" title="Add Time" id="sQT-93-4cU">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ALr-u1-JE3">
+                    <navigationItem key="navigationItem" title="Add Time" id="uM3-dj-6Pm">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gGt-Zu-5gv">
                             <connections>
-                                <action selector="cancel:" destination="HdV-zI-uxO" id="Zsm-J4-m2z"/>
+                                <action selector="cancel:" destination="EnS-HU-keX" id="cgE-3T-eAi"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="5dK-Zq-agp">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Qd6-q8-9Ut">
                             <connections>
-                                <action selector="save:" destination="HdV-zI-uxO" id="4sg-O4-O3v"/>
+                                <action selector="save:" destination="EnS-HU-keX" id="rcW-Il-Uzw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="datePicker" destination="53S-Gy-3hc" id="K90-Vo-NgO"/>
-                        <outlet property="myLabel" destination="1QT-0n-kot" id="rwO-sn-kci"/>
-                        <outlet property="timeLabel" destination="YFj-PY-PHQ" id="lLX-US-d32"/>
-                        <outlet property="timePicker" destination="bc6-Pj-VEt" id="bNc-Qw-4lY"/>
+                        <outlet property="datePicker" destination="Tkw-eG-iwm" id="PgL-E8-GBc"/>
+                        <outlet property="timeLabel" destination="WCO-L8-OaX" id="QRm-cT-GQh"/>
+                        <outlet property="timePicker" destination="DjI-Av-HXX" id="nVE-uB-TZ2"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RUw-Gm-sr3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p0c-iv-fAg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2196" y="1464"/>
         </scene>
@@ -337,7 +365,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="HdV-zI-uxO" kind="relationship" relationship="rootViewController" id="oV1-m5-3iS"/>
+                        <segue destination="EnS-HU-keX" kind="relationship" relationship="rootViewController" id="u3Y-Wn-qey"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bcA-Yq-bO9" userLabel="First Responder" sceneMemberID="firstResponder"/>
