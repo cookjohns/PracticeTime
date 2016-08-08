@@ -12,9 +12,9 @@ import CoreData
 class Folder: NSManagedObject {
     
     @NSManaged var name:  String
-    @NSManaged var items: [Int] // holds indices of objects in DataStore.itemObjects
+    @NSManaged var items: [String] // holds indices of objects in DataStore.itemObjects
     
-    func addItem(input: Int) {
+    func addItem(input: String) {
         items.append(input)
     }
     
@@ -26,31 +26,37 @@ class Folder: NSManagedObject {
         name = input
     }
     
-    func deleteItem(input: Item) {
+    func deleteItem(input: String) {
         for i in 0..<items.count {
-            let item = DataStore.sharedInstance.getItem(i) as! Item
-            if item.name == input.name {
+            if items[i] == input {
                 items.removeAtIndex(i)
+                return
             }
         }
     }
     
-    func getItem(index: Int) -> Item {
+    func getItem(name: String) -> Item {
 //        return items[index] as! Item
-        return DataStore.sharedInstance.getItem(items[index]) as! Item
+        return DataStore.sharedInstance.getItem(name) as! Item
+    }
+    
+    func getNameAtIndex(index: Int) -> String {
+        return items[index]
     }
     
     func getItems() -> [NSManagedObject] {
         var result: [NSManagedObject] = []
-        let allItems = DataStore.sharedInstance.getAllItems() // DataStore.itemObjects
-        for i in 0..<items.count {
-            let itemToAdd = allItems[items[i]]
-            result.append(itemToAdd)
+        for name in 0..<items.count {
+            let itemToAdd = DataStore.sharedInstance.getItem(name)
+            let itemAsItem = itemToAdd as! Item
+            if itemAsItem.name != "none" {
+                result.append(itemToAdd)
+            }
         }
         return result
     }
     
-    func containsItem(input: Int) -> Bool {
+    func containsItem(input: String) -> Bool {
         for i in 0..<items.count {
             if items[i] == input {
                 return true
@@ -59,12 +65,16 @@ class Folder: NSManagedObject {
         return false
     }
     
-    func getIndexOfItem(input: Int) -> Int {
+    func getIndexOfItem(input: String) -> Int {
         for i in 0..<items.count {
             if items[i] == input {
                 return i
             }
         }
         return -1
+    }
+    
+    func itemCount() -> Int {
+        return items.count
     }
 }

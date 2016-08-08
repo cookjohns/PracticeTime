@@ -300,9 +300,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="sxE-MH-ZNr" kind="show" id="Ucu-aj-viD"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -330,6 +327,9 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <segue destination="sxE-MH-ZNr" kind="show" identifier="folderToItemDetailSegue" id="XD7-1a-Fyb"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j4w-r7-4YT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -507,7 +507,7 @@
                                             <constraint firstAttribute="height" constant="25" id="oD6-yV-XGY"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" verticalHuggingPriority="246" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N74-s8-tTY">
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="246" translatesAutoresizingMaskIntoConstraints="NO" id="N74-s8-tTY">
                                         <rect key="frame" x="0.0" y="431" width="600" height="61"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="244" verticalHuggingPriority="244" horizontalCompressionResistancePriority="744" verticalCompressionResistancePriority="744" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQs-9W-Tb2">
@@ -554,7 +554,7 @@
                             </barButtonItem>
                             <barButtonItem image="folder2.png" id="7H0-4I-VDp">
                                 <connections>
-                                    <segue destination="glM-30-Jo7" kind="show" id="SOt-3C-XSs"/>
+                                    <segue destination="bRK-vm-7RD" kind="showDetail" id="cyG-PX-FWI"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -1025,8 +1025,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="OhD-8h-8X9"/>
-        <segue reference="Ucu-aj-viD"/>
+        <segue reference="XD7-1a-Fyb"/>
         <segue reference="Xzz-4b-gWQ"/>
-        <segue reference="xqh-Gh-xn8"/>
     </inferredMetricsTieBreakers>
 </document>

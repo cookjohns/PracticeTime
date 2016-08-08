@@ -19,6 +19,11 @@ class Item: NSManagedObject {
     @NSManaged var times:      Dictionary<String, Double> // date as NSDate, totalTime for that instance
     @NSManaged var goal:       Int
     @NSManaged var timeSinceLastAccess: NSNumber
+    
+    convenience init(nameIn: String) {
+        self.init()
+        self.name = nameIn
+    }
 
     
     // MARK: - Functions

@@ -170,8 +170,7 @@ import CoreData
         if editingStyle == .Delete {
             let instance = DataStore.sharedInstance
             let itemToDelete = instance.getItem(indexPath.row)
-            instance.removeItem(indexPath.row)
-            instance.removeItemFromAllFolders(indexPath.row)
+            instance.removeItemFromAllFolders(itemToDelete)
             managedContext?.deleteObject(itemToDelete)
             do {
                 try managedContext?.save()

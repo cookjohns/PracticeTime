@@ -64,6 +64,16 @@ class DataStore {
         return itemObjects[index]
     }
     
+    func getItem(name: String) -> NSManagedObject {
+        for i in itemObjects {
+            let item = i as! Item
+            if item.name == name {
+                return item
+            }
+        }
+        return Item(nameIn: "none")
+    }
+    
     func getAllItems() -> [NSManagedObject] {
         return itemObjects
     }
@@ -102,13 +112,12 @@ class DataStore {
         return -1
     }
     
-    func removeItemFromAllFolders(input: Int) {
+    func removeItemFromAllFolders(input: NSManagedObject) {
+        let item = input as! Item
+        let itemName = item.name
         for f in folderObjects{
             let folder = f as! Folder
-            let indexToDelete = folder.getIndexOfItem(input)
-            if indexToDelete >= 0 {
-                self.removeItem(indexToDelete)
-            }
+            folder.deleteItem(itemName)
         }
     }
 }

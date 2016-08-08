@@ -47,39 +47,55 @@ import CoreData
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         folder = (DataStore.sharedInstance.getFolder(info.getCurrentFolder()) as! Folder)
-        
+        if folder!.items.count == 0 {
+            return 1
+        }
         return folder!.items.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        folder = (DataStore.sharedInstance.getFolder(info.getCurrentFolder()) as! Folder)
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        
-        if indexPath.row <= (DataStore.sharedInstance.getAllItems().count)-1 {
-            let item = folder!.getItem(indexPath.row)
-            cell.textLabel!.text = item.name
-        }
+        cell.accessoryType = .None
         
         cell.textLabel!.font = UIFont(name: "Avenir-Medium", size:20.0)
         cell.textLabel?.textColor = uicolorFromHex(0x2ecc71)
-        
+
+        if folder!.itemCount() == 0 {
+            cell.textLabel!.text = "This folder is empty"
+            cell.textLabel!.textAlignment = .Center
+            tableView.separatorStyle = .None
+        }
+        else {
+            if indexPath.row <= (DataStore.sharedInstance.getAllItems().count)-1 {
+                let name = folder!.getNameAtIndex(indexPath.row)
+                cell.textLabel!.text = name
+            }
+        }
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // set currentItem based on item selected (match by name)
-        let instance = DataStore.sharedInstance
-        let info = instance.info! as Info
+        folder = (DataStore.sharedInstance.getFolder(info.getCurrentFolder()) as! Folder)
+        if folder!.itemCount() > 0 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
-        // get name of selected item
-        folder = (instance.getFolder(info.getCurrentFolder()) as! Folder)
-        let item = folder!.getItem(indexPath.row) as! Item
-        let selectedName = item.getName()
+            // set currentItem based on item selected (match by name)
+            let instance = DataStore.sharedInstance
+            let info = instance.info! as Info
         
-        // get index of selected item (match by name)
-        let itemIndex = instance.getItemIndexForName(selectedName)
+            // get name of selected item
+            folder = (instance.getFolder(info.getCurrentFolder()) as! Folder)
+            let selectedName = folder!.getNameAtIndex(indexPath.row)
+            // get index of selected item (match by name)
+            let itemIndex = instance.getItemIndexForName(selectedName)
         
-        // set currentItem
-        info.changeCurrentItem(itemIndex)
+            // set currentItem
+            info.changeCurrentItem(itemIndex)
+            
+            // perform segue
+            self.performSegueWithIdentifier("folderToItemDetailSegue", sender: cell)
+        }
     }
     
     // Override to support conditional editing of the table view.
@@ -91,7 +107,7 @@ import CoreData
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            let itemToDelete = folder!.getItem(indexPath.row)
+            let itemToDelete = folder!.getNameAtIndex(indexPath.row)
             folder!.deleteItem(itemToDelete)
             folder!.setValue(folder!.items, forKey: "items")
             do {

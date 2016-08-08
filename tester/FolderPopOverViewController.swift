@@ -78,9 +78,11 @@ class FolderPopOverViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let info = instance.info! as Info
         let folder = instance.getFolder(indexPath.item) as! Folder
-        if instance.folderCount() > 0  && !(folder.containsItem(info.getCurrentItem())) {
-            folder.addItem(info.getCurrentItem())
+        let currentItem = instance.getItem(info.getCurrentItem()) as! Item
+        if instance.folderCount() > 0  && !(folder.containsItem(currentItem.getName())) {
+            folder.addItem(currentItem.getName())
             
             do {
                 try managedContext?.save()
