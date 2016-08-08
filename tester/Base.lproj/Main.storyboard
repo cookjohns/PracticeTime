@@ -50,7 +50,7 @@
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4fa-3I-mKa">
                                     <rect key="frame" x="550" y="7" width="30" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" image="gear1.png"/>
+                                    <state key="normal" image="gear.png"/>
                                     <connections>
                                         <segue destination="FdQ-4f-A4m" kind="show" id="GtF-MQ-Erw"/>
                                     </connections>
@@ -121,10 +121,10 @@
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lhq-rE-Nur">
                                     <rect key="frame" x="550" y="7" width="30" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Button" image="gear1.png"/>
+                                    <state key="normal" title="Button" image="gear.png"/>
                                 </button>
                                 <connections>
-                                    <segue destination="FdQ-4f-A4m" kind="show" id="bmN-cY-oNX"/>
+                                    <segue destination="FdQ-4f-A4m" kind="show" id="QT3-ou-v0y"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="add" id="gtK-3U-Z9J">
@@ -311,11 +311,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="UVP-Nq-p7Q">
-                        <barButtonItem key="rightBarButtonItem" image="gear1.png" id="rCX-jS-ZrN">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <segue destination="FdQ-4f-A4m" kind="show" id="go3-AT-y2U"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" title="Item" width="30" style="plain" id="mgb-1n-6Ep">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bev-2i-Ksq">
+                                <rect key="frame" x="550" y="7" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="gear.png"/>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
@@ -381,7 +382,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="0lw-6h-ALT" kind="relationship" relationship="rootViewController" id="Vsv-52-fiG"/>
+                        <segue destination="0lw-6h-ALT" kind="relationship" relationship="rootViewController" id="I18-LU-SXf"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mif-3g-0t4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -445,7 +446,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="245" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qVb-SD-RtL" customClass="LineChartView" customModule="Charts">
-                                        <rect key="frame" x="0.0" y="127" width="600" height="70"/>
+                                        <rect key="frame" x="0.0" y="126" width="600" height="70"/>
                                         <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="220" id="DHh-NG-88f"/>
@@ -469,6 +470,7 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydt-wO-P0u">
                                                 <rect key="frame" x="544" y="11" width="22" height="22"/>
+                                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <action selector="changeGoal:" destination="sxE-MH-ZNr" eventType="touchUpInside" id="bkX-T8-BEi"/>
                                                 </connections>
@@ -494,7 +496,7 @@
                                             <constraint firstAttribute="height" constant="25" id="oD6-yV-XGY"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" verticalHuggingPriority="246" translatesAutoresizingMaskIntoConstraints="NO" id="N74-s8-tTY">
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="246" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N74-s8-tTY">
                                         <rect key="frame" x="0.0" y="432" width="600" height="61"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="244" verticalHuggingPriority="244" horizontalCompressionResistancePriority="744" verticalCompressionResistancePriority="744" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQs-9W-Tb2">
@@ -524,15 +526,15 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="qUJ-1x-CMZ">
                         <rightBarButtonItems>
-                            <barButtonItem image="gear1.png" style="plain" id="0mQ-De-OWv">
+                            <barButtonItem image="gear.png" style="plain" id="0mQ-De-OWv">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5QU-aF-FwZ">
                                     <rect key="frame" x="550" y="7" width="30" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" image="gear1.png"/>
+                                    <state key="normal" image="gear.png"/>
+                                    <connections>
+                                        <segue destination="FdQ-4f-A4m" kind="show" id="khQ-vF-Nol"/>
+                                    </connections>
                                 </button>
-                                <connections>
-                                    <segue destination="FdQ-4f-A4m" kind="show" id="NVA-Gt-fPr"/>
-                                </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="add" id="tHa-2p-dlY">
                                 <connections>
@@ -593,7 +595,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pgd-Gi-bFd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-777" y="1464"/>
+            <point key="canvasLocation" x="-777" y="1454"/>
         </scene>
         <!--Settings-->
         <scene sceneID="rV9-Tq-f2y">
@@ -607,7 +609,7 @@
                             <tableViewSection headerTitle="Basic Settings" id="Rv4-kz-7mX">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ieC-Ap-1GP">
-                                        <rect key="frame" x="0.0" y="114" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ieC-Ap-1GP" id="fho-0v-gYa">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -616,31 +618,23 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fzo-1s-U9o">
                                                     <rect key="frame" x="543" y="7" width="51" height="31"/>
                                                 </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Do you want to backup to iCloud?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bsq-lD-BXP">
-                                                    <rect key="frame" x="8" y="23" width="257" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="iCloud Sync" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ge7-Ik-jzI">
-                                                    <rect key="frame" x="8" y="7" width="92" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloud Sync" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ge7-Ik-jzI">
+                                                    <rect key="frame" x="8" y="12" width="92" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ge7-Ik-jzI" firstAttribute="centerY" secondItem="Fzo-1s-U9o" secondAttribute="centerY" id="Euw-9K-Awa"/>
                                                 <constraint firstItem="Fzo-1s-U9o" firstAttribute="trailing" secondItem="fho-0v-gYa" secondAttribute="trailingMargin" id="Q4P-6d-8WK"/>
-                                                <constraint firstItem="Bsq-lD-BXP" firstAttribute="top" secondItem="ge7-Ik-jzI" secondAttribute="bottom" constant="-4" id="VIC-MY-dLh"/>
-                                                <constraint firstItem="ge7-Ik-jzI" firstAttribute="centerY" secondItem="fho-0v-gYa" secondAttribute="centerY" id="d6S-Cl-dau"/>
-                                                <constraint firstItem="ge7-Ik-jzI" firstAttribute="leading" secondItem="Bsq-lD-BXP" secondAttribute="leading" id="vIc-dB-O6a"/>
-                                                <constraint firstItem="ge7-Ik-jzI" firstAttribute="leading" secondItem="fho-0v-gYa" secondAttribute="leadingMargin" id="zVY-QJ-UUb"/>
+                                                <constraint firstItem="ge7-Ik-jzI" firstAttribute="centerY" secondItem="Fzo-1s-U9o" secondAttribute="centerY" id="bZ6-c7-idp"/>
+                                                <constraint firstItem="ge7-Ik-jzI" firstAttribute="centerY" secondItem="fho-0v-gYa" secondAttribute="centerY" id="pcP-Xw-V0j"/>
+                                                <constraint firstItem="ge7-Ik-jzI" firstAttribute="leading" secondItem="fho-0v-gYa" secondAttribute="leadingMargin" id="ruA-ON-lFc"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="oa3-0C-1QF">
-                                        <rect key="frame" x="0.0" y="158" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="157.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oa3-0C-1QF" id="PMN-WR-JDp">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="44"/>
@@ -670,7 +664,7 @@
                             <tableViewSection headerTitle="Upgrade" id="r5z-mn-9Vh">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="S3L-3P-xjB">
-                                        <rect key="frame" x="0.0" y="252" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="251.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S3L-3P-xjB" id="Ulz-FU-Z7x">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -694,7 +688,7 @@
                             <tableViewSection id="Npa-Po-MO0">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="xWy-Mf-kA5">
-                                        <rect key="frame" x="0.0" y="332" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="331.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xWy-Mf-kA5" id="Fxi-dY-HgJ">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -714,7 +708,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="hKQ-QU-ZDp">
-                                        <rect key="frame" x="0.0" y="376" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="375.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hKQ-QU-ZDp" id="f7G-pM-HCo">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -749,7 +743,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="iCloudDetailLabel" destination="Bsq-lD-BXP" id="czs-Al-7es"/>
                         <outlet property="iCloudLabel" destination="ge7-Ik-jzI" id="Zaz-pG-86q"/>
                         <outlet property="rateLabel" destination="pBj-lz-RrL" id="5xE-dM-cqf"/>
                         <outlet property="shareLabel" destination="nJL-D0-VBn" id="cyr-yw-gua"/>
@@ -799,7 +792,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="245" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Uv-OT-9Vc" customClass="BarChartView" customModule="Charts">
-                                        <rect key="frame" x="0.0" y="127" width="600" height="70"/>
+                                        <rect key="frame" x="0.0" y="126" width="600" height="70"/>
                                         <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="220" id="ZqO-HD-DWC"/>
@@ -823,6 +816,7 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0H-2j-DYE">
                                                 <rect key="frame" x="552" y="12" width="22" height="22"/>
+                                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <action selector="changeGoal:" destination="0lw-6h-ALT" eventType="touchUpInside" id="SRK-b7-iVu"/>
                                                 </connections>
@@ -848,7 +842,7 @@
                                             <constraint firstAttribute="height" constant="25" id="Ob6-2d-Yud"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" verticalHuggingPriority="246" translatesAutoresizingMaskIntoConstraints="NO" id="zWd-tk-H29">
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="246" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zWd-tk-H29">
                                         <rect key="frame" x="0.0" y="432" width="600" height="61"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="244" verticalHuggingPriority="244" horizontalCompressionResistancePriority="744" verticalCompressionResistancePriority="744" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qje-W8-Zp8">
@@ -876,11 +870,16 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="UUh-nc-qqL">
-                        <barButtonItem key="rightBarButtonItem" image="gear1.png" id="5Oz-W7-NVT">
-                            <connections>
-                                <segue destination="FdQ-4f-A4m" kind="show" id="4PP-Kt-JMI"/>
-                            </connections>
+                    <navigationItem key="navigationItem" title="Title" id="w5f-sJ-G57">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="wot-E5-eiH">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fWc-0N-1TI">
+                                <rect key="frame" x="550" y="7" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="gear.png"/>
+                                <connections>
+                                    <segue destination="FdQ-4f-A4m" kind="show" id="mjB-HB-CBK"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -894,7 +893,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="00E-b8-Nl8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1505" y="3785.9999999999995"/>
+            <point key="canvasLocation" x="-1505" y="3739"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ch0-tK-ZQH">
@@ -938,13 +937,13 @@
         <image name="chart1.png" width="25" height="25"/>
         <image name="folder1.png" width="25" height="25"/>
         <image name="folder2.png" width="20" height="20"/>
-        <image name="gear1.png" width="30" height="30"/>
+        <image name="gear.png" width="128" height="128"/>
         <image name="list1.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bOI-2G-Wjp"/>
+        <segue reference="Ucu-aj-viD"/>
         <segue reference="SOt-3C-XSs"/>
-        <segue reference="NVA-Gt-fPr"/>
+        <segue reference="mjB-HB-CBK"/>
         <segue reference="Xzz-4b-gWQ"/>
     </inferredMetricsTieBreakers>
 </document>
