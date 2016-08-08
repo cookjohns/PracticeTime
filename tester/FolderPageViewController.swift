@@ -115,7 +115,9 @@ import CoreData
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            let itemToDelete = DataStore.sharedInstance.getFolder(indexPath.row)
+            let instance = DataStore.sharedInstance
+            let itemToDelete = instance.getFolder(indexPath.row)
+            instance.removeFolder(indexPath.row)
             managedContext?.deleteObject(itemToDelete)
             do {
                 try managedContext?.save()
@@ -129,7 +131,7 @@ import CoreData
     // set current folder in 'folders' when a row on the table is selected
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         let info = DataStore.sharedInstance.info! as Info
-        info.currentFolder = indexPath.row
+        info.changeCurrentFolder(indexPath.row)
         return indexPath
     }
     

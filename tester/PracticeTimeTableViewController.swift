@@ -123,7 +123,7 @@ import CoreData
             total += x.valueForKey("totalTime") as! Int
         }
         let info = DataStore.sharedInstance.info! as Info
-        info.totalTimeInDict = total
+        info.changeTotalTimeInDict(total)
     }
     
     // MARK: - UITableView
@@ -168,7 +168,10 @@ import CoreData
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            let itemToDelete = DataStore.sharedInstance.getItem(indexPath.row)
+            let instance = DataStore.sharedInstance
+            let itemToDelete = instance.getItem(indexPath.row)
+            instance.removeItem(indexPath.row)
+            instance.removeItemFromAllFolders(indexPath.row)
             managedContext?.deleteObject(itemToDelete)
             do {
                 try managedContext?.save()
@@ -178,13 +181,13 @@ import CoreData
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
         let info = DataStore.sharedInstance.info! as Info
-        info.currentItem = indexPath.row
+        info.changeCurrentItem(indexPath.row)
     }
     
     // set current item in 'items' when a row on the table is selected
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         let info = DataStore.sharedInstance.info! as Info
-        info.currentItem = indexPath.row
+        info.changeCurrentItem(indexPath.row)
         setAllTimes()  // load the allTimes dictionary that holds all total times, sets totalTimeInDict to hold sum
         return indexPath
     }

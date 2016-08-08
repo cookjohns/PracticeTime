@@ -42,7 +42,7 @@ class DetailViewController: UIViewController, ModalTransitionListener {
         
         // set title
         let instance = DataStore.sharedInstance
-        let item     = instance.getItem(info.currentItem) as! Item
+        let item     = instance.getItem(info.getCurrentItem()) as! Item
         self.navigationItem.title = item.name
         
         weeklyTotalLabel.text = "  This Week: \(getWeekToDateTotal()) hours" //(since \(startingDayToString()))"
@@ -73,7 +73,7 @@ class DetailViewController: UIViewController, ModalTransitionListener {
     // MARK: - Actions
     
     @IBAction func changeGoal(sender: AnyObject) {
-        let item  = DataStore.sharedInstance.getItem(info.currentItem) as! Item
+        let item  = DataStore.sharedInstance.getItem(info.getCurrentItem()) as! Item
         let alert = UIAlertController(title:   "Change Goal",
                                       message: "Enter new goal",
                                       preferredStyle: .Alert)
@@ -116,7 +116,7 @@ class DetailViewController: UIViewController, ModalTransitionListener {
     // MARK: - Getter Functions
     
     func getWeekToDateTotal() -> Double {
-        let item   = DataStore.sharedInstance.getItem(info.currentItem) as! Item
+        let item   = DataStore.sharedInstance.getItem(info.getCurrentItem()) as! Item
         var result = 0.0
         for i in item.getWeekToDateTimes() {
             result += i
@@ -188,7 +188,7 @@ class DetailViewController: UIViewController, ModalTransitionListener {
     }
     
     func setBarChart(dataPoints:[String], values: [Double]) {
-        let item = DataStore.sharedInstance.getItem(info.currentItem) as! Item
+        let item = DataStore.sharedInstance.getItem(info.getCurrentItem()) as! Item
         // add dataPoints to chart's dataPoints array
         var barDataEntries: [ChartDataEntry] = []
         
@@ -232,7 +232,7 @@ class DetailViewController: UIViewController, ModalTransitionListener {
     
     func popoverDismissed() {
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
-        let item   = DataStore.sharedInstance.getItem(info.currentItem) as! Item
+        let item   = DataStore.sharedInstance.getItem(info.getCurrentItem()) as! Item
         weeklyTotalLabel.text = "   This Week: \(getWeekToDateTotal()) hours" // (since \(startingDayToString()))"
         setChart(days, values: item.getWeekToDateTimes())
         setBarChart([""], values: [getWeekToDateTotal()])

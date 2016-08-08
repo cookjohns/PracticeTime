@@ -49,4 +49,22 @@ class Folder: NSManagedObject {
         }
         return result
     }
+    
+    func containsItem(input: Int) -> Bool {
+        for i in 0..<items.count {
+            if items[i] == input {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func getIndexOfItem(input: Int) -> Int {
+        for i in 0..<items.count {
+            if items[i] == input {
+                return i
+            }
+        }
+        return -1
+    }
 }

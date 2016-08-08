@@ -34,7 +34,7 @@ import CoreData
         ModalTransitionMediator.instance.setListener(self)
         
         // set title
-        folder = (DataStore.sharedInstance.getFolder(info.currentFolder) as! Folder)
+        folder = (DataStore.sharedInstance.getFolder(info.getCurrentFolder()) as! Folder)
         self.navigationItem.title = folder!.name
     }
     
@@ -46,20 +46,40 @@ import CoreData
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        folder = (DataStore.sharedInstance.getFolder(info.currentFolder) as! Folder)
+        folder = (DataStore.sharedInstance.getFolder(info.getCurrentFolder()) as! Folder)
         
         return folder!.items.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        let item = folder!.getItem(indexPath.row) 
         
-        cell.textLabel!.text = item.name
+        if indexPath.row <= (DataStore.sharedInstance.getAllItems().count)-1 {
+            let item = folder!.getItem(indexPath.row)
+            cell.textLabel!.text = item.name
+        }
+        
         cell.textLabel!.font = UIFont(name: "Avenir-Medium", size:20.0)
         cell.textLabel?.textColor = uicolorFromHex(0x2ecc71)
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // set currentItem based on item selected (match by name)
+        let instance = DataStore.sharedInstance
+        let info = instance.info! as Info
+        
+        // get name of selected item
+        folder = (instance.getFolder(info.getCurrentFolder()) as! Folder)
+        let item = folder!.getItem(indexPath.row) as! Item
+        let selectedName = item.getName()
+        
+        // get index of selected item (match by name)
+        let itemIndex = instance.getItemIndexForName(selectedName)
+        
+        // set currentItem
+        info.changeCurrentItem(itemIndex)
     }
     
     // Override to support conditional editing of the table view.

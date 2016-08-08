@@ -89,7 +89,7 @@ class AddTimeViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         }
         
         // save time
-        let item = DataStore.sharedInstance.getItem(info.currentItem) as! Item
+        let item = DataStore.sharedInstance.getItem(info.getCurrentItem()) as! Item
         item.addTime(hours, date: datePicker.date)
         
         do {

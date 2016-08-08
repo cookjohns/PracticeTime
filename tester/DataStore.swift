@@ -48,8 +48,16 @@ class DataStore {
         itemObjects.append(item)
     }
     
+    func removeItem(index: Int) {
+        folderObjects.removeAtIndex(index)
+    }
+    
     func addFolder(folder: NSManagedObject) {
         folderObjects.append(folder)
+    }
+    
+    func removeFolder(index: Int) {
+        folderObjects.removeAtIndex(index)
     }
     
     func getItem(index: Int) -> NSManagedObject {
@@ -82,5 +90,25 @@ class DataStore {
     
     func folderCount() -> Int {
         return folderObjects.count
+    }
+    
+    func getItemIndexForName(input: String) -> Int {
+        for i in 0..<itemObjects.count {
+            let item = itemObjects[i] as! Item
+            if item.getName() == input {
+                return i
+            }
+        }
+        return -1
+    }
+    
+    func removeItemFromAllFolders(input: Int) {
+        for f in folderObjects{
+            let folder = f as! Folder
+            let indexToDelete = folder.getIndexOfItem(input)
+            if indexToDelete >= 0 {
+                self.removeItem(indexToDelete)
+            }
+        }
     }
 }
