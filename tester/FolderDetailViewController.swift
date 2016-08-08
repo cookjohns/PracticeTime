@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-@objc(FolderDetailViewController) class FolderDetailViewController: UITableViewController {
+@objc(FolderDetailViewController) class FolderDetailViewController: UITableViewController, ModalTransitionListener {
     
     // MARK: - Variables
     
@@ -30,9 +30,12 @@ import CoreData
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(0x2ecc71)
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
+        // listener for resetting view
+        ModalTransitionMediator.instance.setListener(self)
+        
         // set title
-        self.navigationItem.title = folder!.name
         folder = (DataStore.sharedInstance.getFolder(info.currentFolder) as! Folder)
+        self.navigationItem.title = folder!.name
     }
     
     // MARK: - UITableView
@@ -94,6 +97,13 @@ import CoreData
         if let fetchResults = (try? managedContext!.executeFetchRequest(folderFetchRequest)) as? [Folder] {
             DataStore.sharedInstance.setFolderObjects(fetchResults)
         }
+    }
+    
+    // MARK: - ModalTransitionListener
+    
+    func popoverDismissed() {
+        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+        self.tableView.reloadData()
     }
     
     // MARK: - Formatting

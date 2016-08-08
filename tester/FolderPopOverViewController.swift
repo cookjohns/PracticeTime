@@ -43,6 +43,8 @@ class FolderPopOverViewController: UITableViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    // MARK: - UITableView
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // Return the number of sections.
         return 1
@@ -67,9 +69,9 @@ class FolderPopOverViewController: UITableViewController {
             tableView.separatorStyle = .None
         }
         else {
-            let item = instance.getFolder(indexPath.row)
+            let folder = instance.getFolder(indexPath.row)
             
-            cell.textLabel!.text = item.valueForKey("name") as? String
+            cell.textLabel!.text = folder.valueForKey("name") as? String
         }
         
         return cell

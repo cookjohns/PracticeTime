@@ -43,7 +43,7 @@
                             <outlet property="delegate" destination="gPM-CS-hFS" id="4lF-je-ga5"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Pieces" image="list1.png" id="YNS-CE-CGe"/>
+                    <tabBarItem key="tabBarItem" title="All" image="list.png" id="YNS-CE-CGe"/>
                     <navigationItem key="navigationItem" title="All Items" id="Vyc-do-8Dd">
                         <rightBarButtonItems>
                             <barButtonItem style="plain" id="t7i-WL-la2">
@@ -69,11 +69,11 @@
             </objects>
             <point key="canvasLocation" x="-44" y="2228.9999999999995"/>
         </scene>
-        <!--Pieces-->
+        <!--All-->
         <scene sceneID="WGd-qy-Hgo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dmZ-9a-lcy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pieces" image="list1.png" id="eiu-6w-TNe"/>
+                    <tabBarItem key="tabBarItem" title="All" image="list.png" id="eiu-6w-TNe"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0rX-8z-SPX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -114,7 +114,7 @@
                             <outlet property="delegate" destination="Vgs-tf-8h0" id="qlE-iE-mSY"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Folders" image="folder1.png" id="61u-eY-mw1"/>
+                    <tabBarItem key="tabBarItem" title="Folders" image="folder.png" id="61u-eY-mw1"/>
                     <navigationItem key="navigationItem" title="Folders" id="hF8-BZ-ETE">
                         <rightBarButtonItems>
                             <barButtonItem style="plain" id="yRi-6M-tWy">
@@ -247,7 +247,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p0c-iv-fAg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2196" y="1464"/>
+            <point key="canvasLocation" x="3008" y="1464"/>
         </scene>
         <!--Move Item-->
         <scene sceneID="gKc-Sq-aNH">
@@ -311,16 +311,24 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="UVP-Nq-p7Q">
-                        <barButtonItem key="rightBarButtonItem" title="Item" width="30" style="plain" id="mgb-1n-6Ep">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bev-2i-Ksq">
-                                <rect key="frame" x="550" y="7" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="gear.png"/>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" width="30" style="plain" id="mgb-1n-6Ep">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bev-2i-Ksq">
+                                    <rect key="frame" x="550" y="7" width="30" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="gear.png"/>
+                                    <connections>
+                                        <segue destination="FdQ-4f-A4m" kind="show" id="OhD-8h-8X9"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="FpY-eq-zS4">
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <segue destination="FdQ-4f-A4m" kind="show" id="OhD-8h-8X9"/>
+                                    <segue destination="SQa-Sw-AfF" kind="showDetail" id="yCG-NJ-k4F"/>
                                 </connections>
-                            </button>
-                        </barButtonItem>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j4w-r7-4YT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -358,7 +366,7 @@
         <scene sceneID="8YC-xK-LoY">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SjS-PL-gxo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Folders" image="folder1.png" id="84t-AP-pbk"/>
+                    <tabBarItem key="tabBarItem" title="Folders" image="folder.png" id="84t-AP-pbk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vkb-ka-TEz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -377,7 +385,7 @@
         <scene sceneID="VrS-9E-61d">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Cj-Si-8b3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Totals" image="chart1.png" id="Ecu-63-CSU"/>
+                    <tabBarItem key="tabBarItem" title="Totals" image="chart.png" id="Ecu-63-CSU"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yln-1C-1Hu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -541,7 +549,7 @@
                             </barButtonItem>
                             <barButtonItem systemItem="add" id="tHa-2p-dlY">
                                 <connections>
-                                    <segue destination="EnS-HU-keX" kind="show" id="Q1S-2J-j4P"/>
+                                    <segue destination="P1R-iJ-ocv" kind="showDetail" action="showViewController:sender:" id="Q1S-2J-j4P"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="folder2.png" id="7H0-4I-VDp">
@@ -935,12 +943,84 @@
             </objects>
             <point key="canvasLocation" x="1444" y="1464"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="c1L-Qe-0ER">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="P1R-iJ-ocv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="44G-r3-Fxm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="EnS-HU-keX" kind="relationship" relationship="rootViewController" id="Rv6-TG-Kq4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KvQ-AJ-cT5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2196" y="1464"/>
+        </scene>
+        <!--Add item-->
+        <scene sceneID="Vcf-bF-cS0">
+            <objects>
+                <tableViewController title="Add item" id="cNG-Mc-Jiv" customClass="AddItemToFolderView" customModule="PracticeTime" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Dk3-85-z7y">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="1ek-Iw-Va8">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1ek-Iw-Va8" id="gYV-IV-26N">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cNG-Mc-Jiv" id="uXj-QW-afR"/>
+                            <outlet property="delegate" destination="cNG-Mc-Jiv" id="qx7-lG-2og"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Move Item" id="UYO-ml-Icz">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Wyw-AB-JpI">
+                            <connections>
+                                <action selector="cancel:" destination="cNG-Mc-Jiv" id="HmK-pa-Pjh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jpM-IC-LJk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2196" y="3007"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GuU-o8-6n1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SQa-Sw-AfF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="o3Q-Mx-dKD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cNG-Mc-Jiv" kind="relationship" relationship="rootViewController" id="WPA-DM-ycJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="95O-TP-jv3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1444" y="3007"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="chart1.png" width="25" height="25"/>
-        <image name="folder1.png" width="25" height="25"/>
+        <image name="chart.png" width="30" height="30"/>
+        <image name="folder.png" width="30" height="30"/>
         <image name="folder2.png" width="20" height="20"/>
         <image name="gear.png" width="128" height="128"/>
+        <image name="list.png" width="30" height="30"/>
         <image name="list1.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>

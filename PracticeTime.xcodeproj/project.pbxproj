@@ -10,7 +10,6 @@
 		BD280F8E1D56FD2A00FA06C5 /* chart1.png in Resources */ = {isa = PBXBuildFile; fileRef = BD280F891D56FD2A00FA06C5 /* chart1.png */; };
 		BD280F8F1D56FD2A00FA06C5 /* folder1.png in Resources */ = {isa = PBXBuildFile; fileRef = BD280F8A1D56FD2A00FA06C5 /* folder1.png */; };
 		BD280F901D56FD2A00FA06C5 /* folder2.png in Resources */ = {isa = PBXBuildFile; fileRef = BD280F8B1D56FD2A00FA06C5 /* folder2.png */; };
-		BD280F911D56FD2A00FA06C5 /* gear1.png in Resources */ = {isa = PBXBuildFile; fileRef = BD280F8C1D56FD2A00FA06C5 /* gear1.png */; };
 		BD280F921D56FD2A00FA06C5 /* list1.png in Resources */ = {isa = PBXBuildFile; fileRef = BD280F8D1D56FD2A00FA06C5 /* list1.png */; };
 		BD280F991D58348400FA06C5 /* SettingsChooseDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD280F981D58348400FA06C5 /* SettingsChooseDayView.swift */; };
 		BD280F9B1D583F9D00FA06C5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD280F9A1D583F9D00FA06C5 /* SettingsViewController.swift */; };
@@ -27,6 +26,13 @@
 		BD833B531D4F14D50034B233 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD833B521D4F14D50034B233 /* Folder.swift */; };
 		BD833B551D4F1A360034B233 /* FolderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD833B541D4F1A360034B233 /* FolderDetailViewController.swift */; };
 		BD85069C1D552FBE00F4A899 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD85069B1D552FBE00F4A899 /* Info.swift */; };
+		BDD0BAD31D591B7700386526 /* folder.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD0BAD11D591B7700386526 /* folder.png */; };
+		BDD0BAD41D591B7700386526 /* folder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD0BAD21D591B7700386526 /* folder@2x.png */; };
+		BDD0BAD71D591C5F00386526 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD0BAD51D591C5F00386526 /* list.png */; };
+		BDD0BAD81D591C5F00386526 /* list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD0BAD61D591C5F00386526 /* list@2x.png */; };
+		BDD0BADB1D591E9700386526 /* chart.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD0BAD91D591E9700386526 /* chart.png */; };
+		BDD0BADC1D591E9700386526 /* chart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD0BADA1D591E9700386526 /* chart@2x.png */; };
+		BDD0BADE1D591FAA00386526 /* AddItemToFolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD0BADD1D591FAA00386526 /* AddItemToFolderView.swift */; };
 		BDE711351AB55B5F0075A0F9 /* FolderPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE711341AB55B5F0075A0F9 /* FolderPageViewController.swift */; };
 		BDF377761A41350A007FC9BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF377751A41350A007FC9BA /* AppDelegate.swift */; };
 		BDF377781A41350A007FC9BA /* PracticeTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF377771A41350A007FC9BA /* PracticeTimeTableViewController.swift */; };
@@ -92,7 +98,6 @@
 		BD280F891D56FD2A00FA06C5 /* chart1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chart1.png; sourceTree = "<group>"; };
 		BD280F8A1D56FD2A00FA06C5 /* folder1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder1.png; sourceTree = "<group>"; };
 		BD280F8B1D56FD2A00FA06C5 /* folder2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder2.png; sourceTree = "<group>"; };
-		BD280F8C1D56FD2A00FA06C5 /* gear1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear1.png; sourceTree = "<group>"; };
 		BD280F8D1D56FD2A00FA06C5 /* list1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list1.png; sourceTree = "<group>"; };
 		BD280F981D58348400FA06C5 /* SettingsChooseDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsChooseDayView.swift; sourceTree = "<group>"; };
 		BD280F9A1D583F9D00FA06C5 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +111,13 @@
 		BD833B541D4F1A360034B233 /* FolderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderDetailViewController.swift; sourceTree = "<group>"; };
 		BD8506921D55268100F4A899 /* ModalTransitionMediator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTransitionMediator.swift; sourceTree = "<group>"; };
 		BD85069B1D552FBE00F4A899 /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		BDD0BAD11D591B7700386526 /* folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder.png; sourceTree = "<group>"; };
+		BDD0BAD21D591B7700386526 /* folder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "folder@2x.png"; sourceTree = "<group>"; };
+		BDD0BAD51D591C5F00386526 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
+		BDD0BAD61D591C5F00386526 /* list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list@2x.png"; sourceTree = "<group>"; };
+		BDD0BAD91D591E9700386526 /* chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chart.png; sourceTree = "<group>"; };
+		BDD0BADA1D591E9700386526 /* chart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chart@2x.png"; sourceTree = "<group>"; };
+		BDD0BADD1D591FAA00386526 /* AddItemToFolderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemToFolderView.swift; sourceTree = "<group>"; };
 		BDE711341AB55B5F0075A0F9 /* FolderPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderPageViewController.swift; sourceTree = "<group>"; };
 		BDF377701A41350A007FC9BA /* PracticeTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF377751A41350A007FC9BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -166,11 +178,12 @@
 				BDF377751A41350A007FC9BA /* AppDelegate.swift */,
 				BDF377771A41350A007FC9BA /* PracticeTimeTableViewController.swift */,
 				BD833B501D4F11200034B233 /* DetailViewController.swift */,
+				BD668CAA1D503EF200493011 /* AddTimeViewController.swift */,
 				BDE711341AB55B5F0075A0F9 /* FolderPageViewController.swift */,
 				BD3F2B551D55B7D400446E43 /* TotalsViewController.swift */,
-				BD668CAA1D503EF200493011 /* AddTimeViewController.swift */,
 				BD833B541D4F1A360034B233 /* FolderDetailViewController.swift */,
 				BD49507B1D51C37400902AA3 /* FolderPopOverViewController.swift */,
+				BDD0BADD1D591FAA00386526 /* AddItemToFolderView.swift */,
 				BD8506921D55268100F4A899 /* ModalTransitionMediator.swift */,
 				BD280F9A1D583F9D00FA06C5 /* SettingsViewController.swift */,
 				BD280F981D58348400FA06C5 /* SettingsChooseDayView.swift */,
@@ -182,11 +195,16 @@
 				BDF377791A41350A007FC9BA /* Main.storyboard */,
 				BDF3777E1A41350A007FC9BA /* LaunchScreen.xib */,
 				BDF3777C1A41350A007FC9BA /* Images.xcassets */,
+				BDD0BAD91D591E9700386526 /* chart.png */,
+				BDD0BADA1D591E9700386526 /* chart@2x.png */,
 				BD280F891D56FD2A00FA06C5 /* chart1.png */,
+				BDD0BAD11D591B7700386526 /* folder.png */,
+				BDD0BAD21D591B7700386526 /* folder@2x.png */,
 				BD280F8A1D56FD2A00FA06C5 /* folder1.png */,
 				BD280F8B1D56FD2A00FA06C5 /* folder2.png */,
 				BD280F9E1D585D8F00FA06C5 /* gear.png */,
-				BD280F8C1D56FD2A00FA06C5 /* gear1.png */,
+				BDD0BAD51D591C5F00386526 /* list.png */,
+				BDD0BAD61D591C5F00386526 /* list@2x.png */,
 				BD280F8D1D56FD2A00FA06C5 /* list1.png */,
 			);
 			path = tester;
@@ -315,12 +333,17 @@
 			files = (
 				BD280F901D56FD2A00FA06C5 /* folder2.png in Resources */,
 				BD280F8E1D56FD2A00FA06C5 /* chart1.png in Resources */,
+				BDD0BAD41D591B7700386526 /* folder@2x.png in Resources */,
+				BDD0BAD31D591B7700386526 /* folder.png in Resources */,
+				BDD0BAD81D591C5F00386526 /* list@2x.png in Resources */,
 				BD280F9F1D585D8F00FA06C5 /* gear.png in Resources */,
 				BD280F921D56FD2A00FA06C5 /* list1.png in Resources */,
 				BDF3777B1A41350A007FC9BA /* Main.storyboard in Resources */,
 				BDF377801A41350A007FC9BA /* LaunchScreen.xib in Resources */,
-				BD280F911D56FD2A00FA06C5 /* gear1.png in Resources */,
 				BD280F8F1D56FD2A00FA06C5 /* folder1.png in Resources */,
+				BDD0BAD71D591C5F00386526 /* list.png in Resources */,
+				BDD0BADC1D591E9700386526 /* chart@2x.png in Resources */,
+				BDD0BADB1D591E9700386526 /* chart.png in Resources */,
 				BDF3777D1A41350A007FC9BA /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +367,7 @@
 				BD6862F21A41516E00B08E61 /* Item.swift in Sources */,
 				BD3F2B561D55B7D400446E43 /* TotalsViewController.swift in Sources */,
 				BD280F9B1D583F9D00FA06C5 /* SettingsViewController.swift in Sources */,
+				BDD0BADE1D591FAA00386526 /* AddItemToFolderView.swift in Sources */,
 				BDF377781A41350A007FC9BA /* PracticeTimeTableViewController.swift in Sources */,
 				BDF3779E1A4136B9007FC9BA /* DataStore.swift in Sources */,
 				BDF377761A41350A007FC9BA /* AppDelegate.swift in Sources */,
