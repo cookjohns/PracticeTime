@@ -30,6 +30,7 @@ class Info: NSManagedObject {
     @NSManaged var currentItem:     Int
     @NSManaged var currentFolder:   Int
     @NSManaged var startingDay:     Int // Saturday = 0
+    @NSManaged var weeklyGoal:      Int
     
     func getStartingDay() -> Int {
         return startingDay

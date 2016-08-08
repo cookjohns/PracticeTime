@@ -50,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 info.setValue(0, forKey: "currentItem")
                 info.setValue(0, forKey: "currentFolder")
                 info.setValue(2, forKey: "startingDay")
+                info.setValue(20, forKey: "weeklyGoal")
                 
                 do {
                     try managedObjectContext?.save()

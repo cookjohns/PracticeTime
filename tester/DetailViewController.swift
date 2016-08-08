@@ -70,6 +70,8 @@ class DetailViewController: UIViewController, ModalTransitionListener {
         }
     }
     
+    // MARK: - Actions
+    
     @IBAction func changeGoal(sender: AnyObject) {
         let item  = DataStore.sharedInstance.getItem(info.currentItem) as! Item
         let alert = UIAlertController(title:   "Change Goal",

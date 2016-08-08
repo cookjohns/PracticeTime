@@ -34,6 +34,7 @@ class DataStore {
      * currentTime:     Int
      * currentFolder:   Int
      * startingDat:     Int
+     * weeklyGoal:      Int
      */
     internal var info: Info?
     
