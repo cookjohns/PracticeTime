@@ -549,7 +549,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="gear1.png"/>
                                     <connections>
-                                        <segue destination="Ri1-MH-gQj" kind="showDetail" id="nfZ-CL-jNR"/>
+                                        <segue destination="kI9-Vc-aBf" kind="showDetail" id="P9x-59-htx"/>
                                     </connections>
                                 </button>
                             </barButtonItem>
@@ -598,23 +598,33 @@
             </objects>
             <point key="canvasLocation" x="701" y="1464"/>
         </scene>
-        <!--Settings View-->
-        <scene sceneID="g5y-n1-WYC">
+        <!--Choose a day-->
+        <scene sceneID="3uI-I6-dDM">
             <objects>
-                <viewController id="suL-F2-3KE" customClass="SettingsView" customModule="PracticeTime" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="aRt-zh-0Mv"/>
-                        <viewControllerLayoutGuide type="bottom" id="0KP-LH-0MZ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6W9-q7-5s7">
+                <tableViewController storyboardIdentifier="Choose a day" title="Choose a day" id="ssT-gl-e6A" customClass="settingsChooseDayView" customModule="PracticeTime" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zj5-0i-2VO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xpG-PI-dHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="w41-FF-32E">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w41-FF-32E" id="aNY-nm-ARy">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ssT-gl-e6A" id="6D8-Id-m9S"/>
+                            <outlet property="delegate" destination="ssT-gl-e6A" id="Ew4-JW-Eqe"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pgd-Gi-bFd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-789" y="1464"/>
+            <point key="canvasLocation" x="-1505" y="1464"/>
         </scene>
         <!--Settings-->
         <scene sceneID="g3m-ts-bC9">
@@ -798,7 +808,7 @@
                     <navigationItem key="navigationItem" title="Title" id="UUh-nc-qqL">
                         <barButtonItem key="rightBarButtonItem" image="gear1.png" id="5Oz-W7-NVT">
                             <connections>
-                                <segue destination="kI9-Vc-aBf" kind="showDetail" id="8zB-cD-IwS"/>
+                                <segue destination="kI9-Vc-aBf" kind="showDetail" id="GYu-xT-jba"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -826,6 +836,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bOI-2G-Wjp"/>
-        <segue reference="8zB-cD-IwS"/>
+        <segue reference="GYu-xT-jba"/>
     </inferredMetricsTieBreakers>
 </document>
