@@ -12,14 +12,15 @@
 		BD280F901D56FD2A00FA06C5 /* folder2.png in Resources */ = {isa = PBXBuildFile; fileRef = BD280F8B1D56FD2A00FA06C5 /* folder2.png */; };
 		BD280F911D56FD2A00FA06C5 /* gear1.png in Resources */ = {isa = PBXBuildFile; fileRef = BD280F8C1D56FD2A00FA06C5 /* gear1.png */; };
 		BD280F921D56FD2A00FA06C5 /* list1.png in Resources */ = {isa = PBXBuildFile; fileRef = BD280F8D1D56FD2A00FA06C5 /* list1.png */; };
-		BD280F971D57180D00FA06C5 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = BD280F961D57180D00FA06C5 /* info.png */; };
+		BD280F991D58348400FA06C5 /* SettingsChooseDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD280F981D58348400FA06C5 /* SettingsChooseDayView.swift */; };
+		BD280F9B1D583F9D00FA06C5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD280F9A1D583F9D00FA06C5 /* SettingsViewController.swift */; };
+		BD280F9F1D585D8F00FA06C5 /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = BD280F9E1D585D8F00FA06C5 /* gear.png */; };
 		BD36544F1D554B20001EC650 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3654481D554B13001EC650 /* Charts.framework */; };
 		BD3654501D554B20001EC650 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD3654481D554B13001EC650 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BD3654561D554EDB001EC650 /* ModalTransitionMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8506921D55268100F4A899 /* ModalTransitionMediator.swift */; };
 		BD3F2B561D55B7D400446E43 /* TotalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3F2B551D55B7D400446E43 /* TotalsViewController.swift */; };
 		BD49507C1D51C37400902AA3 /* FolderPopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD49507B1D51C37400902AA3 /* FolderPopOverViewController.swift */; };
 		BD668CAB1D503EF200493011 /* AddTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD668CAA1D503EF200493011 /* AddTimeViewController.swift */; };
-		BD668CAF1D511A0900493011 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD668CAE1D511A0900493011 /* SettingsView.swift */; };
 		BD6862F21A41516E00B08E61 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF377A91A413CCD007FC9BA /* Item.swift */; };
 		BD6862F31A41523400B08E61 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BDF377A61A413BFD007FC9BA /* Model.xcdatamodeld */; };
 		BD833B511D4F11200034B233 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD833B501D4F11200034B233 /* DetailViewController.swift */; };
@@ -93,12 +94,13 @@
 		BD280F8B1D56FD2A00FA06C5 /* folder2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder2.png; sourceTree = "<group>"; };
 		BD280F8C1D56FD2A00FA06C5 /* gear1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear1.png; sourceTree = "<group>"; };
 		BD280F8D1D56FD2A00FA06C5 /* list1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list1.png; sourceTree = "<group>"; };
-		BD280F961D57180D00FA06C5 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		BD280F981D58348400FA06C5 /* SettingsChooseDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsChooseDayView.swift; sourceTree = "<group>"; };
+		BD280F9A1D583F9D00FA06C5 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		BD280F9E1D585D8F00FA06C5 /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
 		BD3654401D554B13001EC650 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		BD3F2B551D55B7D400446E43 /* TotalsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalsViewController.swift; sourceTree = "<group>"; };
 		BD49507B1D51C37400902AA3 /* FolderPopOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderPopOverViewController.swift; sourceTree = "<group>"; };
 		BD668CAA1D503EF200493011 /* AddTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTimeViewController.swift; sourceTree = "<group>"; };
-		BD668CAE1D511A0900493011 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		BD833B501D4F11200034B233 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BD833B521D4F14D50034B233 /* Folder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
 		BD833B541D4F1A360034B233 /* FolderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderDetailViewController.swift; sourceTree = "<group>"; };
@@ -163,14 +165,15 @@
 			children = (
 				BDF377751A41350A007FC9BA /* AppDelegate.swift */,
 				BDF377771A41350A007FC9BA /* PracticeTimeTableViewController.swift */,
+				BD833B501D4F11200034B233 /* DetailViewController.swift */,
 				BDE711341AB55B5F0075A0F9 /* FolderPageViewController.swift */,
 				BD3F2B551D55B7D400446E43 /* TotalsViewController.swift */,
 				BD668CAA1D503EF200493011 /* AddTimeViewController.swift */,
 				BD833B541D4F1A360034B233 /* FolderDetailViewController.swift */,
 				BD49507B1D51C37400902AA3 /* FolderPopOverViewController.swift */,
-				BD833B501D4F11200034B233 /* DetailViewController.swift */,
 				BD8506921D55268100F4A899 /* ModalTransitionMediator.swift */,
-				BD668CAE1D511A0900493011 /* SettingsView.swift */,
+				BD280F9A1D583F9D00FA06C5 /* SettingsViewController.swift */,
+				BD280F981D58348400FA06C5 /* SettingsChooseDayView.swift */,
 				BDF3779D1A4136B9007FC9BA /* DataStore.swift */,
 				BD85069B1D552FBE00F4A899 /* Info.swift */,
 				BDF377A91A413CCD007FC9BA /* Item.swift */,
@@ -182,9 +185,9 @@
 				BD280F891D56FD2A00FA06C5 /* chart1.png */,
 				BD280F8A1D56FD2A00FA06C5 /* folder1.png */,
 				BD280F8B1D56FD2A00FA06C5 /* folder2.png */,
+				BD280F9E1D585D8F00FA06C5 /* gear.png */,
 				BD280F8C1D56FD2A00FA06C5 /* gear1.png */,
 				BD280F8D1D56FD2A00FA06C5 /* list1.png */,
-				BD280F961D57180D00FA06C5 /* info.png */,
 			);
 			path = tester;
 			sourceTree = "<group>";
@@ -312,7 +315,7 @@
 			files = (
 				BD280F901D56FD2A00FA06C5 /* folder2.png in Resources */,
 				BD280F8E1D56FD2A00FA06C5 /* chart1.png in Resources */,
-				BD280F971D57180D00FA06C5 /* info.png in Resources */,
+				BD280F9F1D585D8F00FA06C5 /* gear.png in Resources */,
 				BD280F921D56FD2A00FA06C5 /* list1.png in Resources */,
 				BDF3777B1A41350A007FC9BA /* Main.storyboard in Resources */,
 				BDF377801A41350A007FC9BA /* LaunchScreen.xib in Resources */,
@@ -330,9 +333,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD3654561D554EDB001EC650 /* ModalTransitionMediator.swift in Sources */,
+				BD280F991D58348400FA06C5 /* SettingsChooseDayView.swift in Sources */,
 				BD49507C1D51C37400902AA3 /* FolderPopOverViewController.swift in Sources */,
 				BD85069C1D552FBE00F4A899 /* Info.swift in Sources */,
-				BD668CAF1D511A0900493011 /* SettingsView.swift in Sources */,
 				BD833B511D4F11200034B233 /* DetailViewController.swift in Sources */,
 				BD668CAB1D503EF200493011 /* AddTimeViewController.swift in Sources */,
 				BD833B531D4F14D50034B233 /* Folder.swift in Sources */,
@@ -340,6 +343,7 @@
 				BDE711351AB55B5F0075A0F9 /* FolderPageViewController.swift in Sources */,
 				BD6862F21A41516E00B08E61 /* Item.swift in Sources */,
 				BD3F2B561D55B7D400446E43 /* TotalsViewController.swift in Sources */,
+				BD280F9B1D583F9D00FA06C5 /* SettingsViewController.swift in Sources */,
 				BDF377781A41350A007FC9BA /* PracticeTimeTableViewController.swift in Sources */,
 				BDF3779E1A4136B9007FC9BA /* DataStore.swift in Sources */,
 				BDF377761A41350A007FC9BA /* AppDelegate.swift in Sources */,
