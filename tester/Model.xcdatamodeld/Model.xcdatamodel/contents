@@ -6,12 +6,12 @@
     </entity>
     <entity name="Info" representedClassName="PracticeTime.Info" syncable="YES">
         <attribute name="allTimes" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="currentFolder" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="currentItem" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="currentFolder" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="currentItem" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="startingDay" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="totalTimeInDict" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="weeklyGoal" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="startingDay" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="totalTimeInDict" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="weeklyGoal" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
     <entity name="Item" representedClassName="PracticeTime.Item" syncable="YES">
         <attribute name="goal" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>

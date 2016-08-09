@@ -57,7 +57,6 @@ class Info: NSManagedObject {
     }
     
     func getWeeklyGoal() -> Int {
-        print(weeklyGoal)
         return weeklyGoal
     }
     
