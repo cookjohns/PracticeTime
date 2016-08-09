@@ -139,6 +139,8 @@ import CoreData
     
     func popoverDismissed() {
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+        let indexPathZero = NSIndexPath(forRow: 0, inSection: 0)
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPathZero)
         self.tableView.reloadData()
     }
     

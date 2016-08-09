@@ -60,7 +60,7 @@ class Item: NSManagedObject {
         
         let dayInt = info.getStartingDay()
         let temp   = NSDate().dayOfWeek()! - dayInt
-        var daysInPast = temp >= 0 ? temp : dayInt + abs(temp)
+        var daysInPast = temp >= 0 ? temp : 7 - abs(temp)
         
         let cal   = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
         let today = cal.startOfDayForDate(NSDate())
