@@ -32,6 +32,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="sxE-MH-ZNr" kind="show" id="Kam-qM-IC1"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -61,9 +64,6 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
-                    <connections>
-                        <segue destination="sxE-MH-ZNr" kind="show" identifier="itemListToDetailSegue" id="J1V-Zh-zN7"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7jY-bp-tRB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -104,6 +104,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="IHt-9W-R89" kind="show" id="IZJ-DQ-djF"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -132,9 +135,6 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
-                    <connections>
-                        <segue destination="IHt-9W-R89" kind="show" identifier="folderListToDetailSegue" id="P3s-l6-97e"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q1T-ch-swN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -578,7 +578,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="Choose a day" title="Choose a day" id="ssT-gl-e6A" customClass="SettingsChooseDayView" customModule="PracticeTime" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zj5-0i-2VO">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -613,7 +613,7 @@
             <objects>
                 <tableViewController title="Settings" id="VyU-mv-908" customClass="SettingsViewController" customModule="PracticeTime" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="U3h-YZ-6JB">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
@@ -1024,8 +1024,8 @@
         <image name="list1.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mjB-HB-CBK"/>
-        <segue reference="J1V-Zh-zN7"/>
+        <segue reference="GtF-MQ-Erw"/>
+        <segue reference="Kam-qM-IC1"/>
         <segue reference="Xzz-4b-gWQ"/>
     </inferredMetricsTieBreakers>
 </document>

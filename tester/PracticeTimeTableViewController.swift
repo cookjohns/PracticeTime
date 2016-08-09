@@ -134,49 +134,29 @@ import CoreData
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if DataStore.sharedInstance.itemCount() == 0 {
-            return 1
-        }
         return DataStore.sharedInstance.itemCount()
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        cell.accessoryType = .None
         cell.textLabel!.font = UIFont(name: "Avenir-Medium", size:20.0)
+
+        let item = DataStore.sharedInstance.getItem(indexPath.row)
         
-        if DataStore.sharedInstance.itemCount() == 0 {
-            cell.textLabel!.text = "Tap + to add an item"
-            cell.textLabel!.textAlignment = .Center
+            let lastTime = abs(item.valueForKey("timeSinceLastAccess") as! Double)
+        
+            cell.textLabel!.text = item.valueForKey("name") as? String
+        if (lastTime <= 24.0) {
+            // if it has been less than 24 hours since lastAccess, set as green
             cell.textLabel?.textColor = uicolorFromHex(0x2ecc71)
-            tableView.separatorStyle = .None
+        }
+        else if (lastTime > 24.0) && (lastTime < 48.0) {
+            cell.textLabel?.textColor = uicolorFromHex(0xf1c40f)
         }
         else {
-            let item = DataStore.sharedInstance.getItem(indexPath.row)
-            
-            let lastTime = abs(item.valueForKey("timeSinceLastAccess") as! Double)
-            
-            cell.textLabel!.text = item.valueForKey("name") as? String
-            if (lastTime <= 24.0) {
-                // if it has been less than 24 hours since lastAccess, set as green
-                cell.textLabel?.textColor = uicolorFromHex(0x2ecc71)
-            }
-            else if (lastTime > 24.0) && (lastTime < 48.0) {
-                cell.textLabel?.textColor = uicolorFromHex(0xf1c40f)
-            }
-            else {
-                cell.textLabel?.textColor = uicolorFromHex(0xe74c3c)
-            }
+            cell.textLabel?.textColor = uicolorFromHex(0xe74c3c)
         }
         return cell
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if DataStore.sharedInstance.itemCount() > 0 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-            // perform segue
-            self.performSegueWithIdentifier("itemListToDetailSegue", sender: cell)
-        }
     }
     
     // Override to support conditional editing of the table view.
