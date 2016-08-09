@@ -24,13 +24,13 @@ class Info: NSManagedObject {
         return Static.instance!
     }
     
-    @NSManaged private var name:            String
-    @NSManaged private var allTimes:        Dictionary<String, NSNumber>!
-    @NSManaged private var totalTimeInDict: Int
-    @NSManaged private var currentItem:     Int
-    @NSManaged private var currentFolder:   Int
-    @NSManaged private var startingDay:     Int // Saturday = 0
-    @NSManaged private var weeklyGoal:      Int
+    @NSManaged  var name:            String
+    @NSManaged  var allTimes:        Dictionary<String, NSNumber>!
+    @NSManaged  var totalTimeInDict: Int
+    @NSManaged  var currentItem:     Int
+    @NSManaged  var currentFolder:   Int
+    @NSManaged  var startingDay:     Int // Saturday = 0
+    @NSManaged  var weeklyGoal:      Int
     
     func getStartingDay() -> Int {
         return startingDay
@@ -57,6 +57,7 @@ class Info: NSManagedObject {
     }
     
     func getWeeklyGoal() -> Int {
+        print(weeklyGoal)
         return weeklyGoal
     }
     

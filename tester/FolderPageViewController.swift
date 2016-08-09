@@ -91,19 +91,39 @@ import CoreData
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if DataStore.sharedInstance.folderCount() == 0 {
+            return 1
+        }
         return DataStore.sharedInstance.folderCount()
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        cell.accessoryType = .None
         
-        let folder = DataStore.sharedInstance.getFolder(indexPath.row) as! Folder
-
-        cell.textLabel!.text = folder.getName()
-        cell.textLabel!.font = UIFont(name: "Avenir-Medium", size:20.0)
-        cell.textLabel?.textColor = uicolorFromHex(0x2ecc71)
+        if DataStore.sharedInstance.itemCount() == 0 {
+            cell.textLabel!.text = "Tap + to add a folder"
+            cell.textLabel?.textColor = uicolorFromHex(0x2ecc71)
+            cell.textLabel!.font = UIFont(name: "Avenir-Medium", size:20.0)
+            cell.textLabel!.textAlignment = .Center
+            tableView.separatorStyle = .None
+        }
+        else {
+            let folder = DataStore.sharedInstance.getFolder(indexPath.row) as! Folder
+            cell.textLabel!.text = folder.getName()
+            cell.textLabel!.font = UIFont(name: "Avenir-Medium", size:20.0)
+            cell.textLabel?.textColor = uicolorFromHex(0x2ecc71)
+        }
 
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if DataStore.sharedInstance.folderCount() > 0 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+            // perform segue
+            self.performSegueWithIdentifier("folderListToDetailSegue", sender: cell)
+        }
     }
     
     // Override to support conditional editing of the table view.

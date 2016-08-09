@@ -32,9 +32,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="sxE-MH-ZNr" kind="show" id="bOI-2G-Wjp"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -64,6 +61,9 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <segue destination="sxE-MH-ZNr" kind="show" identifier="itemListToDetailSegue" id="J1V-Zh-zN7"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7jY-bp-tRB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -104,9 +104,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="IHt-9W-R89" kind="show" id="ved-fz-Wxd"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -135,6 +132,9 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <segue destination="IHt-9W-R89" kind="show" identifier="folderListToDetailSegue" id="P3s-l6-97e"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q1T-ch-swN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1024,8 +1024,8 @@
         <image name="list1.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OhD-8h-8X9"/>
-        <segue reference="XD7-1a-Fyb"/>
+        <segue reference="bFy-H3-hwo"/>
+        <segue reference="J1V-Zh-zN7"/>
         <segue reference="Xzz-4b-gWQ"/>
     </inferredMetricsTieBreakers>
 </document>
