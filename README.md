@@ -7,7 +7,7 @@ A "Totals" page (similar to the single-item detail page, shown top right) displa
 
 The app uses Seam to sync CoreData to iCloud, and the Charts 3.0 library for charting. Special thanks to Ricardo Pereira and tos666 for providing direction with Apple's PHPhotoLibrary class.
 
-![alt text](https://drive.google.com/uc?id=0B0RNg9f7VJiESkx5Q0JscWplR1k)
-![alt text](https://drive.google.com/uc?id=0B0RNg9f7VJiETWhjTC05LVJfVXc)
-![alt text](https://drive.google.com/uc?id=0B0RNg9f7VJiEQlNPamVQY0RjTzQ)
-![alt text](https://drive.google.com/uc?id=0B0RNg9f7VJiEVlNNLXJBd3dYbTg)
+![alt text](https://drive.google.com/uc?id=0B0RNg9f7VJiEc3RraElGdF9SLTA)
+![alt text](https://drive.google.com/uc?id=0B0RNg9f7VJiEN0M5Z0F5a2Vad2M)
+![alt text](https://drive.google.com/uc?id=0B0RNg9f7VJiEYWdMSzRyWThwYTQ)
+![alt text](https://drive.google.com/uc?id=0B0RNg9f7VJiEWjM1cEpPMGctLUk)
