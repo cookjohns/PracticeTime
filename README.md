@@ -6,8 +6,3 @@ This app arose from the need for a simple, modern application for tracking pract
 A "Totals" page (similar to the single-item detail page, shown top right) display a graphical analysis of time spent on a per-folder basis, as well as against the user's pre-defined week-to-date goal. The app syncs user data to iCloud for easy backup, and stores video recordings of practice sessions in the user's photo library.
 
 The app uses Seam to sync CoreData to iCloud, and the Charts 3.0 library for charting. Special thanks to Ricardo Pereira and tos666 for providing direction with Apple's PHPhotoLibrary class.
-
-![alt text](https://drive.google.com/uc?id=0B0RNg9f7VJiEc3RraElGdF9SLTA)
-![alt text](https://drive.google.com/uc?id=0B0RNg9f7VJiEN0M5Z0F5a2Vad2M)
-![alt text](https://drive.google.com/uc?id=0B0RNg9f7VJiEYWdMSzRyWThwYTQ)
-![alt text](https://drive.google.com/uc?id=0B0RNg9f7VJiEWjM1cEpPMGctLUk)
